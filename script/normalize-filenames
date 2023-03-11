@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby
+# Normalizes all paths to to use hyphens instead of underscores or spaces
+# Establishes redirects for any modified paths
+#
+# Usage: script/normalize-filenames [--dry-run]
+#
+#   --dry-run - Don't actually change any files, just report what would be done
+
+require 'jekyll'
+require_relative './add-redirect'
+require 'fileutils'
+
+options = {
+  'config' => File.expand_path('../_config.yml', __dir__)
+}
+
+config = Jekyll.configuration(options)
+site = Jekyll::Site.new(config)
+
+site.reset
+site.read
+
+dry_run = ARGV.include?('--dry-run')
+prestine = true
+
+site.pages.each do |old_page|
+  old_path = File.join('docs', old_page.path)
+  new_dir = File.dirname(old_path).split('/').map { |p| Jekyll::Utils.slugify(p) }.join('/')
+  new_name = "#{Jekyll::Utils.slugify(old_page.basename)}#{old_page.extname}"
+  new_path = File.join(new_dir, new_name)
+
+  next if new_path.downcase == old_path.downcase
+
+  prestine = false
+  puts "Path `#{old_path}` should be `#{new_path}`"
+
+  next if dry_run
+
+  HubDoc.new(old_path).add_redirect(new_path, old_path)
+  FileUtils.mkdir_p(File.dirname(new_path))
+  FileUtils.mv old_path, new_path
+end
+
+if dry_run && !prestine
+  puts 'One or more paths use underscores or spaces instead of hyphens. See the output above for details.'
+  puts 'Please manually correct the path(s) by renaming the files manually or run script/normalize-filenames to automatically fix them.'
+  puts 'Thanks for doing your part to help create clean, human-readable URLs for your fellow Hubbers! 🚀'
+end
+
+exit prestine ? 0 : 1

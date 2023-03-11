@@ -1,0 +1,26 @@
+on:
+  push:
+    paths:
+      - 'docs/**/*.md'
+
+name: ⚙️ Check filename normalization
+permissions:
+  contents: read
+jobs:
+  check-filenames:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@1a68550f2e3309e13c8ccb91ac6b8786f59ee147
+        with:
+          ruby-version: 2.7
+          bundler-cache: true
+
+      - name: Install
+        run: bundle install
+
+      - name: Check filenames
+        run: bundle exec script/normalize-filenames --dry-run

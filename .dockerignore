@@ -1,0 +1,2 @@
+# Note: don't add `.git` to this file as it breaks the org-data sync CI job
+node_modules

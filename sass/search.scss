@@ -1,0 +1,16 @@
+//
+// Search input and autocomplete
+//
+
+.search-result mark {
+  background-color: var(--color-search-keyword-hl);
+  font-weight: 600;
+}
+
+[data-color-mode='dark'] .search-result mark {
+  color: var(--color-fg-on-emphasis);
+}
+
+[data-color-mode='dark'] .search-result h4 mark {
+  color: #6cb6ff; // this is scale.blue.2
+}

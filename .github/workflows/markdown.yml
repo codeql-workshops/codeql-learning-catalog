@@ -1,0 +1,36 @@
+name: ⚙️ Lint Markdown
+on: push
+env:
+  CI: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Set up annotations with a problem-matcher
+        run: echo "::add-matcher::.github/workflows/markdown/markdownlint-problem-matcher.json"
+
+      - name: Run markdownlint
+        run: npm run markdown
+
+      - name: Install nested dependencies
+        run: npm ci
+        working-directory: .github/actions/js
+
+      - name: Run markdown-frontmatter
+        run: node .github/actions/js/markdown-frontmatter.js

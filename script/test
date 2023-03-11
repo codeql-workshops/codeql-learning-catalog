@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# script/test: Run the linters for The Hub
+
+set -e
+
+vale docs/
+
+# - The combination of `-z` flag to git ls-files and `-0` for xargs is to
+#   support filenames with spaces
+git ls-files 'docs/*.md' -z | xargs -0 npx freshlinks
+
+npm run markdown
+
+# test
+npm run test

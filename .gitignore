@@ -1,0 +1,31 @@
+.jekyll-cache
+.sass-cache
+.DS_Store
+_site
+node_modules
+.ruby-version
+/vendor/
+docs/.jekyll-metadata
+.tool-versions
+Brewfile.lock.json
+
+# Nav tree for side nav
+docsTree.json
+
+# Auto generated data
+public/assets/search-data.json
+public/assets/org-data.json
+public/assets/team-data.json
+public/assets/images/bundled/
+public/news.xml
+
+# Bundled source
+public/assets/js/*.bundle.js
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+*.LICENSE.txt

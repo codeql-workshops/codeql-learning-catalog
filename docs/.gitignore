@@ -1,0 +1,3 @@
+*.actual
+*.testproj
+.cache

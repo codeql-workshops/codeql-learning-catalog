@@ -1,0 +1,5 @@
+name: qlc-100-tests/solutions
+version: 0.0.1
+dependencies:
+  qlc-100/solutions: '*'
+extractor: cpp

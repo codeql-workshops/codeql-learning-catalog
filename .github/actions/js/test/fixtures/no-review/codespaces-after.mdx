@@ -1,0 +1,72 @@
+---
+layout: initiative
+title: GitHub Codespaces
+description: Instant dev environments in the cloud
+banner: banner-codespaces.png
+octicon: project
+toc: false
+initiative:
+  status: https://img.shields.io/badge/status-yellow-yellow.svg
+  program_report_url: <comment url>
+  program_report_date: '2021-09-02'
+  program_report_summary: |-
+    **Overall Program Status:** Still OK
+
+    **Looking Back:** looking back
+
+    **Looking Forward:** looking forward
+
+    **Immediate Program Needs:** blocked by this
+  dri: '@matthewisabel'
+  up_next: Test Milestone - 2022-03-15
+  leads:
+    engineering: '@asheren'
+    product: '@matthewisabel'
+    design: '@ampisnk'
+    tpm: '@andrewlayman'
+    pmm: '@preciselyalyss'
+  teams:
+    - '@github/codespaces'
+  links:
+    - name: 📝 Team blog
+      url: https://github.com/orgs/github/teams/codespaces
+    - name: 💬 Slack channel
+      url: null
+    - name: 🐞 Issue tracker
+      url: null
+    - name: 📈 Metrics dashboard
+      url: https://looker.githubapp.com/dashboards/1667
+    - name: 🗺 Roadmap
+      url: https://github.com/github/codespaces/projects/7
+---
+
+{% mermaid %}
+gantt
+section Development
+Team/Enterprise GA: 2021-01-01,2021-08-11
+{% endmermaid %}
+
+---
+
+### What is Codespaces?
+
+Codespaces brings development environments to the cloud for developers working on [teams that want to use the best tools money can buy](https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/).
+
+The main value Codespaces provides is "speed". It's a particular kind of speed, in that it saves developers [wall-clock time](https://en.wikipedia.org/wiki/Elapsed_real_time).
+
+- **Codespaces is an infinite laptop for every project:** Projects have very different hardware requirements. For instance, `github/thehub` is a lot easier on system resources than `github/github`. `github/github` is a lot easier on system resources than the GPU that trains the neural network for an advanced ML application.
+- **Codespaces is a dedicated laptop for every project:** One project you're working on requires Ruby 2.9 while another requires Ruby 3.0. Today, developers wrangle these requirements with [shell scripts](https://rvm.io/) and duct tape while others write their code [with boxing gloves on](https://docs.docker.com/compose/).
+- **Codespaces is an instant laptop for every project:** Get started in 15 seconds not 3 hours. GitHub's love for obviating the "local development" section in the README goes back to [Scripts to Rule Them All](https://github.blog/2015-06-30-scripts-to-rule-them-all/). Codespaces creates ephemeral brand new development environments for every branch, and PR without having to wait for `script/bootstrap`.
+- **Codespaces is a secure laptop for every project:** Every time we try a new dependency, we're running arbitrary code on our laptops as "root" (not really, but you're definitely an admin). `npx` is an amazing developer experience and one supply chain attack away from reading grandpa's email to you.
+
+### What is Codespaces not?
+
+Today, **Codespaces is not a competitor to brilliantly simple learning environments** like [Glitch](https://glitch.com/), [Replit](https://repl.it/), or [CodeSandbox](https://codesandbox.io/). Why? The editor complexity and learning curve lend itself to professional development but make it a poor choice for novices.
+
+Today, **Codespaces is not a cloud development environment for developers that are price sensitive**. Open source teams and individual developers that are looking for a free offering will not be happy with Codespaces. We will have to do hard work to drive the costs of running Codespaces down so that we can offer fixed monthly pricing and free entitlements.
+
+This doesn't mean that GitHub is not interested in the above products. We have chosen a [Tesla Roadster strategy](https://www.tesla.com/blog/secret-tesla-motors-master-plan-just-between-you-and-me) that allows us to work down-market until we eventually can build a Model 3 and perhaps a [Boosted Board](https://boostedusa.com/).
+
+### Who has access to Codespaces?
+
+Codespaces currently works on a user's user-owned repositories (both public and private) and public org repositories. Private org-owned repositories are also available in limited public beta with a separate feature flag.

@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+cd "$(dirname "$0")/.."
+
+docker build -t thehub-sync-org-data-cibuild -f script/sync-org-data/Dockerfile .
+docker run --rm \
+  --env "BUILD_BRANCH=$BUILD_BRANCH" \
+  --env "LDAP_BINDDN=$LDAP_BINDDN" \
+  --env "LDAP_BINDPW=$LDAP_BINDPW" \
+  --env "LDAP_URI=$LDAP_URI" \
+  --env "THEHUB_GITHUB_PAT=$THEHUB_GITHUB_PAT" \
+  thehub-sync-org-data-cibuild script/sync-org-data/update-org-data

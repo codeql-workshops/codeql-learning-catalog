@@ -1,0 +1,48 @@
+name: ⚙️ Accessibility Linting
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - labeled
+      - unlabeled
+env:
+  CI: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    if: ${{ !contains(github.event.pull_request.labels.*.name , 'skip accessibility linting') }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Set up annotations with a problem-matcher
+        run: echo "::add-matcher::.github/workflows/markdown/markdownlint-problem-matcher.json"
+
+      - name: Get markdown changes
+        run: echo "MARKDOWN_CHANGES=$(git diff --name-only --diff-filter=ACMRTUXB ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | grep .md$ | xargs)" >> $GITHUB_ENV
+
+      - name: Display changes
+        run: echo $MARKDOWN_CHANGES
+
+      - name: Run markdownlint accessibility rule
+        run: npm run accessibility

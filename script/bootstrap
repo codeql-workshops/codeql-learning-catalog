@@ -1,0 +1,23 @@
+#!/bin/bash
+
+##
+# Used to bootstrap a development/testing environment.
+
+set -e
+
+BUNDLER="bundler:2.1.4"
+
+if [ "$(uname -s)" = "Darwin" ]; then
+  brew update >/dev/null
+  brew bundle check &>/dev/null || brew bundle
+
+  BUNDLE="brew bundle exec -- bundle"
+  gem install --user "$BUNDLER"
+else
+  BUNDLE="bundle"
+  gem install "$BUNDLER"
+fi
+
+$BUNDLE install
+
+npm install --quiet

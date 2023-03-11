@@ -1,0 +1,6 @@
+---
+library: false
+name: qlc-100/solutions
+version: 0.0.1
+dependencies:
+  codeql/cpp-all: '*'

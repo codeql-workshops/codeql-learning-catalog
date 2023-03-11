@@ -1,0 +1,36 @@
+name: ⚙️ JS Actions CI
+
+on:
+  merge_group:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/actions/js/**'
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    paths:
+      - '.github/actions/js/**'
+
+defaults:
+  run:
+    working-directory: .github/actions/js
+
+permissions:
+  contents: read
+
+jobs:
+  js:
+    name: 'JS'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: npm
+          cache-dependency-path: .github/actions/js
+      - run: npm ci
+      - run: npm test

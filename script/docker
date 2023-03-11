@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# script/docker: Run the The Hub under Docker
+
+set -e
+
+# build the Docker image
+docker build -t the-hub .
+
+# run Docker
+docker run -it --name=the-hub --rm -p 4000:4000 --mount type=bind,source="$(pwd)"/docs,target=/root/workspace/thehub/docs the-hub

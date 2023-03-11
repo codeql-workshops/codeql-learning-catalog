@@ -1,0 +1,292 @@
+//
+// Org chart
+//
+
+.org-chart-search .form-control {
+  width: 100%;
+
+  @include breakpoint(md) {
+    min-width: 300px;
+  }
+}
+
+.org-chart-toggle-size {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  cursor: pointer;
+  background-color: var(--color-canvas-default);
+  border: 1px solid var(--color-border-default);
+  border-radius: 50%;
+  box-shadow: var(--color-shadow-large);
+
+  .octicon {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.75rem;
+  }
+}
+
+.org-chart-container {
+  position: relative;
+  min-height: 6rem;
+  cursor: grab;
+
+  &.expanded {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 100vw;
+    height: 100vh;
+    /* Remove margin from mb-3 when expanded */
+    margin-bottom: 0 !important;
+
+    .org-chart-full-size {
+      display: none;
+    }
+  }
+
+  &:not(.expanded) {
+    .org-chart-normal-size {
+      display: none;
+    }
+  }
+}
+
+.org-chart {
+  display: block;
+  max-width: 100%;
+
+  .edge {
+    fill: none;
+    stroke: var(--color-accent-muted);
+  }
+
+  .edge.selected {
+    stroke-width: 2;
+    stroke: var(--color-accent-emphasis);
+  }
+
+  .node {
+    cursor: pointer;
+
+    .person {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0.5rem;
+      margin-right: 0.75rem;
+      font-size: 0.75rem;
+      line-height: 1.25;
+      color: var(---color-fg-default);
+      background-color: var(--color-accent-subtle);
+      border: 1px solid var(--color-accent-muted);
+      border-radius: 0.3rem;
+
+      .avatar {
+        flex-shrink: 0;
+        width: 2rem;
+        height: 2rem;
+        margin-right: 0.5rem;
+        border-radius: 50%;
+      }
+
+      .details {
+        width: 100%;
+        margin-right: 0.5rem;
+
+        div {
+          padding-bottom: 0.125rem;
+        }
+
+        .name {
+          font-weight: 600;
+          line-height: 1.25;
+        }
+      }
+
+      .title {
+        font-style: italic;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+
+      .reports-bubble {
+        flex-shrink: 0;
+        width: 1rem;
+        height: 1rem;
+        margin-right: -1.05rem;
+        background-color: var(--color-accent-emphasis);
+        border: 2px solid var(--color-fg-on-emphasis);
+        border-radius: 0.75rem;
+      }
+
+      .reports-bubble.hidden {
+        display: none;
+      }
+    }
+
+    // TODO: Primer CSS doesn't have a direct replacement for a hover. Do we
+    // need a hover state for these?
+    // &:hover .person {
+    //   background-color: var(--color-canvas-inset);
+    // }
+
+    &.selected {
+      &,
+      &:hover {
+        .person {
+          background-color: var(--color-accent-emphasis);
+          border: 2px solid var(--color-accent-emphasis);
+          color: var(--color-fg-on-emphasis);
+        }
+      }
+    }
+
+    &.selected-path .person {
+      // TODO: Similar to hover state, Primer CSS doesn't have a great replacement
+      // for this color. Is just the border emphasis enough?
+      // background-color: #c8e1ff;
+      border: 2px solid var(--color-accent-emphasis);
+    }
+  }
+}
+
+.hubber-info {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  font-size: 0.875rem;
+  cursor: default;
+  background-color: var(--color-canvas-default);
+  background-clip: padding-box;
+  border: 1px solid var(--color-border-default);
+  border-radius: 0.3rem;
+  box-shadow: var(--color-shadow-large);
+
+  .details {
+    max-width: 100%; // for truncation
+  }
+
+  .avatar {
+    float: left;
+    width: 4rem;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+  }
+
+  .msft {
+    margin-bottom: 0.5rem;
+  }
+
+  .title,
+  .location {
+    margin-bottom: 0.125rem;
+  }
+
+  .title {
+    font-weight: 600;
+  }
+
+  .name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .name {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .links {
+    display: flex;
+  }
+
+  .link-external {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+
+  @include breakpoint(lg) {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    bottom: auto;
+    left: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 16rem;
+
+    .name {
+      font-size: 1.5rem;
+    }
+
+    .name,
+    .username {
+      display: block;
+    }
+
+    .avatar {
+      margin-right: 0;
+    }
+  }
+}
+
+.autocomplete {
+  position: relative;
+}
+
+.autocomplete-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 99;
+  min-width: 18rem;
+  margin-top: 0.25rem;
+  border-radius: 0.3rem;
+  box-shadow: var(--color-shadow-large);
+
+  div {
+    padding: 0.5rem 1rem;
+    margin-bottom: -1px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    background-color: var(--color-canvas-default);
+    border: 1px solid var(--color-border-default);
+
+    &:first-child {
+      border-top-left-radius: 0.3rem;
+      border-top-right-radius: 0.3rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+      border-bottom-left-radius: 0.3rem;
+      border-bottom-right-radius: 0.3rem;
+    }
+
+    &:hover {
+      color: var(--color-fg-default);
+      background-color: var(--color-canvas-subtle);
+    }
+  }
+
+  .autocomplete-active,
+  .autocomplete-active:hover {
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-accent-emphasis);
+  }
+}
