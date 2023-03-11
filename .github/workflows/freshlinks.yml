@@ -1,0 +1,22 @@
+name: ⚙️ Freshlinks
+on: [push]
+
+jobs:
+  freshlinks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Freshlinks
+        uses: reiddraper/freshlinks@0442b2677ca8560a2fe113f93d185d214c7c65c6
+        with:
+          glob: 'docs/**/*.md'
+          suggestions: true
+          error-template: |
+            Could not resolve link: {{ link }}.
+            {{ #suggestion }}
+            Perhaps you meant: `{{ suggested_link }}`?
+            {{ /suggestion }}
+            If you're linking to a site outside of The Learning Catalog, make sure to include `https://` at the beginning of the link.
+            If you're linking to an email address, prefix with `mailto:`.

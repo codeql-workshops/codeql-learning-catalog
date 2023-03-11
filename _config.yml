@@ -1,0 +1,124 @@
+title: CodeQL Learning Catalog
+description: CodeQL Learning Catalog
+url: https://codeql-learning-catalog.github.com
+
+source: docs
+
+markdown: kramdown
+kramdown:
+  auto_ids: true
+  input: GFM
+  syntax_highlighter: rouge
+
+permalink: pretty
+
+sass:
+  style: compressed
+
+# Enable or disable the site search
+# Supports true (default) or false
+search_enabled: true
+search:
+  # Split pages into sections that can be searched individually
+  # Supports 1 - 6, default: 2
+  heading_level: 2
+  # Maximum amount of previews per search result
+  # Default: 3
+  previews: 3
+  # Maximum amount of words to display before a matched word in the preview
+  # Default: 5
+  preview_words_before: 5
+  # Maximum amount of words to display after a matched word in the preview
+  # Default: 10
+  preview_words_after: 10
+  # Set the search token separator
+  # Default: /[\s\-/]+/
+  # Example: enable support for hyphenated search words
+  tokenizer_separator: /[\s/]+/
+  # Display the relative url in search results
+  # Supports true (default) or false
+  rel_url: true
+  # Enable or disable the search button that appears in the bottom right corner of every page
+  # Supports true or false (default)
+  button: false
+
+# Enable or disable heading anchors
+heading_anchors: true
+
+plugins:
+  - jekyll-avatar
+  - jekyll-get-json
+  - jekyll-mentions
+  - jekyll-mermaid
+  - jekyll-octicons
+  - jekyll-paginate-v2
+  - jekyll-redirect-from
+  - jekyll-relative-links
+  - jekyll-seo-tag
+  - jekyll-timeago
+  - jekyll-toc
+  - jemoji
+
+jekyll_get_json:
+  - data: pressfeed
+    json: 'https://press-feed.github.com/entries.json'
+
+webrick:
+  headers:
+    'Access-Control-Allow-Origin': '*'
+
+compress_html:
+  clippings: all
+  comments: []
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false
+
+relative_links:
+  enabled: true
+  collections: true
+
+top_level_nav:
+  - learning
+
+toc:
+  min_level: 1
+  max_level: 6
+  no_toc_section_class: no_toc_section
+  list_class: section-nav
+  sublist_class: ''
+  item_class: toc-entry
+  item_prefix: toc-
+
+# Custom config settings (not in JTD source)
+repo: https://github.com/codeql-workshops/codeql-learning-catalog
+edit_branch: main
+
+exclude:
+  - _src
+  - '**/codeql-pack.lock.yml'
+  - security/policy-desk/standards/TEMPLATE-standard.md
+  - security/policy-desk/policies/TEMPLATE-policy.md
+  - news
+
+collections:
+  news:
+    output: true
+    permalink: /news/:path/
+
+pagination:
+  enabled: true
+  collection: 'news'
+  per_page: 25
+  permalink: '/:num/'
+  title: ':title (Page :num of :max)'
+  limit: 0
+  sort_field: 'date_published'
+  sort_reverse: true
+  trail:
+    before: 2
+    after: 2
+
+mermaid:
+  src: '/assets/js/mermaid.js'

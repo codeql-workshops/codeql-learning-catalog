@@ -1,0 +1,10 @@
+# production
+/build
+
+# next.js
+.next/
+out/
+
+# Bundled source
+public/assets/js/*.bundle.js
+

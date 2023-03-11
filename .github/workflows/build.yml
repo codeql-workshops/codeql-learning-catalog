@@ -1,0 +1,89 @@
+name: 🚀 Build and Deploy
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - main
+env:
+  CI: true
+
+permissions:
+  contents: read
+  id-token: write
+  pages: write
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+# for each PR branch
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.head_ref || github.sha }}'
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_REPO_BRANCH: ${{ github.head_ref }}
+      NEXT_PUBLIC_SITE_URL: 'https://codeql-learning-catalog.github.com'
+      NEXT_PUBLIC_API_URL: '/.github'
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Cache Nextjs and npm
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-nextjs-npm
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: |
+            ~/.npm
+            ${{ github.workspace }}/.next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+
+      - name: Install npm dependencies
+        run: npm install
+
+      - name: Build the site
+        run: npm run build
+        env:
+          NEXT_PUBLIC_ENV: ${{ ((github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main') && 'production') || 'development'}}
+
+      - name: Export the site
+        run: npm run export
+
+      - name: Archive export output
+        run: |
+          tar --dereference --directory out/ -cvf artifact.tar .
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535
+        with:
+          name: github-pages
+          path: artifact.tar
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+        with:
+          # new feature
+          preview: ${{ github.event_name == 'pull_request' }}
+
+      - name: Announce deployment
+        run: echo "Deployed to ${{ steps.deployment.outputs.page_url }}"

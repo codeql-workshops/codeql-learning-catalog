@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# This script allows one to automatically add redirects to hub documents that have been moved from one directory to another.
+
+# Usage is `script/add-redirect <old directory> <new directory>`
+
+# For example, to move the (fictional) docs/engineering/interviews folder to docs/engineering/hiring/interviews, run:
+# `mv docs/engineering/interviews docs/engineering/hiring/interviews`
+# `script/add-redirect docs/engineering/interviews docs/engineering/hiring/interviews`
+
+# Note that the script will traverse ALL files, recursively, in the provided directory, so if there are existing files in that directory, it would be preferable run the script prior to moving the files, with the following incantation:
+
+# `script/add-redirect <old directory> <old directory>`
+
+# This will traverse the existing (old) directory and add redirects to all files in it. Then, the files can be moved wherever you'd like!
+
+usage="$(dirname "$0")/$(basename "$0") [old directory] [new directory] -- to add redirects to markdown files moved from old directory to new dir"
+
+domain=$@
+[ $# -eq 0 ] && { echo "Usage: $usage"; exit 1; }
+
+ruby "$(dirname "$0")/add-redirect.rb" "$@"

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: thehub
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: thehub
+  template:
+    metadata:
+      labels:
+        app: thehub
+      annotations:
+        # If you emit structured logs, you can specify a parser to use so your logs are parsed
+        # properly and are much nicer to query in splunk. For more details, see
+        # https://thehub.github.com/engineering/development-and-ops/observability/logging/fluent-bit/
+        # fluentbit.io/parser: logfmt
+    spec:
+      # The following line is to fix transient dns issues in deployed environments
+      # https://moda.githubapp.com/docs/frequently-asked-questions/#i-m-seeing-a-lot-of-dns-exceptions-what-gives
+      dnsPolicy: Default
+      containers:
+        - name: thehub
+          image: thehub
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: kube-cluster-metadata

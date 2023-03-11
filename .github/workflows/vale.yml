@@ -1,0 +1,20 @@
+name: ⚙️ Vale Lint
+on:
+  pull_request:
+  push:
+
+jobs:
+  prose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Vale
+        # Temporarily using a custom version this action while we work to upstream the fix to errata-ai/vale-action
+        uses: chadfawcett/vale-action@386ec80848483507de612fac5800b73f342f0ddf
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        with:
+          onlyAnnotateModifiedLines: true
+          reportStatusInRun: true

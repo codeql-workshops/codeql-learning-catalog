@@ -1,0 +1,4 @@
+name: ldf-101-cpp/solutions
+version: 0.0.1
+dependencies:
+  codeql/cpp-all: '*'
