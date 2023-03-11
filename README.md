@@ -24,4 +24,4 @@ repository.
 
 ## Using the Catalog as a Workshop Participant 
 
-To use the catalog as a workshop participant it is necessary to first obtain... 
+To use the catalog as a workshop participant it is necessary to first obtain
