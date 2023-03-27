@@ -1,0 +1,5 @@
+name: ldf-101-cpp-tests/solutions
+version: 0.0.1
+dependencies:
+  ldf-101-cpp/solutions: '*'
+extractor: cpp
