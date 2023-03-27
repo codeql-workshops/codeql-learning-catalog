@@ -23,7 +23,7 @@
   "dependencies": {
     "@primer/css": "^19.1.0",
     "@primer/octicons": "^16.1.1",
-    "@primer/octicons-react": "^16.0.0",
+    "@primer/octicons-react": "^18.3.0",
     "@primer/react": "^34.3.0",
     "@svgr/webpack": "^6.2.0",
     "babel-plugin-superjson-next": "^0.4.2",
