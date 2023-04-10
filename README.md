@@ -2,7 +2,7 @@
 
 [Browse The Catalog](https://codeql-learning-catalog.github.com)
 &nbsp;•&nbsp;
-[Open an issue](issues)
+[Open an issue](../../issues)
 
 <br>
 
