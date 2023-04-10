@@ -1,10 +1,8 @@
 # <img src="https://cloud.githubusercontent.com/assets/98681/24211275/c4ebd04e-0ee8-11e7-8606-061d656a42df.png" width="64" height="64"><br>CodeQL Learning Catalog
 
-[Browse The Catalog]()
+[Browse The Catalog](https://codeql-learning-catalog.github.com)
 &nbsp;•&nbsp;
-[Contributing Guidelines]()
-&nbsp;•&nbsp;
-[Open an issue]()
+[Open an issue](issues)
 
 <br>
 
@@ -15,13 +13,13 @@ paths for improving your knowledge and skill in using CodeQL.
 # How to Use The Catalog
 
 The CodeQL Learning Catalog can be used in two different ways: as a workshop
-author and as a workshop participant.
+author and as a workshop participant. In either use case, you may launch a
+codespace from this repository with the following configurations:
 
-## Using the Catalog as an Author
+- `.devcontainer/authors/devcontainer.json` - The container targeted for
+  authors. This contains additional tools for creating workshops. 
+- `.devcontainer/devcontainer.json` - The container for workshop participants.
+  This contains the components needed to execute the workshop examples. 
 
-To use catalog as an author, it is necessary to have write access to the
-repository. 
-
-## Using the Catalog as a Workshop Participant 
-
-To use the catalog as a workshop participant it is necessary to first obtain... 
+The finished workshops may be found on the web at:
+https://codeql-learning-catalog.github.com 
