@@ -28,23 +28,7 @@ export const NoResults = ({query}: {query?: string}) => {
       <p className="hide-md hide-lg hide-xl">
         Use the search box at the top of the page to enter your query
       </p>
-      <h4 className="mt-5">
-        <a
-          href={`https://cs.github.com/?scope=org:github&scopeName=thehub&q=repo:github/thehub+${encodeURIComponent(
-            query?.toString()!
-          )}`}
-          onClick={e =>
-            onBlackbirdClick(
-              e,
-              `https://cs.github.com/?scope=org:github&scopeName=thehub&q=repo:github/thehub+${encodeURIComponent(
-                query?.toString()!
-              )}`
-            )
-          }
-        >
-          Try this search on the Code Search Preview
-        </a>
-      </h4>
+      
     </div>
   )
 }

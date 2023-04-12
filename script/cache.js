@@ -32,7 +32,12 @@ function getContentFiles(dir, acc) {
 function getPosts() {
   const fileNames = getContentFiles(dataDirectory) // getting all the markdown files
   const posts = fileNames.map(fileName => { // iterating over the files
-    const id = fileName.replace(/\.md$/, '') // removing the .md extension
+     // first remove md extension 
+     var id = fileName.replace(/\.md$/, '') // removing the .md extension
+     // if the url ends with index, remove it
+     id = id.replace(/\/index$/, '') // removing the /index
+     // remove the docs/ prefix
+     id = id.replace(/^docs\//, '') // removing the docs/ prefix
     const fileContents = fs.readFileSync(fileName, 'utf8')  // reading the file
     const matterResult = matter(fileContents) // parsing the file
 

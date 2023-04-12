@@ -13,11 +13,12 @@ module.exports = {
     })
 
     if(isServer){
-      require('./script/cache');
+      require('./script/cache.js');
     }
 
     return config
   },
   pageExtensions: ['jsx', 'js', 'tsx', 'ts'],
-  trailingSlash: true
+  trailingSlash: true,
+  productionBrowserSourceMaps: true
 }
