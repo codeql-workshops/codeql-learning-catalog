@@ -1,9 +1,17 @@
-import {FC, FormEvent, MouseEvent, useState, useEffect} from 'react'
+import {
+  FC,
+  FormEvent,
+  MouseEvent,
+  useState,
+  useEffect,
+  useRef,
+  useCallback
+} from 'react'
 import octicons from '@primer/octicons'
 import {useRouter} from 'next/router'
 import cx from 'classnames'
 import {searchPagePathname} from '../../codeql-learning-catalog.config.js'
-import * as gtag from '../../src/util/analytics'
+import Link from 'next/link'
 
 export interface Props {
   isMobileVisible: boolean
@@ -23,41 +31,29 @@ const NavSearchBox: FC<Props> = ({isMobileVisible, ...props}) => {
     else setInputValue('')
   }, [router.query.query])
 
-  const submitSearch = (e: MouseEvent | FormEvent) => {
-    e.preventDefault()
+  const searchRef = useRef(null)
+  const [query, setQuery] = useState('')
+  const [active, setActive] = useState(false)
+  const [results, setResults] = useState([])
 
-    //  Do shallow routing if we're already on the search page
-    const shallow = router.pathname === searchPagePathname
+  const searchEndpoint = (query: string) => `/api/search?q=${query}`
 
-    // If we're already on the search page, then preserve the search params
-    const query = shallow ? {...router.query} : {}
-    query.query = inputValue
-
-    // track search queries in google analytics
-    const gaText = {
-      action: 'Submitted',
-      category: 'Search',
-      label: `${inputValue}`,
-      value: 0
+  const onChange = useCallback(event => {
+    const query = event.target.value
+    setQuery(query)
+    if (query.length) {
+      fetch(searchEndpoint(query))
+        .then(res => res.json())
+        .then(res => {
+          setResults(res.results)
+        })
+    } else {
+      setResults([])
     }
-    gtag.event(gaText)
-
-    // If you're changing the query, always reset the page
-    if ('page' in query) delete query.page
-
-    router.push(
-      {
-        pathname: searchPagePathname,
-        query
-      },
-      undefined,
-      {shallow}
-    )
-  }
+  }, []);
 
   return (
     <form
-      onSubmit={submitSearch}
       id="site-search"
       className={cx('search mb-3 mx-4', {'hide-sm': !isMobileVisible})}
     >
@@ -76,12 +72,22 @@ const NavSearchBox: FC<Props> = ({isMobileVisible, ...props}) => {
         <span className="input-group-button">
           <a
             className="btn"
-            title="Search ProTips"
-            onClick={submitSearch}
+            title="Search Catalog"
             dangerouslySetInnerHTML={{
               __html: octicons['search'].toSVG({height: 16})
             }}
           />
+          {active && results.length > 0 && (
+            <ul className="">
+              {results.map(({id, title}) => (
+                <li className="" key={id}>
+                  <Link href="/posts/[id]" as={`/posts/${id}`}>
+                    <a>{title}</a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
         </span>
       </div>
     </form>

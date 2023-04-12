@@ -9,23 +9,7 @@ module.exports = {
   topLevelNav: [
     'overview',
     'QLC',
-    'LDF',
-    'github-2025',
-    'company-priorities',
-    'hpc',
-    'dib',
-    'epd',
-    'events',
-    'guides',
-    'hr',
-    'it',
-    'learning',
-    'security',
-    'support',
-    'sustainability',
-    'teams',
-    'workplace',
-    'help'
+    'LDF'
   ],
   lowerLevelNav: [
     {

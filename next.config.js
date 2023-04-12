@@ -1,7 +1,7 @@
 const fs = require('fs')
 
 module.exports = {
-  webpack: (config, options) => {
+  webpack: (config, {isServer}) => {
     config.module.rules.push({
       test: /\.ya?ml$/,
       use: 'js-yaml-loader'
@@ -11,6 +11,10 @@ module.exports = {
       test: /\.svg$/,
       use: '@svgr/webpack'
     })
+
+    if(isServer){
+      require('./script/cache');
+    }
 
     return config
   },

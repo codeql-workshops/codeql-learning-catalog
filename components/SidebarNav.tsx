@@ -100,19 +100,6 @@ const SidebarNav: FC<Props> = ({className, ...props}) => {
             <span>github/codeql-learning-catalog</span>
           </a>
         </Link>
-        <Link href="">
-          <a className="Link--primary no-underline d-block py-1">
-            <SlackIcon
-              className="mr-2"
-              style={{
-                verticalAlign: 'middle',
-                opacity: 0.5,
-                fill: 'currentColor'
-              }}
-            />
-            <span>#codeql-learning-catalog-team</span>
-          </a>
-        </Link>
       </MainNav>
     </Sidebar>
   )
