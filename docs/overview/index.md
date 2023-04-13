@@ -19,6 +19,19 @@ To access the source of this site, please visit:
 which contains the source of this website as well as the source of each workshop
 contained inside.
 
+## How to Use The Catalog
+
+The CodeQL Learning Catalog can be used in two different ways: as a workshop
+author and as a workshop participant. In either use case, you may launch a
+codespace from this repository with the following configurations:
+
+- `.devcontainer/authors/devcontainer.json` - The container targeted for
+  authors. This contains additional tools for creating workshops. 
+- `.devcontainer/devcontainer.json` - The container for workshop participants.
+  This contains the components needed to execute the workshop examples. 
+
+**To launch a codespace, click the "Open In Codespaces" button at the top of this page.**
+
 ## How Content is Structured
 
 The content of the catalog is organized by both subject area and difficulty. Our

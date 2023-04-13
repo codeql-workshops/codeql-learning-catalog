@@ -1,6 +1,6 @@
 import {FC} from 'react'
 import {useRouter} from 'next/router'
-import {PencilIcon, IssueOpenedIcon, EyeIcon} from '@primer/octicons-react'
+import {PencilIcon, IssueOpenedIcon, EyeIcon, TerminalIcon} from '@primer/octicons-react'
 import Breadcrumbs from './Breadcrumbs'
 import {repo, siteUrl} from '../codeql-learning-catalog.config.js'
 
@@ -51,15 +51,15 @@ ${
       {/* TODO: Add "Edit data" button for pages that have data */}
       <div className="BtnGroup mt-3 mt-sm-0">
         <a
-          title="Edit and open a pull request"
-          href={`${repo.url}/edit/${repo.branch}/${filePath}`}
+          title="Open in codespaces"
+          href="https://github.com/codespaces/new?hide_repo_select=true&ref=master&repo=556902411"
           role="button"
           className="BtnGroup-item btn"
           target="_blank"
           rel="noopener"
         >
-          <PencilIcon />
-          <span>Edit</span>
+          <TerminalIcon />
+          <span>Open in Codespaces</span>
         </a>
         <a
           href={`${

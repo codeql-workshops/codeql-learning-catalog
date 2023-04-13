@@ -45,24 +45,16 @@ const NavSearchBox: FC<Props> = ({isMobileVisible, ...props}) => {
     const shallow = router.pathname === searchPagePathname
 
     // If we're already on the search page, then preserve the search params
-    const query = shallow ? {...router.query} : {}
-    //query.query = query
-
-    // track search queries in google analytics
-    const gaText = {
-      action: 'Submitted',
-      category: 'Search',
-      label: `${query}`,
-      value: 0
-    }
-
+    const routerQuery = shallow ? {...router.query} : {}
+    routerQuery.query = query;
+    
     // If you're changing the query, always reset the page
-    if ('page' in query) delete query.page
+    if ('page' in routerQuery) delete routerQuery.page
 
     router.push(
       {
         pathname: searchPagePathname,
-        query
+        query: {q: query}
       },
       undefined,
       {shallow}
@@ -73,15 +65,15 @@ const NavSearchBox: FC<Props> = ({isMobileVisible, ...props}) => {
   const onChange = useCallback(event => {
     const query = event.target.value
     setQuery(query)
-    if (query.length) {
-      fetch(searchEndpoint(query))
-        .then(res => res.json())
-        .then(res => {
-          setResults(res.hits)
-        })
-    } else {
-      setResults([])
-    }
+    // if (query.length) {
+    //   fetch(searchEndpoint(query))
+    //     .then(res => res.json())
+    //     .then(res => {
+    //       setResults(res.hits)
+    //     })
+    // } else {
+    //   setResults([])
+    // }
   }, []);
 
   const onFocus = useCallback(() => {
