@@ -203,3 +203,19 @@ directives.
 ```ql file=./src/solutions/PuzzleOneAttemptTwoB.ql#L1-L17
 ```
 </pre>
+
+## Making Your Content Findable
+
+To increase relevancy of results, the workshop catalog does not perform full
+text indexing. Search results are based on two factors: 1) title and 2) topics.
+You may influence the search relevancy by either altering your title or adding a
+`topics` metadata tag to the frontmatter of any page. For example:
+
+```
+---
+layout: workshop-index
+title: Elements of Syntactical Program Analysis I for C/C++
+topics: dataflow, taint
+toc: false
+---
+```
