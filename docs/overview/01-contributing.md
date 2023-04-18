@@ -7,7 +7,7 @@ topics: contributors
 toc: true
 ---
 
-# Contributing to the Catalog
+## Contributing to the Catalog
 
 For authors, there are 5 main steps that you must perform to author a workshop.
 If you are authoring a tailored workshop you must perform an additional step,
@@ -20,7 +20,7 @@ which is forking this repository within the customer organization.
 5. [ ] Fork Repository **(Tailored Workshops Only)**
 6. [ ] Open and Merge your PR :tada:
 
-## Step 1: Create / Pickup Tracking Issue
+### Step 1: Create / Pickup Tracking Issue
 
 - All workshop development is accompanied with a tracking issue, which can be
   found in the issues tab of this repository.
@@ -31,7 +31,7 @@ which is forking this repository within the customer organization.
 
 <img src="/assets/images/issue-template.png">
 
-## Step 2: Identify an Editor
+### Step 2: Identify an Editor
 
 An editor is like a code reviewer in that they are responsible for approving the
 PR containing your workshop. However, an editor has additional
@@ -46,21 +46,21 @@ Editors look for:
 - **Coherency** -- "Is this supposed to be here?"
 - **Grammar** -- "Eats shoots and leaves vs Eats, shoots, and leaves"
 
-## Step 3: Identify Workshop Prefix
+### Step 3: Identify Workshop Prefix
 
 All workshops are prefixed with a three letter code. The table, below, explains
 the codes used to categorize workshops.
 
 <img src="/assets/images/workshop-prefixes.png">
 
-## Step 4: Identify Workshop Code
+### Step 4: Identify Workshop Code
 
 All workshops also have a workshop code which helps categorize workshops in
 terms of difficulty. The following diagram details our workshop code system.
 
 <img src="/assets/images/workshop-code.png">
 
-## Step 5: Forking This Repository (Tailored Workshops Only)
+### Step 5: Forking This Repository (Tailored Workshops Only)
 
 Not all workshops may be written for a general audience and must be specialized.
 To support this, in the `codeql-workshops` org you will fork the
@@ -68,7 +68,7 @@ To support this, in the `codeql-workshops` org you will fork the
 will author your private workshop. You will be responsible for ensuring the
 proper access rights are granted to workshop participants.
 
-## Step 6: Open and Merge your PR
+### Step 6: Open and Merge your PR
 
 Lastly, you must open your PR and merge it. You should ensure that you and your editor have
 previewed the finished site prior to merging.
