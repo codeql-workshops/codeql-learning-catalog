@@ -129,7 +129,7 @@ those markdown files as well.
 The following code example shows you the fields that are available within your
 workshop for metadata tagging purposes.
 
-```
+```markdown
 ---
 layout: workshop-index
 title: Elements of Syntactical Program Analysis I for Python
@@ -151,7 +151,7 @@ toc: false
 
 To preview your work, at a command prompt type:
 
-```
+```bash
 script/server
 ```
 
@@ -187,7 +187,7 @@ text indexing. Search results are based on two factors: 1) title and 2) topics.
 You may influence the search relevancy by either altering your title or adding a
 `topics` metadata tag to the frontmatter of any page. For example:
 
-```
+```markdown
 ---
 layout: workshop-index
 title: Elements of Syntactical Program Analysis I for C/C++

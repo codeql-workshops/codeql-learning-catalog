@@ -26,9 +26,9 @@ author and as a workshop participant. In either use case, you may launch a
 codespace from this repository with the following configurations:
 
 - `.devcontainer/authors/devcontainer.json` - The container targeted for
-  authors. This contains additional tools for creating workshops. 
+  authors. This contains additional tools for creating workshops.
 - `.devcontainer/devcontainer.json` - The container for workshop participants.
-  This contains the components needed to execute the workshop examples. 
+  This contains the components needed to execute the workshop examples.
 
 **To launch a codespace, click the "Open In Codespaces" button at the top of this page.**
 
@@ -38,15 +38,15 @@ The content of the catalog is organized by both subject area and difficulty. Our
 system for categorizing CodeQL workshops can be broken down into 4 main content
 areas:
 
-* **CodeQL Core (QLC)** - Fundamental, language-agnostic features
-* **Language Dependent Features (LDF)** - Various features for which dedicated
+- CodeQL Core (QLC) - Fundamental, language-agnostic features
+- Language Dependent Features (LDF) - Various features for which dedicated
   language-specific workshops must be constructed.
-* **CodeQL Tooling, Infrastructure, and Practice (TIP)** - Topics related to the
+- CodeQL Tooling, Infrastructure, and Practice (TIP) - Topics related to the
   usage of CodeQL tooling from the perspective of a query author, for example,
   dedicated instruction on query performance optimization.
-* **CodeQL Exploration and Projects (EXP)** - Interactive workshops and projects
+- CodeQL Exploration and Projects (EXP) - Interactive workshops and projects
   in CodeQL typically focused on a single language which may address issues like
   finding a relevant CVE or capture the flag exercise.
 
-![img](/assets/images/overview/codeql-workshop-course-catalog.png "The CodeQL
-Workshop Course Catalog")
+![img](/assets/images/overview/codeql-workshop-course-catalog.png 'The CodeQL
+Workshop Course Catalog')
