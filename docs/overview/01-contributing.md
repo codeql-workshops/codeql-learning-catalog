@@ -7,7 +7,7 @@ topics: contributors
 toc: true
 ---
 
-## Contributing to the Catalog
+# Contributing to the Catalog
 
 For authors, there are 5 main steps that you must perform to author a workshop.
 If you are authoring a tailored workshop you must perform an additional step,
