@@ -66,8 +66,10 @@ const Footer: FC<Props> = ({frontMatter, ...props}) => (
             <Heading>Maintainership</Heading>
             <Body>
               This page is currently maintained by{' '}
-              <a href="https://github.com/orgs/codeql-workshops/teams/ps-codeql-workshops">@codeql-workshops/ps-codeql-workshops</a> Please reach
-              out to us on{' '}
+              <a href="https://github.com/orgs/codeql-workshops/teams/ps-codeql-workshops">
+                @codeql-workshops/ps-codeql-workshops
+              </a>{' '}
+              Please reach out to us on{' '}
               <a href="https://github.com/codeql-workshops/codeql-learning-catalog">
                 our issue tracker
               </a>{' '}

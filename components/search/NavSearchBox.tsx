@@ -34,9 +34,7 @@ const NavSearchBox: FC<Props> = ({isMobileVisible, ...props}) => {
     else setQuery('')
   }, [router.query.query])
 
-
   const searchEndpoint = (query: string) => `/api/search?q=${query}`
-
 
   const submitSearch = (e: MouseEvent | FormEvent) => {
     e.preventDefault()
@@ -46,8 +44,8 @@ const NavSearchBox: FC<Props> = ({isMobileVisible, ...props}) => {
 
     // If we're already on the search page, then preserve the search params
     const routerQuery = shallow ? {...router.query} : {}
-    routerQuery.query = query;
-    
+    routerQuery.query = query
+
     // If you're changing the query, always reset the page
     if ('page' in routerQuery) delete routerQuery.page
 
@@ -61,7 +59,6 @@ const NavSearchBox: FC<Props> = ({isMobileVisible, ...props}) => {
     )
   }
 
-
   const onChange = useCallback(event => {
     const query = event.target.value
     setQuery(query)
@@ -74,20 +71,19 @@ const NavSearchBox: FC<Props> = ({isMobileVisible, ...props}) => {
     // } else {
     //   setResults([])
     // }
-  }, []);
+  }, [])
 
   const onFocus = useCallback(() => {
     setActive(true)
     window.addEventListener('click', onClick)
-  }, []);
+  }, [])
 
-  const onClick = useCallback((event) => {
+  const onClick = useCallback(event => {
     if (searchRef.current && !searchRef.current.contains(event.target)) {
       setActive(false)
       window.removeEventListener('click', onClick)
     }
-  }, []);
-
+  }, [])
 
   return (
     <form
@@ -108,7 +104,7 @@ const NavSearchBox: FC<Props> = ({isMobileVisible, ...props}) => {
           value={query}
           onChange={onChange}
           onFocus={onFocus}
-  />
+        />
         <span className="input-group-button">
           <a
             className="btn"

@@ -15,15 +15,15 @@ export type results = {
       total_sec: number
     }
     page: number
-    pages: number      
+    pages: number
     shown: number
-  },
+  }
   hits: [
     {
       id: string
       title: string
       body: string
-      topics: string      
+      topics: string
     }
   ]
 }
@@ -83,7 +83,6 @@ const Results: FC<Props> = ({results}) => {
 
   return (
     <div className="Layout Layout--sidebar-narrow Layout--sidebarPosition-end Layout--gutter-spacious mt-2">
-     
       <div className="Layout-main">
         <h2>
           <span className="text-normal">
@@ -92,7 +91,6 @@ const Results: FC<Props> = ({results}) => {
           {router.query.query}
         </h2>
         {results?.hits?.map(hit => (
-
           <div key={hit.id}>
             <hr />
             <div className="d-flex flex-items-baseline">
@@ -107,15 +105,17 @@ const Results: FC<Props> = ({results}) => {
                     className="color-fg-default no-underline"
                     onClick={() => onResultClick(hit.id)}
                   >
-                    <h4 className="text-normal Link">
-                        {hit.title}
-                    </h4>
+                    <h4 className="text-normal Link">{hit.title}</h4>
                     <p className="text-small text-bold color-fg-default no-underline">
                       {hit.id}
                     </p>
                   </a>
                 </Link>
-                <p dangerouslySetInnerHTML={{__html: markdownToHtml(hit.body.substring(0,1000) + "...")}}></p>            
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: markdownToHtml(hit.body.substring(0, 1000) + '...')
+                  }}
+                ></p>
               </div>
             </div>
           </div>
@@ -125,11 +125,10 @@ const Results: FC<Props> = ({results}) => {
           <Pagination
             pageCount={results.meta.pages}
             currentPage={results.meta.page}
-          
             hrefBuilder={hrefBuilder}
             onPageChange={onPageChange}
           />
-        )}       
+        )}
       </div>
     </div>
   )

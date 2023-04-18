@@ -1,7 +1,6 @@
 const posts = require('../../cache/data').posts
 
-const totalPerPage = 10;
-
+const totalPerPage = 10
 
 export default (req, res) => {
   const hits = req.query.q
@@ -21,21 +20,23 @@ export default (req, res) => {
   res.setHeader('Content-Type', 'application/json')
 
   // pagination
-  const currentPage = req.query.page || 1;
-  const totalPages = Math.ceil(hits.length / totalPerPage);
-  const start = (currentPage - 1) * totalPerPage;
-  
-  const filteredHits = hits.slice(start, start + totalPerPage);
+  const currentPage = req.query.page || 1
+  const totalPages = Math.ceil(hits.length / totalPerPage)
+  const start = (currentPage - 1) * totalPerPage
 
-  res.end(JSON.stringify({
-    hits: filteredHits,
-    meta: {
-      found: {
-        value: hits.length,
-      },
-      page: parseInt(currentPage),
-      pages: totalPages,
-      shown: totalPerPage 
-    }
-  }))
+  const filteredHits = hits.slice(start, start + totalPerPage)
+
+  res.end(
+    JSON.stringify({
+      hits: filteredHits,
+      meta: {
+        found: {
+          value: hits.length
+        },
+        page: parseInt(currentPage),
+        pages: totalPages,
+        shown: totalPerPage
+      }
+    })
+  )
 }

@@ -51,7 +51,6 @@ const Search = () => {
       </div>
     ) : null
 
-    
   if (data && data.hits?.length > 0) return <Results results={data} />
 
   return <BlankSlate.NoResults query={router?.query?.q?.toString()} />

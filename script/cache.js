@@ -31,29 +31,32 @@ function getContentFiles(dir, acc) {
 
 function getPosts() {
   const fileNames = getContentFiles(dataDirectory) // getting all the markdown files
-  const posts = fileNames.map(fileName => { // iterating over the files
-     // first remove md extension 
-     var id = fileName.replace(/\.md$/, '') // removing the .md extension
-     // if the url ends with index, remove it
-     id = id.replace(/\/index$/, '') // removing the /index
-     // remove the docs/ prefix
-     id = id.replace(/^docs\//, '') // removing the docs/ prefix
-    const fileContents = fs.readFileSync(fileName, 'utf8')  // reading the file
+  const posts = fileNames.map(fileName => {
+    // iterating over the files
+    // first remove md extension
+    var id = fileName.replace(/\.md$/, '') // removing the .md extension
+    // if the url ends with index, remove it
+    id = id.replace(/\/index$/, '') // removing the /index
+    // remove the docs/ prefix
+    id = id.replace(/^docs\//, '') // removing the docs/ prefix
+    const fileContents = fs.readFileSync(fileName, 'utf8') // reading the file
     const matterResult = matter(fileContents) // parsing the file
 
-    const topics = matterResult.data.topics ? matterResult.data.topics : matterResult.data.title;
+    const topics = matterResult.data.topics
+      ? matterResult.data.topics
+      : matterResult.data.title
 
     return {
       id,
       title: matterResult.data.title,
       body: matterResult.content,
-      topics: topics 
+      topics: topics
     }
   })
   return JSON.stringify(posts)
 }
 
-const fileContents = `export const posts = ${getPosts()}` 
+const fileContents = `export const posts = ${getPosts()}`
 
 try {
   fs.readdirSync('cache')
@@ -61,7 +64,7 @@ try {
   fs.mkdirSync('cache')
 }
 
-// write the cache 
+// write the cache
 fs.writeFile('cache/data.js', fileContents, function (err) {
   if (err) return console.log(err)
   console.log('Post cache updated')

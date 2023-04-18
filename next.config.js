@@ -12,8 +12,8 @@ module.exports = {
       use: '@svgr/webpack'
     })
 
-    if(isServer){
-      require('./script/cache.js');
+    if (isServer) {
+      require('./script/cache.js')
     }
 
     return config

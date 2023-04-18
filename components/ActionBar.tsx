@@ -1,6 +1,11 @@
 import {FC} from 'react'
 import {useRouter} from 'next/router'
-import {PencilIcon, IssueOpenedIcon, EyeIcon, TerminalIcon} from '@primer/octicons-react'
+import {
+  PencilIcon,
+  IssueOpenedIcon,
+  EyeIcon,
+  TerminalIcon
+} from '@primer/octicons-react'
 import Breadcrumbs from './Breadcrumbs'
 import {repo, siteUrl} from '../codeql-learning-catalog.config.js'
 

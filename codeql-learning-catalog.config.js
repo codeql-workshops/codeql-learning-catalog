@@ -6,11 +6,7 @@ module.exports = {
     url: 'https://github.com/codeql-workshops/codeql-learning-catalog',
     branch: process.env.NEXT_PUBLIC_REPO_BRANCH || 'master'
   },
-  topLevelNav: [
-    'overview',
-    'QLC',
-    'LDF'
-  ],
+  topLevelNav: ['overview', 'QLC', 'LDF'],
   lowerLevelNav: [
     {
       text: 'CodeQL Language Reference',

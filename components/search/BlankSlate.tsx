@@ -28,7 +28,6 @@ export const NoResults = ({query}: {query?: string}) => {
       <p className="hide-md hide-lg hide-xl">
         Use the search box at the top of the page to enter your query
       </p>
-      
     </div>
   )
 }
