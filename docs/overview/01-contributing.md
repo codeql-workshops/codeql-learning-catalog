@@ -73,12 +73,12 @@ proper access rights are granted to workshop participants.
 Lastly, you must open your PR and merge it. You should ensure that you and your editor have
 previewed the finished site prior to merging.
 
-# Authoring Features
+## Authoring Features
 
 This section covers some of the technical features that will be useful to
 workshop authors.
 
-## Starting an Editing Environment
+### Starting an Editing Environment
 
 The workshop system has been designed to be easy to use for both authors and
 workshop participants. For authors, you have been provided with a specialized
@@ -91,7 +91,7 @@ below. At least 8 cores is recommended for a smooth authoring experience.
 
 <img src="/assets/images/codespaces.png">
 
-## Directory Structure
+### Directory Structure
 
 An important aspect of your workshop is its placement in the directory
 structure. In general, all workshops will live below the `docs` directory. From
@@ -147,7 +147,7 @@ toc: false
 
 <img src="public/assets/images/metadata.png">
 
-## Previewing Your Work
+### Previewing Your Work
 
 To preview your work, at a command prompt type:
 
@@ -157,7 +157,7 @@ script/server
 
 From the root of this repository.
 
-## Inserting Code Blocks
+### Inserting Code Blocks
 
 To prevent examples that do not run from being used in workshops, this system
 provides a way to ensure your examples are runnable.
@@ -180,7 +180,7 @@ directives.
 ```
 </pre>
 
-## Making Your Content Findable
+### Making Your Content Findable
 
 To increase relevancy of results, the workshop catalog does not perform full
 text indexing. Search results are based on two factors: 1) title and 2) topics.
