@@ -2,8 +2,8 @@
 layout: workshop-index
 title: QLC 100 - QL Quickstart
 course_number: QLC-100
-description: Get started quickly with CodeQL! 
-abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit. Ut morbi tincidunt augue interdum. Cursus eget nunc scelerisque viverra. Et tortor consequat id porta nibh venenatis cras sed felis. Ante metus dictum at tempor commodo ullamcorper. Aliquam purus sit amet luctus venenatis lectus magna. 
+description: Get started quickly with CodeQL!
+abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit volutpat maecenas volutpat blandit. Ut morbi tincidunt augue interdum. Cursus eget nunc scelerisque viverra. Et tortor consequat id porta nibh venenatis cras sed felis. Ante metus dictum at tempor commodo ullamcorper. Aliquam purus sit amet luctus venenatis lectus magna.
 language: cpp
 banner: banner-code-graph-shield.png
 octicon: package
