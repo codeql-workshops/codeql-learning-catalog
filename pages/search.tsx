@@ -5,8 +5,10 @@ import useSWR, {Fetcher} from 'swr'
 import {apiUrl} from '../codeql-learning-catalog.config.js'
 import * as BlankSlate from '../components/search/BlankSlate'
 import Results, {results} from '../components/search/Results'
-
+import {searchCatalog} from '../src/util/search'
 const SEARCH_API_URL = `/api/search`
+
+const useXHR = false
 
 const fetcher: Fetcher<results, string> = async url => {
   const res = await fetch(url)
@@ -24,36 +26,67 @@ const fetcher: Fetcher<results, string> = async url => {
 }
 
 const Search = () => {
-  const [isLoadingSlow, setIsLoadingSlow] = useState(false)
-  const router = useRouter()
+  // use the ajax version of this component
+  if (useXHR) {
+    const [isLoadingSlow, setIsLoadingSlow] = useState(false)
+    const router = useRouter()
 
-  const isEmptyQuery = !router.query.q
+    const isEmptyQuery = !router.query.q
 
-  const queryString = router.asPath.slice(router.asPath.indexOf('q'))
-  const {data, error} = useSWR(
-    isEmptyQuery ? null : `${SEARCH_API_URL}?${queryString}`,
-    fetcher,
-    {
-      loadingTimeout: 1000,
-      onLoadingSlow: () => setIsLoadingSlow(true),
-      revalidateOnFocus: false
+    const queryString = router.asPath.slice(router.asPath.indexOf('q'))
+    const {data, error} = useSWR(
+      isEmptyQuery ? null : `${SEARCH_API_URL}?${queryString}`,
+      fetcher,
+      {
+        loadingTimeout: 1000,
+        onLoadingSlow: () => setIsLoadingSlow(true),
+        revalidateOnFocus: false
+      }
+    )
+
+    if (error) return <BlankSlate.Error />
+
+    // Loading state
+    if (!router.isReady || (!data && !isEmptyQuery))
+      return isLoadingSlow ? (
+        <div>
+          <span>Loading</span>
+          <span className="AnimatedEllipsis" />
+        </div>
+      ) : null
+
+    if (data && data.hits?.length > 0) return <Results results={data} />
+
+    return <BlankSlate.NoResults query={router?.query?.q?.toString()} />
+  } else {
+    const [isLoadingSlow, setIsLoadingSlow] = useState(false)
+    const router = useRouter()
+
+    const isEmptyQuery = !router.query.q
+
+    var data: results
+
+    if (!isEmptyQuery && router.query.q) {
+      var page = 1
+      if (router.query.page) {
+        page = parseInt(router.query.page.toString())
+      }
+      data = searchCatalog(router.query.q.toString(), page, 5)
+
+      // Loading state
+      if (!router.isReady)
+        return isLoadingSlow ? (
+          <div>
+            <span>Loading</span>
+            <span className="AnimatedEllipsis" />
+          </div>
+        ) : null
+
+      if (data.hits?.length > 0) return <Results results={data} />
     }
-  )
 
-  if (error) return <BlankSlate.Error />
-
-  // Loading state
-  if (!router.isReady || (!data && !isEmptyQuery))
-    return isLoadingSlow ? (
-      <div>
-        <span>Loading</span>
-        <span className="AnimatedEllipsis" />
-      </div>
-    ) : null
-
-  if (data && data.hits?.length > 0) return <Results results={data} />
-
-  return <BlankSlate.NoResults query={router?.query?.q?.toString()} />
+    return <BlankSlate.NoResults query={router?.query?.q?.toString()} />
+  }
 }
 
 export const QueryTitleWrapper = () => {

@@ -5,27 +5,23 @@ import {Pagination, PaginationProps} from '@primer/react'
 import * as gtag from '../../src/util/analytics'
 import markdownToHtml from '../../src/util/markdownToHtml'
 
+export type searchResult = {
+  id: string
+  title: string | undefined
+  body: string
+  topics: string | undefined
+}
+
 export type results = {
   meta: {
     found: {
       value: number
     }
-    took: {
-      query_sec: number
-      total_sec: number
-    }
     page: number
     pages: number
     shown: number
   }
-  hits: [
-    {
-      id: string
-      title: string
-      body: string
-      topics: string
-    }
-  ]
+  hits: searchResult[]
 }
 
 export type Props = {
