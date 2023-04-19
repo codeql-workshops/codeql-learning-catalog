@@ -97,7 +97,7 @@ const SidebarNav: FC<Props> = ({className, ...props}) => {
         <Link href="https://github.com/codeql-workshops/codeql-learning-catalog">
           <a className="Link--primary no-underline d-block py-1">
             <Icon name={'mark-github'} height={24} />
-            <span>github/codeql-learning-catalog</span>
+            <span>codeql-workshops/codeql-learning-catalog</span>
           </a>
         </Link>
       </MainNav>
