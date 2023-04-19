@@ -1,9 +1,17 @@
-import {FC, FormEvent, MouseEvent, useState, useEffect} from 'react'
+import {
+  FC,
+  FormEvent,
+  MouseEvent,
+  useState,
+  useEffect,
+  useRef,
+  useCallback
+} from 'react'
 import octicons from '@primer/octicons'
 import {useRouter} from 'next/router'
 import cx from 'classnames'
 import {searchPagePathname} from '../../codeql-learning-catalog.config.js'
-import * as gtag from '../../src/util/analytics'
+import Link from 'next/link'
 
 export interface Props {
   isMobileVisible: boolean
@@ -11,7 +19,10 @@ export interface Props {
 
 const NavSearchBox: FC<Props> = ({isMobileVisible, ...props}) => {
   const router = useRouter()
-  const [inputValue, setInputValue] = useState('')
+  const searchRef = useRef<HTMLFormElement>(null)
+  const [query, setQuery] = useState('')
+  const [active, setActive] = useState(false)
+  const [results, setResults] = useState([])
 
   // Populate inputValue if query exists in url
   useEffect(() => {
@@ -19,9 +30,11 @@ const NavSearchBox: FC<Props> = ({isMobileVisible, ...props}) => {
       router.query.query?.toString().trim() &&
       router.pathname === searchPagePathname
     )
-      setInputValue(router.query.query.toString())
-    else setInputValue('')
+      setQuery(router.query.query.toString())
+    else setQuery('')
   }, [router.query.query])
+
+  const searchEndpoint = (query: string) => `/api/search?q=${query}`
 
   const submitSearch = (e: MouseEvent | FormEvent) => {
     e.preventDefault()
@@ -30,36 +43,54 @@ const NavSearchBox: FC<Props> = ({isMobileVisible, ...props}) => {
     const shallow = router.pathname === searchPagePathname
 
     // If we're already on the search page, then preserve the search params
-    const query = shallow ? {...router.query} : {}
-    query.query = inputValue
-
-    // track search queries in google analytics
-    const gaText = {
-      action: 'Submitted',
-      category: 'Search',
-      label: `${inputValue}`,
-      value: 0
-    }
-    gtag.event(gaText)
+    const routerQuery = shallow ? {...router.query} : {}
+    routerQuery.query = query
 
     // If you're changing the query, always reset the page
-    if ('page' in query) delete query.page
+    if ('page' in routerQuery) delete routerQuery.page
 
     router.push(
       {
         pathname: searchPagePathname,
-        query
+        query: {q: query}
       },
       undefined,
       {shallow}
     )
   }
 
+  const onChange = useCallback(event => {
+    const query = event.target.value
+    setQuery(query)
+    // if (query.length) {
+    //   fetch(searchEndpoint(query))
+    //     .then(res => res.json())
+    //     .then(res => {
+    //       setResults(res.hits)
+    //     })
+    // } else {
+    //   setResults([])
+    // }
+  }, [])
+
+  const onFocus = useCallback(() => {
+    setActive(true)
+    window.addEventListener('click', onClick)
+  }, [])
+
+  const onClick = useCallback(event => {
+    if (searchRef.current && !searchRef.current.contains(event.target)) {
+      setActive(false)
+      window.removeEventListener('click', onClick)
+    }
+  }, [])
+
   return (
     <form
-      onSubmit={submitSearch}
       id="site-search"
       className={cx('search mb-3 mx-4', {'hide-sm': !isMobileVisible})}
+      ref={searchRef}
+      onSubmit={submitSearch}
     >
       <div className="input-group">
         <input
@@ -70,18 +101,29 @@ const NavSearchBox: FC<Props> = ({isMobileVisible, ...props}) => {
           placeholder="Search Catalog"
           aria-label="Search Catalog"
           autoComplete="off"
-          value={inputValue}
-          onChange={e => setInputValue(e.target.value)}
+          value={query}
+          onChange={onChange}
+          onFocus={onFocus}
         />
         <span className="input-group-button">
           <a
             className="btn"
-            title="Search ProTips"
-            onClick={submitSearch}
+            title="Search Catalog"
             dangerouslySetInnerHTML={{
               __html: octicons['search'].toSVG({height: 16})
             }}
           />
+          {active && results.length > 0 && (
+            <ul className="">
+              {results.map(({id, title}) => (
+                <li className="" key={id}>
+                  <Link href={`${id}`}>
+                    <a>{title}</a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
         </span>
       </div>
     </form>

@@ -9,8 +9,34 @@ toc: false
 
 ## Overview
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ornare suspendisse sed nisi lacus sed viverra tellus. Orci dapibus ultrices in iaculis nunc. Aliquet porttitor lacus luctus accumsan. Sit amet dictum sit amet justo donec. Hac habitasse platea dictumst vestibulum rhoncus est. At lectus urna duis convallis convallis tellus. Sapien pellentesque habitant morbi tristique senectus et. Convallis convallis tellus id interdum velit laoreet id donec ultrices. Sit amet consectetur adipiscing elit ut aliquam. Accumsan tortor posuere ac ut consequat semper viverra nam. Consectetur adipiscing elit ut aliquam purus sit. Gravida arcu ac tortor dignissim convallis aenean et. Dui sapien eget mi proin sed libero enim. In hac habitasse platea dictumst vestibulum rhoncus est.
+The Language Dependent Features Workshops are a new set of workshops designed to
+provide participants with a comprehensive understanding of the language-specific
+aspects of CodeQL. The workshops cover fundamental concepts such as data-flow
+analysis, taint tracking, and syntax analysis. These language-dependent aspects
+of CodeQL are essential for understanding how to effectively write code queries
+that are tailored to specific programming languages. For instance, taint
+tracking is used to identify data that has been modified by an untrusted source
+in web applications. Participants will learn how to use taint tracking to
+improve the security of web applications written in languages such as PHP,
+JavaScript, and Python.
 
-Elit scelerisque mauris pellentesque pulvinar pellentesque. Congue quisque egestas diam in arcu cursus euismod quis. Accumsan tortor posuere ac ut consequat semper viverra nam. Sit amet consectetur adipiscing elit ut aliquam purus sit. Quam id leo in vitae. Id volutpat lacus laoreet non curabitur gravida arcu ac tortor. Vitae et leo duis ut diam quam nulla porttitor. Turpis massa tincidunt dui ut. Proin nibh nisl condimentum id venenatis a condimentum. Arcu non sodales neque sodales ut etiam sit amet. Quis viverra nibh cras pulvinar mattis. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Consectetur purus ut faucibus pulvinar. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Ultrices sagittis orci a scelerisque. Dolor sit amet consectetur adipiscing elit pellentesque. Amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien.
+The Language Dependent Features Workshops provide participants with a thorough
+understanding of the extensions of CodeQL in the form of a standard library
+written in the QL language. The standard library provides a set of predefined
+predicates that can be used to query and analyze code in a specific language.
+For example, in C++, the standard library provides predicates to analyze virtual
+functions, class inheritance, and exception handling. In Java, the standard
+library provides predicates to analyze reflection, inner classes, and anonymous
+classes. By mastering the standard library of a specific language, participants
+will be able to write more sophisticated queries that leverage the
+language-specific features of CodeQL.
 
-At elementum eu facilisis sed odio morbi. Sed adipiscing diam donec adipiscing tristique risus nec feugiat in. Vitae tempus quam pellentesque nec nam aliquam sem et tortor. Vivamus at augue eget arcu dictum varius duis at. Vivamus at augue eget arcu dictum. Lorem mollis aliquam ut porttitor. Lacus luctus accumsan tortor posuere ac. Eget est lorem ipsum dolor sit amet consectetur adipiscing. Consectetur a erat nam at lectus urna duis. Adipiscing at in tellus integer feugiat scelerisque varius morbi. Et malesuada fames ac turpis egestas sed. Enim praesent elementum facilisis leo vel fringilla. Non sodales neque sodales ut etiam sit amet nisl purus. Neque convallis a cras semper auctor neque vitae tempus. Erat velit scelerisque in dictum non consectetur a.
+Overall, The Language Dependent Features Workshops are an excellent resource for
+developers looking to gain a comprehensive understanding of CodeQL. By mastering
+language-dependent aspects such as data-flow analysis, taint tracking, and
+syntax analysis, participants will be able to write more sophisticated queries
+that can identify complex security vulnerabilities and improve code quality.
+Furthermore, the workshops provide participants with the knowledge needed to
+effectively use the extensions of CodeQL provided by the standard library,
+enabling them to write more powerful queries that can analyze the intricacies of
+specific programming languages.

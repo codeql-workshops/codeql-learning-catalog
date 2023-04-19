@@ -6,7 +6,7 @@ import {apiUrl} from '../codeql-learning-catalog.config.js'
 import * as BlankSlate from '../components/search/BlankSlate'
 import Results, {results} from '../components/search/Results'
 
-const SEARCH_API_URL = `${apiUrl}/search`
+const SEARCH_API_URL = `/api/search`
 
 const fetcher: Fetcher<results, string> = async url => {
   const res = await fetch(url)
@@ -27,7 +27,7 @@ const Search = () => {
   const [isLoadingSlow, setIsLoadingSlow] = useState(false)
   const router = useRouter()
 
-  const isEmptyQuery = !router.query.query
+  const isEmptyQuery = !router.query.q
 
   const queryString = router.asPath.slice(router.asPath.indexOf('q'))
   const {data, error} = useSWR(
@@ -53,13 +53,13 @@ const Search = () => {
 
   if (data && data.hits?.length > 0) return <Results results={data} />
 
-  return <BlankSlate.NoResults query={router?.query?.query?.toString()} />
+  return <BlankSlate.NoResults query={router?.query?.q?.toString()} />
 }
 
 export const QueryTitleWrapper = () => {
   const router = useRouter()
   const query = ` · ${router.query.query}`
-  const title = `Search${router.query.query ? query : ''} | The Hub`
+  const title = `Search${router.query.query ? query : ''} | The Catalog`
   return (
     <>
       <Head>

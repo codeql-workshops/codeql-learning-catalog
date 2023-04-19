@@ -3,30 +3,10 @@ module.exports = {
   apiUrl: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api',
   searchPagePathname: '/search',
   repo: {
-    url: 'https://github.com/github/codeql-learning-catalog',
+    url: 'https://github.com/codeql-workshops/codeql-learning-catalog',
     branch: process.env.NEXT_PUBLIC_REPO_BRANCH || 'master'
   },
-  topLevelNav: [
-    'overview',
-    'QLC',
-    'LDF',
-    'github-2025',
-    'company-priorities',
-    'hpc',
-    'dib',
-    'epd',
-    'events',
-    'guides',
-    'hr',
-    'it',
-    'learning',
-    'security',
-    'support',
-    'sustainability',
-    'teams',
-    'workplace',
-    'help'
-  ],
+  topLevelNav: ['overview', 'QLC', 'LDF'],
   lowerLevelNav: [
     {
       text: 'CodeQL Language Reference',

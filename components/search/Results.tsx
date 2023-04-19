@@ -2,17 +2,10 @@ import {FC} from 'react'
 import {useRouter} from 'next/router'
 import Link from 'next/link'
 import {Pagination, PaginationProps} from '@primer/react'
-import TypeChooser from './TypeChooser'
-import Octicon from '../Octicon'
 import * as gtag from '../../src/util/analytics'
+import markdownToHtml from '../../src/util/markdownToHtml'
 
 export type results = {
-  aggregates: [
-    {
-      key: string
-      count: number
-    }
-  ]
   meta: {
     found: {
       value: number
@@ -28,11 +21,9 @@ export type results = {
   hits: [
     {
       id: string
-      page_title: string
-      type: string
-      url: string
-      content_highlights_html: string[]
-      title_highlights_html: string[]
+      title: string
+      body: string
+      topics: string
     }
   ]
 }
@@ -92,10 +83,6 @@ const Results: FC<Props> = ({results}) => {
 
   return (
     <div className="Layout Layout--sidebar-narrow Layout--sidebarPosition-end Layout--gutter-spacious mt-2">
-      <div className="Layout-sidebar">
-        <TypeChooser aggregates={results.aggregates} />
-      </div>
-
       <div className="Layout-main">
         <h2>
           <span className="text-normal">
@@ -107,39 +94,28 @@ const Results: FC<Props> = ({results}) => {
           <div key={hit.id}>
             <hr />
             <div className="d-flex flex-items-baseline">
-              <Octicon
+              {/* <Octicon
                 name={hit.type === 'news' ? 'megaphone' : 'file'}
                 height={16}
                 className="mr-2 color-fg-muted"
-              />
+              /> */}
               <div className="search-result">
-                <Link href="/[[...slug]]" as={hit.url}>
+                <Link href="/[[...slug]]" as={hit.id}>
                   <a
                     className="color-fg-default no-underline"
-                    onClick={() => onResultClick(hit.url)}
+                    onClick={() => onResultClick(hit.id)}
                   >
-                    <h4 className="text-normal Link">
-                      {hit.title_highlights_html?.length > 0 ? (
-                        <span
-                          dangerouslySetInnerHTML={{
-                            __html: hit.title_highlights_html[0]
-                          }}
-                        />
-                      ) : (
-                        hit.page_title
-                      )}
-                    </h4>
+                    <h4 className="text-normal Link">{hit.title}</h4>
                     <p className="text-small text-bold color-fg-default no-underline">
-                      {hit.url}
+                      {hit.id}
                     </p>
                   </a>
                 </Link>
-                {hit.content_highlights_html?.map((html, index) => (
-                  <p
-                    key={hit.page_title + index}
-                    dangerouslySetInnerHTML={{__html: html}}
-                  />
-                ))}
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: markdownToHtml(hit.body.substring(0, 1000) + '...')
+                  }}
+                ></p>
               </div>
             </div>
           </div>
@@ -153,28 +129,6 @@ const Results: FC<Props> = ({results}) => {
             onPageChange={onPageChange}
           />
         )}
-
-        <footer className="mt-8">
-          <p className="text-center">
-            Not finding what you're looking for?
-            <br />
-            <a
-              href={`https://cs.github.com/?scope=org:github&scopeName=thehub&q=repo:github/thehub+${encodeURIComponent(
-                router.query.query?.toString()!
-              )}`}
-              onClick={e =>
-                onBlackbirdClick(
-                  e,
-                  `https://cs.github.com/?scope=org:github&scopeName=thehub&q=repo:github/thehub+${encodeURIComponent(
-                    router.query.query?.toString()!
-                  )}`
-                )
-              }
-            >
-              Try this search on the Code Search Preview
-            </a>
-          </p>
-        </footer>
       </div>
     </div>
   )

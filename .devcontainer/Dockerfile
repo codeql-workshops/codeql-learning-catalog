@@ -11,6 +11,7 @@ FROM ruby:2.7 AS runner
 RUN apt-get update
 RUN apt-get install -y vim
 RUN apt-get install -y jq 
+RUN apt-get install -y git-lfs 
 
 COPY ./.devcontainer/startup.sh /root/snippet
 RUN cat /root/snippet >> /etc/bash.bashrc

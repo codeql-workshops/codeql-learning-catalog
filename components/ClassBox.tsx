@@ -1,14 +1,6 @@
 import {FC} from 'react'
 import {Icon} from '@primer/octicons-react'
 import Image from 'next/image'
-import IconJavascript from 'programming-languages-logos/src/javascript/javascript.png'
-import IconRuby from 'programming-languages-logos/src/ruby/ruby.png'
-import IconPython from 'programming-languages-logos/src/python/python.png'
-import IconCpp from 'programming-languages-logos/src/cpp/cpp.png'
-import IconGo from 'programming-languages-logos/src/go/go.png'
-import IconCsharp from 'programming-languages-logos/src/csharp/csharp.png'
-import IconJava from 'programming-languages-logos/src/java/java.png'
-
 export const CourseTitle: FC = ({children}) => (
   <h2 className="lh-condensed-ultra">{children}</h2>
 )
@@ -25,7 +17,11 @@ function iconForLanguage(language: string, size: number = 100): any {
   if (language === 'javascript') {
     return (
       <>
-        <Image src={IconJavascript} width={size} height={size} />
+        <img
+          src="/assets/images/languages/javascript.png"
+          width={size}
+          height={size}
+        />
       </>
     )
   }
@@ -33,7 +29,11 @@ function iconForLanguage(language: string, size: number = 100): any {
   if (language === 'ruby') {
     return (
       <>
-        <Image src={IconRuby} width={size} height={size} />
+        <img
+          src="/assets/images/languages/ruby.png"
+          width={size}
+          height={size}
+        />
       </>
     )
   }
@@ -41,7 +41,11 @@ function iconForLanguage(language: string, size: number = 100): any {
   if (language === 'python') {
     return (
       <>
-        <Image src={IconPython} width={size} height={size} />
+        <img
+          src="/assets/images/languages/python.png"
+          width={size}
+          height={size}
+        />
       </>
     )
   }
@@ -49,7 +53,11 @@ function iconForLanguage(language: string, size: number = 100): any {
   if (language === 'cpp') {
     return (
       <>
-        <Image src={IconCpp} width={size} height={size} />
+        <img
+          src="/assets/images/languages/cpp.png"
+          width={size}
+          height={size}
+        />
       </>
     )
   }
@@ -57,7 +65,11 @@ function iconForLanguage(language: string, size: number = 100): any {
   if (language === 'csharp') {
     return (
       <>
-        <Image src={IconCsharp} width={size} height={size} />
+        <img
+          src="/assets/images/languages/csharp.png"
+          width={size}
+          height={size}
+        />
       </>
     )
   }
@@ -65,7 +77,11 @@ function iconForLanguage(language: string, size: number = 100): any {
   if (language === 'java') {
     return (
       <>
-        <Image src={IconJava} width={size} height={size} />
+        <img
+          src="/assets/images/languages/java.png"
+          width={size}
+          height={size}
+        />
       </>
     )
   }
