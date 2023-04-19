@@ -17,7 +17,11 @@ function iconForLanguage(language: string, size: number = 100): any {
   if (language === 'javascript') {
     return (
       <>
-        <img src="/assets/images/languages/javascript.png" width={size} height={size} />
+        <img
+          src="/assets/images/languages/javascript.png"
+          width={size}
+          height={size}
+        />
       </>
     )
   }
@@ -25,7 +29,11 @@ function iconForLanguage(language: string, size: number = 100): any {
   if (language === 'ruby') {
     return (
       <>
-        <img src="/assets/images/languages/ruby.png" width={size} height={size} />
+        <img
+          src="/assets/images/languages/ruby.png"
+          width={size}
+          height={size}
+        />
       </>
     )
   }
@@ -33,7 +41,11 @@ function iconForLanguage(language: string, size: number = 100): any {
   if (language === 'python') {
     return (
       <>
-        <img src="/assets/images/languages/python.png" width={size} height={size} />
+        <img
+          src="/assets/images/languages/python.png"
+          width={size}
+          height={size}
+        />
       </>
     )
   }
@@ -41,7 +53,11 @@ function iconForLanguage(language: string, size: number = 100): any {
   if (language === 'cpp') {
     return (
       <>
-        <img src="/assets/images/languages/cpp.png" width={size} height={size} />
+        <img
+          src="/assets/images/languages/cpp.png"
+          width={size}
+          height={size}
+        />
       </>
     )
   }
@@ -49,7 +65,11 @@ function iconForLanguage(language: string, size: number = 100): any {
   if (language === 'csharp') {
     return (
       <>
-        <img src="/assets/images/languages/csharp.png" width={size} height={size} />
+        <img
+          src="/assets/images/languages/csharp.png"
+          width={size}
+          height={size}
+        />
       </>
     )
   }
@@ -57,7 +77,11 @@ function iconForLanguage(language: string, size: number = 100): any {
   if (language === 'java') {
     return (
       <>
-        <img src="/assets/images/languages/java.png" width={size} height={size} />
+        <img
+          src="/assets/images/languages/java.png"
+          width={size}
+          height={size}
+        />
       </>
     )
   }
