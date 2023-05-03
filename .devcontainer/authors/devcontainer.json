@@ -1,23 +1,26 @@
 {
-	"name": "CodeQL Learning Catalog (Authors)",
-	"build": {
-		"dockerfile": "./Dockerfile",
-		"context": "../../"
-	},
+  "name": "CodeQL Learning Catalog (Authors)",
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": "../../"
+  },
 
-	"forwardPorts": [3000],
-	"postCreateCommand": ".devcontainer/postSetupAuthors.sh",
+  "forwardPorts": [3000],
+  "postCreateCommand": ".devcontainer/postSetupAuthors.sh",
 
-	"features": {
-		"sshd": "latest" 
-	},
-	"extensions": [
-		"github.vscode-codeql",
-		"slevesque.vscode-zipexplorer"
-	],
-	
-	"settings": {
-		"codeQL.runningQueries.memory": 2048,
-		"codeQL.cli.executablePath" : "/opt/codeql/codeql"
-	}
+  "features": {
+    "sshd": "latest"
+  },
+  "extensions": [
+    "github.vscode-codeql",
+    "slevesque.vscode-zipexplorer",
+    "esbenp.prettier-vscode",
+    "stkb.rewrap",
+    "streetsidesoftware.code-spell-checker"
+  ],
+
+  "settings": {
+    "codeQL.runningQueries.memory": 2048,
+    "codeQL.cli.executablePath": "/opt/codeql/codeql"
+  }
 }
