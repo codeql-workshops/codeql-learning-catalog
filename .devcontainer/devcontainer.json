@@ -1,28 +1,22 @@
 {
-	"name": "CodeQL Learning Catalog",
-	"build": {
-		"dockerfile": "./Dockerfile",
-		"context": ".."
-	},
+  "name": "CodeQL Learning Catalog",
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": ".."
+  },
 
-	"forwardPorts": [3000],
-	"postCreateCommand": ".devcontainer/postSetup.sh",
+  "forwardPorts": [3000],
+  "postCreateCommand": ".devcontainer/postSetup.sh",
 
-	"features": {
-		"sshd": "latest" 
-	},
+  "features": {
+    "sshd": "latest"
+  },
 
-	"extensions": [
-		"github.vscode-codeql",
-		"slevesque.vscode-zipexplorer"
-	],
+  "extensions": ["github.vscode-codeql", "slevesque.vscode-zipexplorer"],
 
-	"settings": {
-		"codeQL.runningQueries.memory": 2048,
-		"codeQL.cli.executablePath" : "/opt/codeql/codeql",
-		"csharp.suppressDotnetInstallWarning": true
-	}
-
-
-	
+  "settings": {
+    "codeQL.runningQueries.memory": 2048,
+    "codeQL.cli.executablePath": "/opt/codeql/codeql",
+    "csharp.suppressDotnetInstallWarning": true
+  }
 }
