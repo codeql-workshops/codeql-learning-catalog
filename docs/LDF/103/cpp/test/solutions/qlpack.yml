@@ -1,0 +1,7 @@
+---
+library: false
+name: ldf-103-solutions-tests
+version: 0.0.1
+dependencies:
+  'ldf-103-solutions': '*'
+extractor: cpp

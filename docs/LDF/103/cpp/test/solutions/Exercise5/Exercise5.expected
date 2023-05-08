@@ -1,0 +1,94 @@
+edges
+| test.c:13:19:13:22 | argv | test.c:53:12:53:16 | argv1 |
+| test.c:13:19:13:22 | argv | test.c:53:12:53:16 | argv1 |
+| test.c:13:19:13:22 | argv | test.c:61:28:61:32 | argv1 |
+| test.c:13:19:13:22 | argv | test.c:61:28:61:32 | argv1 |
+| test.c:16:24:16:27 | buf1 | test.c:54:12:54:15 | buf1 |
+| test.c:16:24:16:27 | buf1 | test.c:54:12:54:15 | buf1 |
+| test.c:16:24:16:27 | buf1 | test.c:62:28:62:31 | buf1 |
+| test.c:16:24:16:27 | buf1 | test.c:62:28:62:31 | buf1 |
+| test.c:19:39:19:42 | buf2 | test.c:55:12:55:15 | buf2 |
+| test.c:19:39:19:42 | buf2 | test.c:55:12:55:15 | buf2 |
+| test.c:19:39:19:42 | buf2 | test.c:63:28:63:31 | buf2 |
+| test.c:19:39:19:42 | buf2 | test.c:63:28:63:31 | buf2 |
+| test.c:22:11:22:14 | buf3 | test.c:56:12:56:15 | buf3 |
+| test.c:22:11:22:14 | buf3 | test.c:56:12:56:15 | buf3 |
+| test.c:22:11:22:14 | buf3 | test.c:56:12:56:15 | buf3 |
+| test.c:22:11:22:14 | buf3 | test.c:64:28:64:31 | buf3 |
+| test.c:22:11:22:14 | buf3 | test.c:64:28:64:31 | buf3 |
+| test.c:22:11:22:14 | buf3 | test.c:64:28:64:31 | buf3 |
+| test.c:25:11:25:14 | buf4 | test.c:57:12:57:15 | buf4 |
+| test.c:25:11:25:14 | buf4 | test.c:57:12:57:15 | buf4 |
+| test.c:25:11:25:14 | buf4 | test.c:65:28:65:31 | buf4 |
+| test.c:25:11:25:14 | buf4 | test.c:65:28:65:31 | buf4 |
+| test.c:28:12:28:15 | buf5 | test.c:58:12:58:15 | buf5 |
+| test.c:28:12:28:15 | buf5 | test.c:58:12:58:15 | buf5 |
+| test.c:28:12:28:15 | buf5 | test.c:66:28:66:31 | buf5 |
+| test.c:28:12:28:15 | buf5 | test.c:66:28:66:31 | buf5 |
+| test.c:31:10:31:13 | buf6 | test.c:59:12:59:15 | buf6 |
+| test.c:31:10:31:13 | buf6 | test.c:59:12:59:15 | buf6 |
+| test.c:31:10:31:13 | buf6 | test.c:67:28:67:31 | buf6 |
+| test.c:31:10:31:13 | buf6 | test.c:67:28:67:31 | buf6 |
+nodes
+| test.c:13:19:13:22 | argv | semmle.label | argv |
+| test.c:16:24:16:27 | buf1 | semmle.label | buf1 |
+| test.c:16:24:16:27 | buf1 | semmle.label | buf1 |
+| test.c:19:39:19:42 | buf2 | semmle.label | buf2 |
+| test.c:19:39:19:42 | buf2 | semmle.label | buf2 |
+| test.c:22:11:22:14 | buf3 | semmle.label | buf3 |
+| test.c:22:11:22:14 | buf3 | semmle.label | buf3 |
+| test.c:22:11:22:14 | buf3 | semmle.label | buf3 |
+| test.c:25:11:25:14 | buf4 | semmle.label | buf4 |
+| test.c:25:11:25:14 | buf4 | semmle.label | buf4 |
+| test.c:28:12:28:15 | buf5 | semmle.label | buf5 |
+| test.c:28:12:28:15 | buf5 | semmle.label | buf5 |
+| test.c:31:10:31:13 | buf6 | semmle.label | buf6 |
+| test.c:31:10:31:13 | buf6 | semmle.label | buf6 |
+| test.c:53:12:53:16 | argv1 | semmle.label | argv1 |
+| test.c:53:12:53:16 | argv1 | semmle.label | argv1 |
+| test.c:54:12:54:15 | buf1 | semmle.label | buf1 |
+| test.c:55:12:55:15 | buf2 | semmle.label | buf2 |
+| test.c:56:12:56:15 | buf3 | semmle.label | buf3 |
+| test.c:57:12:57:15 | buf4 | semmle.label | buf4 |
+| test.c:58:12:58:15 | buf5 | semmle.label | buf5 |
+| test.c:59:12:59:15 | buf6 | semmle.label | buf6 |
+| test.c:61:28:61:32 | argv1 | semmle.label | argv1 |
+| test.c:61:28:61:32 | argv1 | semmle.label | argv1 |
+| test.c:62:28:62:31 | buf1 | semmle.label | buf1 |
+| test.c:63:28:63:31 | buf2 | semmle.label | buf2 |
+| test.c:64:28:64:31 | buf3 | semmle.label | buf3 |
+| test.c:65:28:65:31 | buf4 | semmle.label | buf4 |
+| test.c:66:28:66:31 | buf5 | semmle.label | buf5 |
+| test.c:67:28:67:31 | buf6 | semmle.label | buf6 |
+subpaths
+#select
+| test.c:53:12:53:16 | argv1 | test.c:13:19:13:22 | argv | test.c:53:12:53:16 | argv1 | This format string may be derived from a $@. | test.c:13:19:13:22 | argv | user-controlled value |
+| test.c:53:12:53:16 | argv1 | test.c:13:19:13:22 | argv | test.c:53:12:53:16 | argv1 | This format string may be derived from a $@. | test.c:13:19:13:22 | argv | user-controlled value |
+| test.c:54:12:54:15 | buf1 | test.c:16:24:16:27 | buf1 | test.c:54:12:54:15 | buf1 | This format string may be derived from a $@. | test.c:16:24:16:27 | buf1 | user-controlled value |
+| test.c:54:12:54:15 | buf1 | test.c:16:24:16:27 | buf1 | test.c:54:12:54:15 | buf1 | This format string may be derived from a $@. | test.c:16:24:16:27 | buf1 | user-controlled value |
+| test.c:55:12:55:15 | buf2 | test.c:19:39:19:42 | buf2 | test.c:55:12:55:15 | buf2 | This format string may be derived from a $@. | test.c:19:39:19:42 | buf2 | user-controlled value |
+| test.c:55:12:55:15 | buf2 | test.c:19:39:19:42 | buf2 | test.c:55:12:55:15 | buf2 | This format string may be derived from a $@. | test.c:19:39:19:42 | buf2 | user-controlled value |
+| test.c:56:12:56:15 | buf3 | test.c:22:11:22:14 | buf3 | test.c:56:12:56:15 | buf3 | This format string may be derived from a $@. | test.c:22:11:22:14 | buf3 | user-controlled value |
+| test.c:56:12:56:15 | buf3 | test.c:22:11:22:14 | buf3 | test.c:56:12:56:15 | buf3 | This format string may be derived from a $@. | test.c:22:11:22:14 | buf3 | user-controlled value |
+| test.c:56:12:56:15 | buf3 | test.c:22:11:22:14 | buf3 | test.c:56:12:56:15 | buf3 | This format string may be derived from a $@. | test.c:22:11:22:14 | buf3 | user-controlled value |
+| test.c:57:12:57:15 | buf4 | test.c:25:11:25:14 | buf4 | test.c:57:12:57:15 | buf4 | This format string may be derived from a $@. | test.c:25:11:25:14 | buf4 | user-controlled value |
+| test.c:57:12:57:15 | buf4 | test.c:25:11:25:14 | buf4 | test.c:57:12:57:15 | buf4 | This format string may be derived from a $@. | test.c:25:11:25:14 | buf4 | user-controlled value |
+| test.c:58:12:58:15 | buf5 | test.c:28:12:28:15 | buf5 | test.c:58:12:58:15 | buf5 | This format string may be derived from a $@. | test.c:28:12:28:15 | buf5 | user-controlled value |
+| test.c:58:12:58:15 | buf5 | test.c:28:12:28:15 | buf5 | test.c:58:12:58:15 | buf5 | This format string may be derived from a $@. | test.c:28:12:28:15 | buf5 | user-controlled value |
+| test.c:59:12:59:15 | buf6 | test.c:31:10:31:13 | buf6 | test.c:59:12:59:15 | buf6 | This format string may be derived from a $@. | test.c:31:10:31:13 | buf6 | user-controlled value |
+| test.c:59:12:59:15 | buf6 | test.c:31:10:31:13 | buf6 | test.c:59:12:59:15 | buf6 | This format string may be derived from a $@. | test.c:31:10:31:13 | buf6 | user-controlled value |
+| test.c:61:28:61:32 | argv1 | test.c:13:19:13:22 | argv | test.c:61:28:61:32 | argv1 | This format string may be derived from a $@. | test.c:13:19:13:22 | argv | user-controlled value |
+| test.c:61:28:61:32 | argv1 | test.c:13:19:13:22 | argv | test.c:61:28:61:32 | argv1 | This format string may be derived from a $@. | test.c:13:19:13:22 | argv | user-controlled value |
+| test.c:62:28:62:31 | buf1 | test.c:16:24:16:27 | buf1 | test.c:62:28:62:31 | buf1 | This format string may be derived from a $@. | test.c:16:24:16:27 | buf1 | user-controlled value |
+| test.c:62:28:62:31 | buf1 | test.c:16:24:16:27 | buf1 | test.c:62:28:62:31 | buf1 | This format string may be derived from a $@. | test.c:16:24:16:27 | buf1 | user-controlled value |
+| test.c:63:28:63:31 | buf2 | test.c:19:39:19:42 | buf2 | test.c:63:28:63:31 | buf2 | This format string may be derived from a $@. | test.c:19:39:19:42 | buf2 | user-controlled value |
+| test.c:63:28:63:31 | buf2 | test.c:19:39:19:42 | buf2 | test.c:63:28:63:31 | buf2 | This format string may be derived from a $@. | test.c:19:39:19:42 | buf2 | user-controlled value |
+| test.c:64:28:64:31 | buf3 | test.c:22:11:22:14 | buf3 | test.c:64:28:64:31 | buf3 | This format string may be derived from a $@. | test.c:22:11:22:14 | buf3 | user-controlled value |
+| test.c:64:28:64:31 | buf3 | test.c:22:11:22:14 | buf3 | test.c:64:28:64:31 | buf3 | This format string may be derived from a $@. | test.c:22:11:22:14 | buf3 | user-controlled value |
+| test.c:64:28:64:31 | buf3 | test.c:22:11:22:14 | buf3 | test.c:64:28:64:31 | buf3 | This format string may be derived from a $@. | test.c:22:11:22:14 | buf3 | user-controlled value |
+| test.c:65:28:65:31 | buf4 | test.c:25:11:25:14 | buf4 | test.c:65:28:65:31 | buf4 | This format string may be derived from a $@. | test.c:25:11:25:14 | buf4 | user-controlled value |
+| test.c:65:28:65:31 | buf4 | test.c:25:11:25:14 | buf4 | test.c:65:28:65:31 | buf4 | This format string may be derived from a $@. | test.c:25:11:25:14 | buf4 | user-controlled value |
+| test.c:66:28:66:31 | buf5 | test.c:28:12:28:15 | buf5 | test.c:66:28:66:31 | buf5 | This format string may be derived from a $@. | test.c:28:12:28:15 | buf5 | user-controlled value |
+| test.c:66:28:66:31 | buf5 | test.c:28:12:28:15 | buf5 | test.c:66:28:66:31 | buf5 | This format string may be derived from a $@. | test.c:28:12:28:15 | buf5 | user-controlled value |
+| test.c:67:28:67:31 | buf6 | test.c:31:10:31:13 | buf6 | test.c:67:28:67:31 | buf6 | This format string may be derived from a $@. | test.c:31:10:31:13 | buf6 | user-controlled value |
+| test.c:67:28:67:31 | buf6 | test.c:31:10:31:13 | buf6 | test.c:67:28:67:31 | buf6 | This format string may be derived from a $@. | test.c:31:10:31:13 | buf6 | user-controlled value |
