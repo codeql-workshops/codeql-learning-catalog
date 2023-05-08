@@ -1,0 +1,307 @@
+#-----| operator= : CopyAssignmentOperator
+
+#-----| operator= : MoveAssignmentOperator
+
+test.cpp:
+#   20| fib2 : TopLevelFunction
+
+#   21| if (...) ...  : IfStmt
+#-----|  -> n : VariableAccess
+
+#   21| n : VariableAccess
+#-----|  -> 0 : Literal
+
+#   21| 0 : Literal
+#-----|  -> ... == ... : EQExpr
+
+#   21| (unsigned int)... : CStyleCast
+
+#   21| ... == ... : EQExpr
+#-----|  -> { ... } : BlockStmt
+#-----|  -> if (...) ...  : IfStmt
+
+#   22| return ... : ReturnStmt
+#-----|  -> 0 : Literal
+
+#   22| 0 : Literal
+#-----|  -> fib2 : TopLevelFunction
+
+#   22| (unsigned int)... : CStyleCast
+
+#   21| { ... } : BlockStmt
+#-----|  -> return ... : ReturnStmt
+
+#   24| if (...) ...  : IfStmt
+#-----|  -> n : VariableAccess
+
+#   24| n : VariableAccess
+#-----|  -> 1 : Literal
+
+#   24| 1 : Literal
+#-----|  -> ... == ... : EQExpr
+
+#   24| (unsigned int)... : CStyleCast
+
+#   24| ... == ... : EQExpr
+#-----|  -> { ... } : BlockStmt
+#-----|  -> declaration : DeclStmt
+
+#   25| return ... : ReturnStmt
+#-----|  -> 1 : Literal
+
+#   25| 1 : Literal
+#-----|  -> fib2 : TopLevelFunction
+
+#   25| (unsigned int)... : CStyleCast
+
+#   24| { ... } : BlockStmt
+#-----|  -> return ... : ReturnStmt
+
+#   27| declaration : DeclStmt
+#-----|  -> initializer for a : Initializer
+
+#   27| 0 : Literal
+#-----|  -> declaration : DeclStmt
+
+#   27| initializer for a : Initializer
+#-----|  -> 0 : Literal
+
+#   28| declaration : DeclStmt
+#-----|  -> initializer for b : Initializer
+
+#   28| 1 : Literal
+#-----|  -> for(...;...;...) ... : ForStmt
+
+#   28| initializer for b : Initializer
+#-----|  -> 1 : Literal
+
+#   29| for(...;...;...) ... : ForStmt
+#-----|  -> declaration : DeclStmt
+
+#   29| 2 : Literal
+#-----|  -> i : VariableAccess
+
+#   29| initializer for i : Initializer
+#-----|  -> 2 : Literal
+
+#   29| i : VariableAccess
+#-----|  -> n : VariableAccess
+
+#   29| (unsigned int)... : CStyleCast
+
+#   29| n : VariableAccess
+#-----|  -> ... <= ... : LEExpr
+
+#   29| ... <= ... : LEExpr
+#-----|  -> { ... } : BlockStmt
+#-----|  -> return ... : ReturnStmt
+
+#   30| a : VariableAccess
+#-----|  -> b : VariableAccess
+
+#   30| b : VariableAccess
+#-----|  -> ... + ... : AddExpr
+
+#   30| ... + ... : AddExpr
+#-----|  -> ExprStmt : ExprStmt
+
+#   30| initializer for c : Initializer
+#-----|  -> a : VariableAccess
+
+#   30| declaration : DeclStmt
+#-----|  -> initializer for c : Initializer
+
+#   31| ExprStmt : ExprStmt
+#-----|  -> b : VariableAccess
+
+#   31| a : VariableAccess
+#-----|  -> ... = ... : AssignExpr
+
+#   31| b : VariableAccess
+#-----|  -> a : VariableAccess
+
+#   31| ... = ... : AssignExpr
+#-----|  -> ExprStmt : ExprStmt
+
+#   32| ExprStmt : ExprStmt
+#-----|  -> c : VariableAccess
+
+#   32| b : VariableAccess
+#-----|  -> ... = ... : AssignExpr
+
+#   32| c : VariableAccess
+#-----|  -> b : VariableAccess
+
+#   32| ... = ... : AssignExpr
+#-----|  -> i : VariableAccess
+
+#   29| { ... } : BlockStmt
+#-----|  -> declaration : DeclStmt
+
+#   29| declaration : DeclStmt
+#-----|  -> initializer for i : Initializer
+
+#   29| i : VariableAccess
+#-----|  -> ... ++ : PostfixIncrExpr
+
+#   29| ... ++ : PostfixIncrExpr
+#-----|  -> i : VariableAccess
+
+#   34| return ... : ReturnStmt
+#-----|  -> b : VariableAccess
+
+#   34| b : VariableAccess
+#-----|  -> fib2 : TopLevelFunction
+
+#   34| (unsigned int)... : CStyleCast
+
+#   20| { ... } : BlockStmt
+#-----|  -> if (...) ...  : IfStmt
+
+#   10| fib1 : TopLevelFunction
+
+#   11| if (...) ...  : IfStmt
+#-----|  -> n : VariableAccess
+
+#   11| n : VariableAccess
+#-----|  -> 0 : Literal
+
+#   11| 0 : Literal
+#-----|  -> ... == ... : EQExpr
+
+#   11| (unsigned int)... : CStyleCast
+
+#   11| ... == ... : EQExpr
+#-----|  -> { ... } : BlockStmt
+#-----|  -> if (...) ...  : IfStmt
+
+#   12| return ... : ReturnStmt
+#-----|  -> 0 : Literal
+
+#   12| 0 : Literal
+#-----|  -> fib1 : TopLevelFunction
+
+#   12| (unsigned int)... : CStyleCast
+
+#   11| { ... } : BlockStmt
+#-----|  -> return ... : ReturnStmt
+
+#   14| if (...) ...  : IfStmt
+#-----|  -> n : VariableAccess
+
+#   14| n : VariableAccess
+#-----|  -> 1 : Literal
+
+#   14| 1 : Literal
+#-----|  -> ... == ... : EQExpr
+
+#   14| (unsigned int)... : CStyleCast
+
+#   14| ... == ... : EQExpr
+#-----|  -> { ... } : BlockStmt
+#-----|  -> return ... : ReturnStmt
+
+#   15| return ... : ReturnStmt
+#-----|  -> 1 : Literal
+
+#   15| 1 : Literal
+#-----|  -> fib1 : TopLevelFunction
+
+#   15| (unsigned int)... : CStyleCast
+
+#   14| { ... } : BlockStmt
+#-----|  -> return ... : ReturnStmt
+
+#   17| return ... : ReturnStmt
+#-----|  -> n : VariableAccess
+
+#   17| call to fib1 : FunctionCall
+#-----|  -> n : VariableAccess
+
+#   17| n : VariableAccess
+#-----|  -> 1 : Literal
+
+#   17| 1 : Literal
+#-----|  -> ... - ... : SubExpr
+
+#   17| (unsigned int)... : CStyleCast
+
+#   17| ... - ... : SubExpr
+#-----|  -> call to fib1 : FunctionCall
+
+#   17| call to fib1 : FunctionCall
+#-----|  -> ... + ... : AddExpr
+
+#   17| n : VariableAccess
+#-----|  -> 2 : Literal
+
+#   17| 2 : Literal
+#-----|  -> ... - ... : SubExpr
+
+#   17| (unsigned int)... : CStyleCast
+
+#   17| ... - ... : SubExpr
+#-----|  -> call to fib1 : FunctionCall
+
+#   17| ... + ... : AddExpr
+#-----|  -> fib1 : TopLevelFunction
+
+#   10| { ... } : BlockStmt
+#-----|  -> if (...) ...  : IfStmt
+
+#    3| absolute : TopLevelFunction
+
+#    4| if (...) ...  : IfStmt
+#-----|  -> i : VariableAccess
+
+#    4| i : VariableAccess
+#-----|  -> 0 : Literal
+
+#    4| 0 : Literal
+#-----|  -> ... < ... : LTExpr
+
+#    4| ... < ... : LTExpr
+#-----|  -> { ... } : BlockStmt
+#-----|  -> return ... : ReturnStmt
+
+#    5| return ... : ReturnStmt
+#-----|  -> i : VariableAccess
+
+#    5| i : VariableAccess
+#-----|  -> - ... : UnaryMinusExpr
+
+#    5| - ... : UnaryMinusExpr
+#-----|  -> absolute : TopLevelFunction
+
+#    5| (unsigned int)... : CStyleCast
+
+#    4| { ... } : BlockStmt
+#-----|  -> return ... : ReturnStmt
+
+#    7| return ... : ReturnStmt
+#-----|  -> i : VariableAccess
+
+#    7| i : VariableAccess
+#-----|  -> absolute : TopLevelFunction
+
+#    7| (unsigned int)... : CStyleCast
+
+#    3| { ... } : BlockStmt
+#-----|  -> if (...) ...  : IfStmt
+
+#    1| add : TopLevelFunction
+
+#    1| return ... : ReturnStmt
+#-----|  -> i : VariableAccess
+
+#    1| i : VariableAccess
+#-----|  -> j : VariableAccess
+
+#    1| j : VariableAccess
+#-----|  -> ... + ... : AddExpr
+
+#    1| ... + ... : AddExpr
+#-----|  -> add : TopLevelFunction
+
+#    1| { ... } : BlockStmt
+#-----|  -> return ... : ReturnStmt

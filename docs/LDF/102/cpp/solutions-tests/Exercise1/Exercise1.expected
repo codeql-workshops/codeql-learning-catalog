@@ -1,0 +1,93 @@
+| test.cpp:1:23:1:39 | { ... } | test.cpp:1:25:1:37 | return ... |
+| test.cpp:1:25:1:37 | return ... | test.cpp:1:32:1:32 | i |
+| test.cpp:1:32:1:32 | i | test.cpp:1:36:1:36 | j |
+| test.cpp:1:32:1:36 | ... + ... | test.cpp:1:5:1:7 | add |
+| test.cpp:1:36:1:36 | j | test.cpp:1:32:1:36 | ... + ... |
+| test.cpp:3:30:8:1 | { ... } | test.cpp:4:3:6:3 | if (...) ...  |
+| test.cpp:4:3:6:3 | if (...) ...  | test.cpp:4:7:4:7 | i |
+| test.cpp:4:7:4:7 | i | test.cpp:4:11:4:11 | 0 |
+| test.cpp:4:7:4:11 | ... < ... | test.cpp:4:14:6:3 | { ... } |
+| test.cpp:4:7:4:11 | ... < ... | test.cpp:7:3:7:11 | return ... |
+| test.cpp:4:11:4:11 | 0 | test.cpp:4:7:4:11 | ... < ... |
+| test.cpp:4:14:6:3 | { ... } | test.cpp:5:5:5:14 | return ... |
+| test.cpp:5:5:5:14 | return ... | test.cpp:5:13:5:13 | i |
+| test.cpp:5:12:5:13 | - ... | test.cpp:3:14:3:21 | absolute |
+| test.cpp:5:13:5:13 | i | test.cpp:5:12:5:13 | - ... |
+| test.cpp:7:3:7:11 | return ... | test.cpp:7:10:7:10 | i |
+| test.cpp:7:10:7:10 | i | test.cpp:3:14:3:21 | absolute |
+| test.cpp:10:35:18:1 | { ... } | test.cpp:11:3:13:3 | if (...) ...  |
+| test.cpp:11:3:13:3 | if (...) ...  | test.cpp:11:7:11:7 | n |
+| test.cpp:11:7:11:7 | n | test.cpp:11:12:11:12 | 0 |
+| test.cpp:11:7:11:12 | ... == ... | test.cpp:11:15:13:3 | { ... } |
+| test.cpp:11:7:11:12 | ... == ... | test.cpp:14:3:16:3 | if (...) ...  |
+| test.cpp:11:12:11:12 | 0 | test.cpp:11:7:11:12 | ... == ... |
+| test.cpp:11:15:13:3 | { ... } | test.cpp:12:5:12:13 | return ... |
+| test.cpp:12:5:12:13 | return ... | test.cpp:12:12:12:12 | 0 |
+| test.cpp:12:12:12:12 | 0 | test.cpp:10:14:10:17 | fib1 |
+| test.cpp:14:3:16:3 | if (...) ...  | test.cpp:14:7:14:7 | n |
+| test.cpp:14:7:14:7 | n | test.cpp:14:12:14:12 | 1 |
+| test.cpp:14:7:14:12 | ... == ... | test.cpp:14:15:16:3 | { ... } |
+| test.cpp:14:7:14:12 | ... == ... | test.cpp:17:3:17:35 | return ... |
+| test.cpp:14:12:14:12 | 1 | test.cpp:14:7:14:12 | ... == ... |
+| test.cpp:14:15:16:3 | { ... } | test.cpp:15:5:15:13 | return ... |
+| test.cpp:15:5:15:13 | return ... | test.cpp:15:12:15:12 | 1 |
+| test.cpp:15:12:15:12 | 1 | test.cpp:10:14:10:17 | fib1 |
+| test.cpp:17:3:17:35 | return ... | test.cpp:17:15:17:15 | n |
+| test.cpp:17:10:17:13 | call to fib1 | test.cpp:17:29:17:29 | n |
+| test.cpp:17:10:17:34 | ... + ... | test.cpp:10:14:10:17 | fib1 |
+| test.cpp:17:15:17:15 | n | test.cpp:17:19:17:19 | 1 |
+| test.cpp:17:15:17:19 | ... - ... | test.cpp:17:10:17:13 | call to fib1 |
+| test.cpp:17:19:17:19 | 1 | test.cpp:17:15:17:19 | ... - ... |
+| test.cpp:17:24:17:27 | call to fib1 | test.cpp:17:10:17:34 | ... + ... |
+| test.cpp:17:29:17:29 | n | test.cpp:17:33:17:33 | 2 |
+| test.cpp:17:29:17:33 | ... - ... | test.cpp:17:24:17:27 | call to fib1 |
+| test.cpp:17:33:17:33 | 2 | test.cpp:17:29:17:33 | ... - ... |
+| test.cpp:20:35:35:1 | { ... } | test.cpp:21:3:23:3 | if (...) ...  |
+| test.cpp:21:3:23:3 | if (...) ...  | test.cpp:21:7:21:7 | n |
+| test.cpp:21:7:21:7 | n | test.cpp:21:12:21:12 | 0 |
+| test.cpp:21:7:21:12 | ... == ... | test.cpp:21:15:23:3 | { ... } |
+| test.cpp:21:7:21:12 | ... == ... | test.cpp:24:3:26:3 | if (...) ...  |
+| test.cpp:21:12:21:12 | 0 | test.cpp:21:7:21:12 | ... == ... |
+| test.cpp:21:15:23:3 | { ... } | test.cpp:22:5:22:13 | return ... |
+| test.cpp:22:5:22:13 | return ... | test.cpp:22:12:22:12 | 0 |
+| test.cpp:22:12:22:12 | 0 | test.cpp:20:14:20:17 | fib2 |
+| test.cpp:24:3:26:3 | if (...) ...  | test.cpp:24:7:24:7 | n |
+| test.cpp:24:7:24:7 | n | test.cpp:24:12:24:12 | 1 |
+| test.cpp:24:7:24:12 | ... == ... | test.cpp:24:15:26:3 | { ... } |
+| test.cpp:24:7:24:12 | ... == ... | test.cpp:27:3:27:12 | declaration |
+| test.cpp:24:12:24:12 | 1 | test.cpp:24:7:24:12 | ... == ... |
+| test.cpp:24:15:26:3 | { ... } | test.cpp:25:5:25:13 | return ... |
+| test.cpp:25:5:25:13 | return ... | test.cpp:25:12:25:12 | 1 |
+| test.cpp:25:12:25:12 | 1 | test.cpp:20:14:20:17 | fib2 |
+| test.cpp:27:3:27:12 | declaration | test.cpp:27:10:27:11 | initializer for a |
+| test.cpp:27:10:27:11 | 0 | test.cpp:28:3:28:12 | declaration |
+| test.cpp:27:10:27:11 | initializer for a | test.cpp:27:10:27:11 | 0 |
+| test.cpp:28:3:28:12 | declaration | test.cpp:28:10:28:11 | initializer for b |
+| test.cpp:28:10:28:11 | 1 | test.cpp:29:3:33:3 | for(...;...;...) ... |
+| test.cpp:28:10:28:11 | initializer for b | test.cpp:28:10:28:11 | 1 |
+| test.cpp:29:3:33:3 | for(...;...;...) ... | test.cpp:29:8:29:17 | declaration |
+| test.cpp:29:8:29:17 | declaration | test.cpp:29:15:29:16 | initializer for i |
+| test.cpp:29:15:29:16 | 2 | test.cpp:29:19:29:19 | i |
+| test.cpp:29:15:29:16 | initializer for i | test.cpp:29:15:29:16 | 2 |
+| test.cpp:29:19:29:19 | i | test.cpp:29:24:29:24 | n |
+| test.cpp:29:19:29:24 | ... <= ... | test.cpp:29:32:33:3 | { ... } |
+| test.cpp:29:19:29:24 | ... <= ... | test.cpp:34:3:34:11 | return ... |
+| test.cpp:29:24:29:24 | n | test.cpp:29:19:29:24 | ... <= ... |
+| test.cpp:29:27:29:27 | i | test.cpp:29:27:29:29 | ... ++ |
+| test.cpp:29:27:29:29 | ... ++ | test.cpp:29:19:29:19 | i |
+| test.cpp:29:32:33:3 | { ... } | test.cpp:30:5:30:18 | declaration |
+| test.cpp:30:5:30:18 | declaration | test.cpp:30:12:30:17 | initializer for c |
+| test.cpp:30:12:30:17 | initializer for c | test.cpp:30:13:30:13 | a |
+| test.cpp:30:13:30:13 | a | test.cpp:30:17:30:17 | b |
+| test.cpp:30:13:30:17 | ... + ... | test.cpp:31:5:31:10 | ExprStmt |
+| test.cpp:30:17:30:17 | b | test.cpp:30:13:30:17 | ... + ... |
+| test.cpp:31:5:31:5 | a | test.cpp:31:5:31:9 | ... = ... |
+| test.cpp:31:5:31:9 | ... = ... | test.cpp:32:5:32:10 | ExprStmt |
+| test.cpp:31:5:31:10 | ExprStmt | test.cpp:31:9:31:9 | b |
+| test.cpp:31:9:31:9 | b | test.cpp:31:5:31:5 | a |
+| test.cpp:32:5:32:5 | b | test.cpp:32:5:32:9 | ... = ... |
+| test.cpp:32:5:32:9 | ... = ... | test.cpp:29:27:29:27 | i |
+| test.cpp:32:5:32:10 | ExprStmt | test.cpp:32:9:32:9 | c |
+| test.cpp:32:9:32:9 | c | test.cpp:32:5:32:5 | b |
+| test.cpp:34:3:34:11 | return ... | test.cpp:34:10:34:10 | b |
+| test.cpp:34:10:34:10 | b | test.cpp:20:14:20:17 | fib2 |

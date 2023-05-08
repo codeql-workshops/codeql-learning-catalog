@@ -1,0 +1,36 @@
+edges
+| test.cpp:1:24:9:1 | { ... } | test.cpp:2:3:5:3 | if (...) ...  |
+| test.cpp:2:3:5:3 | if (...) ...  | test.cpp:2:14:5:3 | { ... } |
+| test.cpp:2:3:5:3 | if (...) ...  | test.cpp:7:3:8:3 | if (...) ...  |
+| test.cpp:2:14:5:3 | { ... } | test.cpp:3:5:4:5 | if (...) ...  |
+| test.cpp:3:5:4:5 | if (...) ...  | test.cpp:3:17:4:5 | { ... } |
+| test.cpp:3:5:4:5 | if (...) ...  | test.cpp:7:3:8:3 | if (...) ...  |
+| test.cpp:3:17:4:5 | { ... } | test.cpp:7:3:8:3 | if (...) ...  |
+| test.cpp:7:3:8:3 | if (...) ...  | test.cpp:7:15:8:3 | { ... } |
+| test.cpp:7:3:8:3 | if (...) ...  | test.cpp:9:1:9:1 | return ... |
+| test.cpp:7:15:8:3 | { ... } | test.cpp:9:1:9:1 | return ... |
+nodes
+| file://:0:0:0:0 | operator= | semmle.label | operator= : CopyAssignmentOperator |
+| file://:0:0:0:0 | operator= | semmle.label | operator= : MoveAssignmentOperator |
+| test.cpp:1:6:1:15 | successors | semmle.label | successors : TopLevelFunction |
+| test.cpp:1:24:9:1 | { ... } | semmle.label | { ... } : BlockStmt |
+| test.cpp:2:3:5:3 | if (...) ...  | semmle.label | if (...) ...  : IfStmt |
+| test.cpp:2:7:2:7 | n | semmle.label | n : VariableAccess |
+| test.cpp:2:7:2:11 | ... > ... | semmle.label | ... > ... : GTExpr |
+| test.cpp:2:11:2:11 | 5 | semmle.label | 5 : Literal |
+| test.cpp:2:14:5:3 | { ... } | semmle.label | { ... } : BlockStmt |
+| test.cpp:3:5:4:5 | if (...) ...  | semmle.label | if (...) ...  : IfStmt |
+| test.cpp:3:9:3:9 | n | semmle.label | n : VariableAccess |
+| test.cpp:3:9:3:14 | ... > ... | semmle.label | ... > ... : GTExpr |
+| test.cpp:3:13:3:14 | 10 | semmle.label | 10 : Literal |
+| test.cpp:3:17:4:5 | { ... } | semmle.label | { ... } : BlockStmt |
+| test.cpp:7:3:8:3 | if (...) ...  | semmle.label | if (...) ...  : IfStmt |
+| test.cpp:7:7:7:7 | n | semmle.label | n : VariableAccess |
+| test.cpp:7:7:7:12 | ... == ... | semmle.label | ... == ... : EQExpr |
+| test.cpp:7:12:7:12 | 5 | semmle.label | 5 : Literal |
+| test.cpp:7:15:8:3 | { ... } | semmle.label | { ... } : BlockStmt |
+| test.cpp:9:1:9:1 | return ... | semmle.label | return ... : ReturnStmt |
+#select
+| test.cpp:2:3:5:3 | if (...) ...  | test.cpp:2:3:5:3 | if (...) ...  | test.cpp:3:5:4:5 | if (...) ...  | Control flow starting at stmt $@ | test.cpp:2:3:5:3 | if (...) ...  | if (...) ...  |
+| test.cpp:2:3:5:3 | if (...) ...  | test.cpp:2:3:5:3 | if (...) ...  | test.cpp:7:3:8:3 | if (...) ...  | Control flow starting at stmt $@ | test.cpp:2:3:5:3 | if (...) ...  | if (...) ...  |
+| test.cpp:3:5:4:5 | if (...) ...  | test.cpp:3:5:4:5 | if (...) ...  | test.cpp:7:3:8:3 | if (...) ...  | Control flow starting at stmt $@ | test.cpp:3:5:4:5 | if (...) ...  | if (...) ...  |

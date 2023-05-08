@@ -1,0 +1,3 @@
+| Test.java:45:9:45:24 | someAction(...) | Method $@ called without being preceded by initialize. | Test.java:45:9:45:24 | someAction(...) | someAction |
+| Test.java:51:9:51:24 | someAction(...) | Method $@ called without being preceded by initialize. | Test.java:51:9:51:24 | someAction(...) | someAction |
+| Test.java:60:9:60:24 | someAction(...) | Method $@ called without being preceded by initialize. | Test.java:60:9:60:24 | someAction(...) | someAction |
