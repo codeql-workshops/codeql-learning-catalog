@@ -12,6 +12,7 @@ RUN apt-get update
 RUN apt-get install -y vim
 RUN apt-get install -y jq 
 RUN apt-get install -y git-lfs 
+RUN apt-get install -y openjdk-17-jdk
 
 COPY ./.devcontainer/startup.sh /root/snippet
 RUN cat /root/snippet >> /etc/bash.bashrc

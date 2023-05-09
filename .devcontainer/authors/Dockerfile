@@ -15,6 +15,7 @@ RUN apt-get update
 RUN apt-get install -y vim
 RUN apt-get install -y jq 
 RUN apt-get install -y git-lfs
+RUN apt-get install -y openjdk-17-jdk
 
 
 RUN wget https://github.com/errata-ai/vale/releases/download/v2.3.4/vale_2.3.4_Linux_64-bit.tar.gz
