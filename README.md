@@ -202,6 +202,49 @@ toc: false
 ---
 ```
 
+## Switching Java versions easily with Jenv
+
+Authors need to provide a precompiled database for the readers, and if you are working on a Java/Kotlin workshop, you would probably run into some Java version mismatches when invoking the build system for extraction. For easily switching between different Java versions, we have [Jenv](https://www.jenv.be/) as well as three different versions of OpenJDK (8, 11, and 17) preinstalled.
+
+OpenJDK 8 is set as default. To see the current version:
+
+```shell
+$ jenv version
+1.8 (set by /root/.jenv/version)
+```
+
+To list all installed versions:
+
+```shell
+$ jenv versions
+  system
+* 1.8 (set by /root/.jenv/version)
+  1.8.0.372
+  11
+  11.0
+  11.0.18
+  17
+  17.0
+  17.0.6
+  openjdk64-11.0.18
+  openjdk64-17.0.6
+  temurin64-1.8.0.372
+```
+
+To set a global Java version, say to 11:
+
+```shell
+jenv global 11
+```
+
+To set a Java version for the current working directory, recursively down to its subdirectories:
+
+```shell
+jenv local 11
+```
+
+Note that it creates a `.java-version` file at the cwd to remember its per-directory version settings.
+
 ## Previewing Your Work
 
 To preview your work, at a command prompt type:
