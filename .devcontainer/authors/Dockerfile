@@ -30,15 +30,14 @@ RUN git clone https://github.com/jenv/jenv.git ~/.jenv
 RUN echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.bash_profile
 RUN echo 'eval "$(jenv init -)"' >> ~/.bash_profile
 RUN echo 'source ~/.bash_profile' >> ~/.bashrc
-RUN source ~/.bashrc
 
 # Register JDKs
-RUN jenv add /usr/lib/jvm/jdk8u372-b07
-RUN jenv add /usr/lib/jvm/java-11-openjdk-amd64
-RUN jenv add /usr/lib/jvm/java-17-openjdk-amd64
+RUN ~/.jenv/bin/jenv add /usr/lib/jvm/jdk8u372-b07
+RUN ~/.jenv/bin/jenv add /usr/lib/jvm/java-11-openjdk-amd64
+RUN ~/.jenv/bin/jenv add /usr/lib/jvm/java-17-openjdk-amd64
 
 # Set OpenJDK 8 as default
-RUN jenv global 1.8
+RUN ~/.jenv/bin/jenv global 1.8
 
 RUN wget https://github.com/errata-ai/vale/releases/download/v2.3.4/vale_2.3.4_Linux_64-bit.tar.gz
 RUN tar -xvzf vale_2.3.4_Linux_64-bit.tar.gz
