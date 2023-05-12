@@ -27,6 +27,8 @@ RUN mv jdk8u372-b07 /usr/lib/jvm
 
 # Install Jenv
 RUN git clone https://github.com/jenv/jenv.git ~/.jenv
+RUN export PATH="$HOME/.jenv/bin:$PATH"
+RUN eval "$(jenv init -)"
 RUN echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.bash_profile
 RUN echo 'eval "$(jenv init -)"' >> ~/.bash_profile
 RUN echo 'source ~/.bash_profile' >> ~/.bashrc
