@@ -27,13 +27,12 @@ RUN mv jdk8u372-b07 /usr/lib/jvm
 
 # Install Jenv
 RUN git clone https://github.com/jenv/jenv.git ~/.jenv
-RUN export PATH="$HOME/.jenv/bin:$PATH"
-RUN eval "$(jenv init -)"
 RUN echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.bash_profile
 RUN echo 'eval "$(jenv init -)"' >> ~/.bash_profile
 RUN echo 'source ~/.bash_profile' >> ~/.bashrc
 
 # Register JDKs
+RUN mkdir -p ~/.jenv/versions
 RUN ~/.jenv/bin/jenv add /usr/lib/jvm/jdk8u372-b07
 RUN ~/.jenv/bin/jenv add /usr/lib/jvm/java-11-openjdk-amd64
 RUN ~/.jenv/bin/jenv add /usr/lib/jvm/java-17-openjdk-amd64
