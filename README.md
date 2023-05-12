@@ -22,7 +22,7 @@ codespace from this repository with the following configurations:
   This contains the components needed to execute the workshop examples.
 
 The finished workshops may be found on the web at:
-https://codeql-learning-catalog.github.com
+<https://codeql-learning-catalog.github.com>
 
 # Authoring Guide
 
@@ -155,7 +155,7 @@ The fields in your workshop's `index.md` are as follows:
 - `banner` - A graphical banner to display at the top of this workshop page. _optional, but strongly encouraged_
 - `video` - A video recording of this workshop _optional_.
 - `deck` - The slides for this workshop _optional_.
-- `octicon` - The icon to use. Should almost always be `package` -- if you want to use another icon for your page, https://github.com/primer/octicons
+- `octicon` - The icon to use. Should almost always be `package` -- if you want to use another icon for your page, <https://github.com/primer/octicons>
 - `toc` - controls if a TOC is displayed on your page.
 - `topics` - A comma separated list of topics, e.g.: dataflow, taint
 
@@ -186,7 +186,7 @@ The fields in an individual workshop page are:
 - `layout` - Should always be `page` **required**
 - `title` - The title of your workshop. **required**
 - `banner` - A graphical banner to display at the top of this workshop page. _optional, but strongly encouraged_
-- `octicon` - The icon to use. Should almost always be `package` -- if you want to use another icon for your page, https://github.com/primer/octicons
+- `octicon` - The icon to use. Should almost always be `package` -- if you want to use another icon for your page, <https://github.com/primer/octicons>
 - `toc` - controls if a TOC is displayed on your page.
 - `topics` - A comma separated list of topics, e.g.: dataflow, taint
 
