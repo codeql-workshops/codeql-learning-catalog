@@ -37,7 +37,7 @@ RUN jenv add /usr/lib/jvm/java-11-openjdk-amd64
 RUN jenv add /usr/lib/jvm/java-17-openjdk-amd64
 
 # Set OpenJDK 8 as default
-jenv global 1.8
+RUN jenv global 1.8
 
 RUN wget https://github.com/errata-ai/vale/releases/download/v2.3.4/vale_2.3.4_Linux_64-bit.tar.gz
 RUN tar -xvzf vale_2.3.4_Linux_64-bit.tar.gz
