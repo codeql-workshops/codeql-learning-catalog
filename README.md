@@ -245,6 +245,13 @@ jenv local 11
 
 Note that it creates a `.java-version` file at the cwd to remember its per-directory version settings.
 
+### Using Java Build Systems
+
+The devcontainer image that this Codespaces is based on contains Maven and Gradle to be used for compiling databases. They live under `/opt/`, and are not installed from the `apt` repository. Therefore, if you want a newer version of either ones, you will have to download a newer binary from their official websites, decompress and then move it under the same directory.
+
+- Maven release page: https://maven.apache.org/download.cgi
+- Gradle release page: https://gradle.org/releases/
+
 ## Previewing Your Work
 
 To preview your work, at a command prompt type:
