@@ -43,15 +43,15 @@ RUN ~/.jenv/bin/jenv global 1.8
 # Install Gradle
 RUN wget https://services.gradle.org/distributions/gradle-8.1.1-bin.zip
 RUN unzip gradle-8.1.1-bin.zip
-RUN mv gradle-8.1.1/bin/gradle /usr/local/bin/
-RUN rm -rf gradle-8.1.1/
+RUN mv gradle-8.1.1/ /opt/
+RUN echo 'export PATH="/opt/gradle-8.1.1/bin/:$PATH"' >> ~/.bash_profile
 RUN rm gradle-8.1.1-bin.zip
 
 # Install Maven
 RUN wget https://dlcdn.apache.org/maven/maven-3/3.9.2/binaries/apache-maven-3.9.2-bin.tar.gz
-RUN tar -xf apache-maven-3.9.2
-RUN mv apache-maven-3.9.2/bin/mvn /usr/local/bin/
-RUN rm -rf apache-maven-3.9.2/
+RUN tar -xf apache-maven-3.9.2-bin.tar.gz
+RUN mv apache-maven-3.9.2/ /opt/
+RUN echo 'export PATH="/opt/apache-maven-3.9.2/bin/:$PATH"' >> ~/.bash_profile
 RUN rm apache-maven-3.9.2-bin.tar.gz
 
 RUN wget https://github.com/errata-ai/vale/releases/download/v2.3.4/vale_2.3.4_Linux_64-bit.tar.gz
