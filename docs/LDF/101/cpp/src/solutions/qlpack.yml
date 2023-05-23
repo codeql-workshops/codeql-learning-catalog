@@ -3,4 +3,4 @@ library: false
 name: ldf-101-cpp-solutions
 version: 0.0.1
 dependencies:
-  codeql/cpp-all: 0.5.2
+  codeql/cpp-all: 0.6.2
