@@ -31,14 +31,17 @@ module Linux {
 
   class FileOperationsDefinition extends Variable {
     FileOperationsDefinition() { this.getType() instanceof FileOperationsStruct }
+    /*
+     * Commented out since it's unused here
+     * Function getUnlockedIoctl() {
+     *      exists(Field unlockedIoctl | unlockedIoctl.hasName("unlocked_ioctl") |
+     *        this.getAnAssignedValue().(ClassAggregateLiteral).getFieldExpr(unlockedIoctl) =
+     *          result.getAnAccess()
+     *      )
+     *    }
+     */
 
-    Function getUnlockedIoctl() {
-      exists(Field unlockedIoctl | unlockedIoctl.hasName("unlocked_ioctl") |
-        this.getAnAssignedValue().(ClassAggregateLiteral).getFieldExpr(unlockedIoctl) =
-          result.getAnAccess()
-      )
     }
-  }
 }
 
 select any(Linux::MiscDeviceDefinition miscDeviceDefinition).getFileOperations()
