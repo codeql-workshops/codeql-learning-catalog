@@ -1,44 +1,49 @@
 # CodeQL workshop: Syntactical elements of C/C++
 
+## Problem Statement
+
+In this workshop, we use CodeQL to analyze the source code of a [vulnerable Linux driver](https://github.com/invictus-0x90/vulnerable_linux_driver) to pinpoint a portion of source code that causes a buffer overflow.
+
+Linux kernels allows users to register their simple drivers as a [miscellaneous character driver](https://www.linuxjournal.com/article/2920) (henceforth misc driver), and this project aims to provide a misc driver ready to be inserted into the kernel. Linux misc drivers need to be added and removed to the kernel via two API functions provided by the kernel, [`misc_register`](https://github.com/torvalds/linux/blob/8ca09d5fa3549d142c2080a72a4c70ce389163cd/include/linux/miscdevice.h#L91) and [`misc_unregister`](https://github.com/torvalds/linux/blob/8ca09d5fa3549d142c2080a72a4c70ce389163cd/include/linux/miscdevice.h#L92), respectively.
+
+Looking close to the source code of this project, we can see it [register a vulnerable device](https://github.com/invictus-0x90/vulnerable_linux_driver/blob/2bbfdadd403b6def98f98f6ee3f465286f35e0c9/src/vuln_driver.c#L156) represented as a `static struct` that contains another struct that implements `file_operations` which bridges between user-space application code (performing I/O with the device) and the kernel. The vulnerable point is the `do_ioctl` function being registered as that user-space code, hence the aim of our investigation.
+
+Starting from the `misc_register` function we will traverse function calls, expressions, structure definitions, and variable initializations to find this entrypoint `do_ioctl`. In the course of this investigation, you will learn how to:
+
+- Discover how QL represents C/C++ program elements.
+- Query program elements in the AST ([Abstract Syntax Tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree)).
+- Learn how to express descriptions of certain program elements using QL classes.
+
 ## Setup instructions
+
+### GitHub Codespaces
+
+<!-- TODO Pure imagination. Need to make concrete by actually trying everything ourselves. -->
+
+- From the command palette (bound to `Ctrl+Shift+P` or `Cmd+Shift+P`), choose `CodeQL: Choose Database from Archive`.
+- Choose `vld.zip` provided by Git LFS.  <!-- This implies that git lfs pull is done as the codespace is built; post-init-hook, as it were. -->
+- No further steps are necessary!
+
+### Working locally
 
 - Install [Visual Studio Code](https://code.visualstudio.com/).
 - Install the [CodeQL extension for Visual Studio Code](https://codeql.github.com/docs/codeql-for-visual-studio-code/setting-up-codeql-in-visual-studio-code/).
-- (Optionally) Install [Docker](https://www.docker.com/) if you want to build your own CodeQL database.
-- (Optionally) Install the [CodeQL CLI](https://github.com/github/codeql-cli-binaries/releases) if you want to build your own CodeQL database.
-- Clone this repository recursively:
-  
-  ```bash
-  git clone --recursive https://github.com/rvermeulen/codeql-workshop-elements-of-syntactical-program-analysis-cpp
-  ```
+- Clone this repository and additionally run `git lfs pull` to get the precompiled database to work on.
+- Install the CodeQL pack dependencies using the command `CodeQL: Install Pack Dependencies` and select `ldf-101-cpp-src`.
+- From the command palette (bound to `Ctrl+Shift+P` or `Cmd+Shift+P`), choose `CodeQL: Choose Database from Archive`.
+- Choose `vld.zip` provided by Git LFS.
 
-- Install the CodeQL pack dependencies using the command `CodeQL: Install Pack Dependencies` and select `exercises` and `solutions`.
-- Download the [prebuilt database](https://drive.google.com/file/d/1upETVaHIwE9YnJHQcxW9bNJSWCClDmBg/view?usp=sharing) or build the database using the predefined Makefile by running `make`.
-- Select the Vulnerable Linux Driver database as the current database by right-clicking on the file `vulnerable-linux-driver-db.zip` in the File explorer and running the command `CodeQL: Set Current Database`.
+## Documentation Links
+
+If you get stuck, try searching our documentation and blog posts for help and ideas. Below are a few links to help you get started:
+
+- [Learning CodeQL](https://codeql.github.com/docs/writing-codeql-queries/)
+- [Learning CodeQL for C/C++](https://codeql.github.com/docs/codeql-language-guides/codeql-for-cpp/)
+- [Using the CodeQL extension for VS Code](https://codeql.github.com/docs/codeql-for-visual-studio-code/)
 
 ## Workshop
 
-### Learnings
-
-In this workshop you will learn how to describe syntactical elements of the C/C++ programming language.
-With the goal of describing the user-mode entry point of the intentionally [vulnerable Linux driver](https://github.com/invictus-0x90/vulnerable_linux_driver) you will:
-
-- Discover how QL represents C/C++ program elements.
-- Learn to query program elements.
-- Learn how to encapsulate descriptions of program elements using QL classes.
-
-This workshop focusses on the syntactical parts. Some parts in this workshop can be generalized using more advanced techniques, such as dataflow analysis, that are covered in other workshops.
-
-### Linux Miscellaneous Driver
-
-The intentionally vulnerable Linux driver project implements a [Miscellaneous Character Driver](https://www.linuxjournal.com/article/2920) to expose multiple vulnerabilities to learn about Kernel driver exploitation.
-
-The miscellaneous character driver was designed for use cases that require a small device driver to support custom hardware or software hacks.
-To register or unregister a miscellaneous driver, the **misc** driver exports two functions for user modules, that can be found in the header [linux/miscdevice.h](https://github.com/torvalds/linux/blob/master/include/linux/miscdevice.h), called [misc_register](https://github.com/torvalds/linux/blob/8ca09d5fa3549d142c2080a72a4c70ce389163cd/include/linux/miscdevice.h#L91) and [misc_unregister](https://github.com/torvalds/linux/blob/8ca09d5fa3549d142c2080a72a4c70ce389163cd/include/linux/miscdevice.h#L92).
-
-With the `misc_register` function as the starting point we will traverse function calls, expressions, structure definitions, and variable initializations to find the user module entrypoint. This entrypoint will be the start of future workshops that will discuss the vulnerabilities that can be found in this intentionally vulnerable Linux driver.
-
-## Exercises
+The workshop is split into several steps. You can write one query per step, or work with a single query that you refine at each step. Each step has a **hint** that suggests useful classes and predicates in the CodeQL standard libraries for C/C++. You can explore these in VSCode using the autocomplete suggestions `Ctrl+Space` and the `Go to Definition` command bound to `F12`.
 
 ### Exercise 1
 
