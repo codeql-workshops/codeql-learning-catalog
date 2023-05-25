@@ -1,6 +1,6 @@
 ---
 library: false
-name: ldf-101-cpp-solutions-test
+name: ldf-101-cpp-test
 version: 0.0.1
 dependencies:
   ldf-101-cpp-solutions: '*'
