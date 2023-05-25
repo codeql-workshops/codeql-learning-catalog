@@ -1,13 +1,11 @@
 import cpp
 
-module Linux {
-  class MiscRegisterFunction extends Function {
-    MiscRegisterFunction() {
-      // Provide an implementation for the characteristic predicate.
-      none()
-    }
+class MiscRegisterFunction extends Function {
+  MiscRegisterFunction() {
+    /* TODO Delete the `none()` below and complete this characteristic predicate's definition */
+    none()
   }
 }
 
-from Linux::MiscRegisterFunction miscRegister
+from MiscRegisterFunction miscRegister
 select miscRegister.getACallToThisFunction()

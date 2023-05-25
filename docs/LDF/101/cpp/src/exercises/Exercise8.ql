@@ -1,19 +1,18 @@
 import cpp
 
-module Linux {
-  class FileOperationsStruct extends Struct {
-    FileOperationsStruct() {
-      // Provide an implementation for the characteristic predicate.
-      none()
-    }
-  }
-
-  class FileOperationsDefinition extends Variable {
-    FileOperationsDefinition() {
-      // Provide an implementation for the characteristic predicate.
-      none()
-    }
+class FileOperationsStruct extends Struct {
+  FileOperationsStruct() {
+    /* TODO Delete `none()` below and complete this characteristic predicate's definition */
+    none()
   }
 }
 
-select any(Linux::FileOperationsDefinition fileOperationsDefinition)
+class FileOperationsDefinition extends Variable {
+  FileOperationsDefinition() {
+    /* TODO Delete `none()` below and complete this characteristic predicate's definition */
+    none()
+  }
+}
+
+from FileOperationsDefinition fileOperationsDefinition
+select fileOperationsDefinition

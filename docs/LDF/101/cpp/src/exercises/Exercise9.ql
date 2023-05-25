@@ -1,24 +1,20 @@
 import cpp
 
-module Linux {
-  class FileOperationsStruct extends Struct {
-    FileOperationsStruct() {
-      // Copy solution from Exercise 8 here.
-      none()
-    }
-  }
-
-  class FileOperationsDefinition extends Variable {
-    FileOperationsDefinition() {
-      // Copy solution from Exercise 8 here.
-      none()
-    }
-
-    Function getUnlockedIoctl() {
-      // Provide an implementation for this predicate.
-      none()
-    }
+class FileOperationsStruct extends Struct {
+  FileOperationsStruct() {
+    this.getName() = "file_operations" and
+    this.getFile().getAbsolutePath().matches("%/include/linux/fs.h")
   }
 }
 
-select any(Linux::FileOperationsDefinition fileOperationsDefinition).getUnlockedIoctl()
+class FileOperationsDefinition extends Variable {
+  FileOperationsDefinition() { this.getType() instanceof FileOperationsStruct }
+
+  Function getUnlockedIoctl() {
+    /* TODO Delete `none()` below and complete this predicate's definition */
+    none()
+  }
+}
+
+from FileOperationsDefinition fileOperationsDefinition
+select fileOperationsDefinition.getUnlockedIoctl()

@@ -1,3 +1,4 @@
 import cpp
 
-select "Find all the function calls to 'misc_register' in the program."
+/* TODO Complete the from-where-select clause */
+select "Complete the select clause"

@@ -1,20 +1,18 @@
 import cpp
 
-module Linux {
-  class MiscDeviceStruct extends Struct {
-    MiscDeviceStruct() {
-      // Copy the solution from Exercise 5 here.
-      none()
-    }
-  }
-
-  class MiscDeviceDefinition extends Variable {
-    MiscDeviceDefinition() {
-      // Provide an implementation for the characteristic predicate.
-      none()
-    }
+class MiscDeviceStruct extends Struct {
+  MiscDeviceStruct() {
+    this.getName() = "miscdevice" and
+    this.getFile().getAbsolutePath().matches("%/include/linux/miscdevice.h")
   }
 }
 
-from Linux::MiscDeviceDefinition miscDeviceDefinition
+class MiscDeviceDefinition extends Variable {
+  MiscDeviceDefinition() {
+    /* TODO Delete `none()` below and complete this characteristic predicate's definition */
+    none()
+  }
+}
+
+from MiscDeviceDefinition miscDeviceDefinition
 select miscDeviceDefinition

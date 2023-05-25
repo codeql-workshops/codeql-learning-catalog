@@ -1,13 +1,11 @@
 import cpp
 
-module Linux {
-  class MiscDeviceStruct extends Struct {
-    MiscDeviceStruct() {
-      // Provide an implementation for the characteristic predicate.
-      none()
-    }
+class MiscDeviceStruct extends Struct {
+  MiscDeviceStruct() {
+    /* TODO Delete the `none()` below and complete this characteristic predicate's definition */
+    none()
   }
 }
 
-from Linux::MiscDeviceStruct miscDeviceStruct
+from MiscDeviceStruct miscDeviceStruct
 select miscDeviceStruct

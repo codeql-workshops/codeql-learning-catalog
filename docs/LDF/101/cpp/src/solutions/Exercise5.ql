@@ -1,13 +1,11 @@
 import cpp
 
-module Linux {
-  class MiscDeviceStruct extends Struct {
-    MiscDeviceStruct() {
-      this.getName() = "miscdevice" and
-      this.getFile().getAbsolutePath().matches("%/include/linux/miscdevice.h")
-    }
+class MiscDeviceStruct extends Struct {
+  MiscDeviceStruct() {
+    this.getName() = "miscdevice" and
+    this.getFile().getAbsolutePath().matches("%/include/linux/miscdevice.h")
   }
 }
 
-from Linux::MiscDeviceStruct miscDeviceStruct
+from MiscDeviceStruct miscDeviceStruct
 select miscDeviceStruct

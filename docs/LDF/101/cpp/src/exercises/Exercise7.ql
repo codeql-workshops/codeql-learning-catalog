@@ -1,15 +1,14 @@
 import cpp
 
-module Linux {
-  class MiscDeviceStruct extends Struct {
-    MiscDeviceStruct() {
-      // Copy the solution from Exercise 5 here.
-      none()
-    }
+class MiscDeviceStruct extends Struct {
+  MiscDeviceStruct() {
+    this.getName() = "miscdevice" and
+    this.getFile().getAbsolutePath().matches("%/include/linux/miscdevice.h")
   }
 }
 
-from Linux::MiscDeviceStruct miscDeviceStruct, Field field, Type fieldType
-// Implement the where clause that relates the third field of the miscDeviceStruct to field, and field to its type fieldType..
-where none()
+from MiscDeviceStruct miscDeviceStruct, Field field, Type fieldType
+where
+  /* Delete `none()` below and complete the `where` clause. */
+  none()
 select miscDeviceStruct, field, fieldType

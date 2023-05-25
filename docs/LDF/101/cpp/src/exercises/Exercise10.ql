@@ -1,43 +1,38 @@
 import cpp
 
-module Linux {
-  class MiscDeviceStruct extends Struct {
-    MiscDeviceStruct() {
-      // Copy the solution from Exercise 5 here.
-      none()
-    }
-  }
-
-  class MiscDeviceDefinition extends Variable {
-    MiscDeviceDefinition() {
-      // Copy the solution from Exercise 6 here.
-      none()
-    }
-
-    FileOperationsDefinition getFileOperations() {
-      // Provide an implementation for this predicate.
-      none()
-    }
-  }
-
-  class FileOperationsStruct extends Struct {
-    FileOperationsStruct() {
-      // Copy solution from Exercise 8 here.
-      none()
-    }
-  }
-
-  class FileOperationsDefinition extends Variable {
-    FileOperationsDefinition() {
-      // Copy solution from Exercise 8 here.
-      none()
-    }
-
-    Function getUnlockedIoctl() {
-      // Copy solution from Exercise 9 here.
-      none()
-    }
+class MiscDeviceStruct extends Struct {
+  MiscDeviceStruct() {
+    this.getName() = "miscdevice" and
+    this.getFile().getAbsolutePath().matches("%/include/linux/miscdevice.h")
   }
 }
 
-select any(Linux::MiscDeviceDefinition miscDeviceDefinition).getFileOperations()
+class MiscDeviceDefinition extends Variable {
+  MiscDeviceDefinition() { this.getType() instanceof MiscDeviceStruct }
+
+  FileOperationsDefinition getFileOperations() {
+    /* TODO Delete `none()` below and complete this predicate's definition */
+    none()
+  }
+}
+
+class FileOperationsStruct extends Struct {
+  FileOperationsStruct() {
+    this.getName() = "file_operations" and
+    this.getFile().getAbsolutePath().matches("%/include/linux/fs.h")
+  }
+}
+
+class FileOperationsDefinition extends Variable {
+  FileOperationsDefinition() { this.getType() instanceof FileOperationsStruct }
+
+  Function getUnlockedIoctl() {
+    exists(Field unlockedIoctl | unlockedIoctl.hasName("unlocked_ioctl") |
+      this.getAnAssignedValue().(ClassAggregateLiteral).getFieldExpr(unlockedIoctl) =
+        result.getAnAccess()
+    )
+  }
+}
+
+from MiscDeviceDefinition miscDeviceDefinition
+select miscDeviceDefinition.getFileOperations()
