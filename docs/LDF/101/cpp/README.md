@@ -38,7 +38,9 @@ Starting from the `misc_register` function we will traverse function calls, expr
 If you get stuck, try searching our documentation and blog posts for help and ideas. Below are a few links to help you get started:
 
 - [Learning CodeQL](https://codeql.github.com/docs/writing-codeql-queries/)
-- [Learning CodeQL for C/C++](https://codeql.github.com/docs/codeql-language-guides/codeql-for-cpp/)
+- [CodeQL Language Guides for C/C++](https://codeql.github.com/docs/codeql-language-guides/codeql-for-cpp/)
+- [CodeQL Standard Library for C/C++](https://codeql.github.com/codeql-standard-libraries/cpp)
+- [CodeQL](https://codeql.github.com/docs/codeql-language-guides/codeql-for-cpp/)
 - [Using the CodeQL extension for VS Code](https://codeql.github.com/docs/codeql-for-visual-studio-code/)
 
 ## Workshop
@@ -47,45 +49,47 @@ The workshop is split into several steps. You can write one query per step, or w
 
 ### Exercise 1
 
-Find all the function calls in the program by implementing [Exercise1.ql](exercises/Exercise1.ql).
+Since we are first looking for calls to the function `misc_register`, we start off by listing all the function calls in the program. Find all the function calls in the program by implementing [Exercise1.ql](exercises/Exercise1.ql).
 
 <details>
 <summary>Hints</summary>
 
-- The class `FunctionCall` can be used to reason about all the function calls in the program.
+- The class `FunctionCall` can be used to reason about function calls in the program.
 
 </details>
 
-A solution can be found in the query [Exercise1.ql](solutions/Exercise1.ql)
+A solution can be found in the query [Exercise1.ql](solutions/Exercise1.ql).
 
 ### Exercise 2
 
-Find all the function calls to the function `misc_register` by implementing [Exercise2.ql](exercises/Exercise2.ql).
+That's a big list of function calls! So let's narrow it down to what we're actually looking for. Filter out rows from the previous table to only have the calls to function `misc_register` by implementing [Exercise2.ql](exercises/Exercise2.ql).
 
 <details>
 <summary>Hints</summary>
 
-- The class `FunctionCall` provides the member predicate `getTarget` to reason about the called function.
+- The class `FunctionCall` provides the member predicate `getTarget` to refer to the called function.
 - The class `Function` provides the member predicate `getName` to get the name of the function.
 
 </details>
 
-A solution can be found in the query [Exercise2.ql](solutions/Exercise2.ql)
+A solution can be found in the query [Exercise2.ql](solutions/Exercise2.ql).
+
+There should be only one such call if the result is correct.
 
 ### Exercise 3
 
-Recall that [predicates](https://codeql.github.com/docs/ql-language-reference/predicates/) and [classes](https://codeql.github.com/docs/ql-language-reference/types/#classes) allow you to encapsulate logical conditions in a reusable format.
+So far, we have been adding our constraints to the `where` clause directly. That works, but it makes the `where` clause increasingly hard to read and makes it hard for us to introduce new concepts to be used in some of the constraints. [Predicates](https://codeql.github.com/docs/ql-language-reference/predicates/) and [classes](https://codeql.github.com/docs/ql-language-reference/types/#classes) allow you to do that by encapsulating logical conditions in a reusable format.
 
 Convert your solution to [Exercise2.ql](exercises/Exercise2.ql) into a _class_ in [Exercises3.ql](exercises/Exercise3.ql) by replacing the [none](https://codeql.github.com/docs/ql-language-reference/formulas/#none) formula in the [characteristic predicate](https://codeql.github.com/docs/ql-language-reference/types/#characteristic-predicates) of the `MiscRegisterFunction` class.
 
-Besides relying on the name, try to add another property to distinguish the correct function.
+Also, besides relying on the name, try to add another property to distinguish the function we're looking for. What about the path to the file a program element lives in?
 
 <details>
 <summary>Hints</summary>
 
 - Each program element represented by the class `Element` can be related to the primary file the element occurs in using the member predicate `getFile`.
 - Each program element has an absolute path that can be accessed using the member predicate `getAbsolutePath` on the class `File`.
-- The QL string type provides [builtins](https://codeql.github.com/docs/ql-language-reference/ql-language-specification/#built-ins-for-string) such as `matches` and `regexpMatch` to match patterns in strings. The `matches` builtin member predicate interprets `_` to match any single character and `%` to match any sequences of characters in the provided pattern.
+- The QL string type provides [built-in member predicates](https://codeql.github.com/docs/ql-language-reference/ql-language-specification/#built-ins-for-string) such as `matches` and `regexpMatch` to match patterns in strings. The `matches` predicate interprets `_` to match any single character and `%` to match any sequences of characters in the provided pattern.
 
 </details>
 
@@ -93,15 +97,15 @@ A solution can be found in the query [Exercise3.ql](solutions/Exercise3.ql)
 
 ### Exercise 4
 
-The definition of the driver is passed as a parameter to the `misc_register` function.
-Obtain the argument to the call, determine the arguments type and primary QL class by implementing [Exercise4.ql](exercises/Exercise4.ql).
+Now that we found the call to `misc_register` in question, we shift gears to its argument `&vuln_device`, a representation of the problematic driver. This seems interesting, so let us inspect this in detail. Obtain the argument to the call, and determine the argument's type and its primary QL class by implementing [Exercise4.ql](exercises/Exercise4.ql).
 
 <details>
 <summary>Hints</summary>
 
-- The class `FunctionCall` provides the member predicate `getArgument` to get a provided argument by index.
+- The class `FunctionCall` provides the member predicate `getArgument` to get an argument by index.
 - Each expression represented by the class `Expr` has a type that can be retrieved with the member predicate `getType`.
 - Each program element represented by the class `Element` has a member predicate `getPrimaryQlClass` that returns the QL class that is the most precise syntactic category the element belongs to.
+- Relate expressions as much as you can. Relate the call to the misc_register call to the misc_register function, use it to retrieve its argument, and again associate to its type and the primary QL class. `Select` the latter three.
 
 </details>
 
@@ -152,6 +156,8 @@ Find the type of the third field initialized with `&vuln_fops` by implementing
 - The class `Struct` inherits the member predicate `getAMember` from the class `Class` that gets the zero-based indexed member declared in the struct.
 - The class `Field` inherits the member predicate `getType` from the class `MemberVariable` that returns the type of the field.
 
+<!-- TODO -->
+// Implement the where clause that relates the third field of the miscDeviceStruct to field, and field to its type fieldType..
 </details>
 
 A solution can be found in the query [Exercise7.ql](solutions/Exercise7.ql)
