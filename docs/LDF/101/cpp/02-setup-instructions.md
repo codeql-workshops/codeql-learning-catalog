@@ -9,20 +9,19 @@ Before we move on to write our queries, let us set up our development environmen
 
 ### GitHub Codespaces
 
-You can start off by
+This is the easiest and fastest way to get started!
 
-- From the command palette (bound to `Ctrl+Shift+P` or `Cmd+Shift+P`), choose `CodeQL: Choose Database from Archive`.
-- Choose `vld.zip` provided by Git LFS.
-- No further steps are necessary!
+1. From the command palette (bound to `Ctrl+Shift+P` or `Cmd+Shift+P`), choose `CodeQL: Choose Database from Archive`.
+2. Choose `vld.zip` provided by Git LFS.
 
 ### Working locally
 
-- Install [Visual Studio Code](https://code.visualstudio.com/).
-- Install the [CodeQL extension for Visual Studio Code](https://codeql.github.com/docs/codeql-for-visual-studio-code/setting-up-codeql-in-visual-studio-code/).
-- Clone this repository and additionally run `git lfs pull` to get the precompiled database to work on.
-- Install the CodeQL pack dependencies using the command `CodeQL: Install Pack Dependencies` and select `ldf-101-cpp-src`.
-- From the command palette (bound to `Ctrl+Shift+P` or `Cmd+Shift+P`), choose `CodeQL: Choose Database from Archive`.
-- Choose `vld.zip` provided by Git LFS.
+1. Install [Visual Studio Code](https://code.visualstudio.com/).
+2. Install the [CodeQL extension for Visual Studio Code](https://codeql.github.com/docs/codeql-for-visual-studio-code/setting-up-codeql-in-visual-studio-code/).
+3. Clone this repository and additionally run `git lfs pull` to get the precompiled database to work on.
+4. Install the CodeQL pack dependencies using the command `CodeQL: Install Pack Dependencies` and select `ldf-101-cpp-src`.
+5. From the command palette (bound to `Ctrl+Shift+P` or `Cmd+Shift+P`), choose `CodeQL: Choose Database from Archive`.
+6. Choose `vld.zip` provided by Git LFS.
 
 ## Documentation Links
 
