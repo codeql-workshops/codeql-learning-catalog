@@ -21,7 +21,7 @@ Starting from the `misc_register` function we will traverse function calls, expr
 <!-- TODO Pure imagination. Need to make concrete by actually trying everything ourselves. -->
 
 - From the command palette (bound to `Ctrl+Shift+P` or `Cmd+Shift+P`), choose `CodeQL: Choose Database from Archive`.
-- Choose `vld.zip` provided by Git LFS.  <!-- This implies that git lfs pull is done as the codespace is built; post-init-hook, as it were. -->
+- Choose `vld.zip` provided by Git LFS.  <!-- This implies that `git lfs pull` is done as the codespace is built; post-init-hook, as it were. -->
 - No further steps are necessary!
 
 ### Working locally
