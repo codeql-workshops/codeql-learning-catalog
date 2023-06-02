@@ -9,7 +9,7 @@ We are now ready to find the culprit that is responsible for overflowing a buffe
 
 ### Exercise 8
 
-Having known what type the third field of `struct miscdevice` has, we can now identify all `file_operation`s such as `vuln_ops`. Implement the characteristic predicates for the class `FileOperationsStruct` and `FileOperationsDefinition` in [Exercise8.ql](exercises/Exercise8.ql).
+Having known what type the third field of `struct miscdevice` has, we can now identify all `file_operation`s such as `vuln_ops`. Implement the characteristic predicates for the class `FileOperationsStruct` and `FileOperationsDefinition` in Exercise8.ql.
 
 <details>
 <summary>Hints</summary>
@@ -26,7 +26,7 @@ Having known what type the third field of `struct miscdevice` has, we can now id
 The single file operation definition `vuln_ops` is initialized with, among others, a function pointer for the field `unlocked_ioctl`. This is the function that is invoked when a user-mode application performs the `ioctl` system call to communicate to the driver.
 
 Extend the class `FileOperationsDefinition` with a member predicate `getUnlockedIoctl` that returns a `Function` with which the file operations definition is initialized in
-[Exercise9.ql](exercises/Exercise9.ql).
+Exercise9.ql.
 
 <details>
 <summary>Hints</summary>
