@@ -9,7 +9,7 @@ We track the insecure function in question, the I/O function which overflows the
 
 ## Exercise 1
 
-Since we are first looking for calls to the function `misc_register`, we start off by listing all the function calls in the program. Find all the function calls in the program by implementing [Exercise1.ql](exercises/Exercise1.ql).
+Since we are first looking for calls to the function `misc_register`, we start off by listing all the function calls in the program. Find all the function calls in the program by implementing Exercise1.ql.
 
 <details>
 <summary>Hints</summary>
@@ -20,7 +20,7 @@ Since we are first looking for calls to the function `misc_register`, we start o
 
 ## Exercise 2
 
-That's a big list of function calls! So let's narrow it down to what we're actually looking for. Filter out rows from the previous table to only have the calls to function `misc_register` by implementing [Exercise2.ql](exercises/Exercise2.ql).
+That's a big list of function calls! So let's narrow it down to what we're actually looking for. Filter out rows from the previous table to only have the calls to function `misc_register` by implementing Exercise2.ql.
 
 <details>
 <summary>Hints</summary>
@@ -50,7 +50,7 @@ static int vuln_module_init(void)
 
 So far, we have been adding our constraints to the `where` clause directly. That works, but it makes the `where` clause increasingly hard to read and makes it hard for us to introduce new concepts to be used in some of the constraints. [Predicates](https://codeql.github.com/docs/ql-language-reference/predicates/) and [classes](https://codeql.github.com/docs/ql-language-reference/types/#classes) allow you to do that by capturing logical conditions in a reusable format.
 
-Convert your solution to [Exercise2.ql](exercises/Exercise2.ql) into a CodeQL class in [Exercises3.ql](exercises/Exercise3.ql) by replacing the [none](https://codeql.github.com/docs/ql-language-reference/formulas/#none) formula in the [characteristic predicate](https://codeql.github.com/docs/ql-language-reference/types/#characteristic-predicates) of the `MiscRegisterFunction` class. Also, besides relying on the name, try to add another property to distinguish the function we're looking for. What about the path to the file a program element lives in?
+Convert your solution to Exercise2.ql into a CodeQL class in Exercises3.ql by replacing the [none](https://codeql.github.com/docs/ql-language-reference/formulas/#none) formula in the [characteristic predicate](https://codeql.github.com/docs/ql-language-reference/types/#characteristic-predicates) of the `MiscRegisterFunction` class. Also, besides relying on the name, try to add another property to distinguish the function we're looking for. What about the path to the file a program element lives in?
 
 <details>
 <summary>Hints</summary>

@@ -11,7 +11,7 @@ We are almost there and we have all the necessary QL definitions to be assembled
 
 We have successfully identified the miscellaneous driver definition (`miscdevice`), the file operations definition (`vuln_ops`), and linked the ioctl handler (`do_ioctl`) to the definition of type `file_operations`. Now, we would like to include the act of getting the `file_operation` of `struct miscdevice` under the class which expresses that very `struct miscdevice`, much like encapsulation in object-oriented languages.
 
-Get the class `MiscDeviceStruct` that represents `struct miscdevice` we wrote at Exercise 5, and add a [member predicate](https://codeql.github.com/docs/ql-language-reference/types/#member-predicates) `getFileOperations` that returns a `FileOperationsDefinition` that the miscellaneous driver definition is initialized with in [Exercise10.ql](exercises/Exercise10.ql).
+Get the class `MiscDeviceStruct` that represents `struct miscdevice` we wrote at Exercise 5, and add a [member predicate](https://codeql.github.com/docs/ql-language-reference/types/#member-predicates) `getFileOperations` that returns a `FileOperationsDefinition` that the miscellaneous driver definition is initialized with in Exercise10.ql.
 
 <details>
 <summary>Hints</summary>
@@ -35,7 +35,7 @@ Let's put everything together we've done so far by weaving these classes into on
 
 As a result, we will be able to chain the program elements from the misc_register function call, all the way to `do_ioctl` function.
 
-Implement the characteristic predicate for the class `MiscDriverUserModeEntry` in [Exercise11.ql](exercises/Exercise11.ql) that relates the classes `MiscRegisterFunction`, `MiscDeviceDefinition`, and `FileOperationsDefinition` such that its covers the call to `misc_register` and all the way to the definition of `do_ioctl`.
+Implement the characteristic predicate for the class `MiscDriverUserModeEntry` in Exercise11.ql that relates the classes `MiscRegisterFunction`, `MiscDeviceDefinition`, and `FileOperationsDefinition` such that its covers the call to `misc_register` and all the way to the definition of `do_ioctl`.
 
 <details>
 <summary>Hints</summary>

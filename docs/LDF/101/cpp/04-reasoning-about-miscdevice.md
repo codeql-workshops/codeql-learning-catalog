@@ -9,7 +9,7 @@ Now that we found the call to `misc_register` in question, we shift gears to its
 
 ## Exercise 4
 
-First, identifying the type of the object `vuln_device` might be a good start. Obtain the argument to the call to `misc_register`, the argument's type and the QL class that most precisely represents it by implementing [Exercise4.ql](exercises/Exercise4.ql).
+First, identifying the type of the object `vuln_device` might be a good start. Obtain the argument to the call to `misc_register`, the argument's type and the QL class that most precisely represents it by implementing Exercise4.ql.
 
 <details>
 <summary>Hints</summary>
@@ -25,7 +25,7 @@ Does the result indicate that the argument `&vuln_device` is some address of an 
 
 ## Exercise 5
 
-The `vuln_device` object is of type `struct miscdevice`, defined in one of the Linux headers. If we represent this `struct`, it may be useful later on. Why don't we model it as a class called `MiscDeviceStruct`? Complete the characteristic predicate of the class `MiscDeviceStruct` in [Exercise5.ql](exercises/Exercise5.ql) so we can reason about its use.
+The `vuln_device` object is of type `struct miscdevice`, defined in one of the Linux headers. If we represent this `struct`, it may be useful later on. Why don't we model it as a class called `MiscDeviceStruct`? Complete the characteristic predicate of the class `MiscDeviceStruct` in Exercise5.ql so we can reason about its use.
 
 <details>
 <summary>Hints</summary>
@@ -39,7 +39,7 @@ The `vuln_device` object is of type `struct miscdevice`, defined in one of the L
 
 ## Exercise 6
 
-Now that we have the representation of `struct miscdevice`, we can look for all it instantiations. Implement the characteristic predicate of the class `MiscDeviceDefinition` in [Exercise6.ql](exercises/Exercise6.ql) so we can use it to find all its instances.
+Now that we have the representation of `struct miscdevice`, we can look for all it instantiations. Implement the characteristic predicate of the class `MiscDeviceDefinition` in Exercise6.ql so we can use it to find all its instances.
 
 <details>
 <summary>Hints</summary>
@@ -48,7 +48,7 @@ Now that we have the representation of `struct miscdevice`, we can look for all 
 
 </details>
 
-### Exercise 7
+## Exercise 7
 
 The instantiation `vuln_device` initializes 3 members of the `miscdevice` structure:
 
@@ -56,7 +56,7 @@ The instantiation `vuln_device` initializes 3 members of the `miscdevice` struct
 2. `name`: initialized as `DEVICE_NAME`, an alias to string `"vulnerable_device"`.
 3. `fops`: this field denotes a file/IO operation to be performed for this device.
 
-The third ones seems interesting. What is its type? Find the type of the third field initialized with `&vuln_fops` by completing [Exercise7.ql](exercises/Exercise7.ql).
+The third ones seems interesting. What is its type? Find the type of the third field initialized with `&vuln_fops` by completing Exercise7.ql.
 
 <details>
 <summary>Hints</summary>
