@@ -1,0 +1,1 @@
+| test.c:32:11:32:23 | call to misc_register | test.c:32:25:32:36 | & ... | file://:0:0:0:0 | miscdevice * | AddressOfExpr |

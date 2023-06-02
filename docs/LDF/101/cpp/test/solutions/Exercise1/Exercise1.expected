@@ -1,0 +1,3 @@
+| test.c:32:11:32:23 | call to misc_register |
+| test.c:35:9:35:14 | call to printf |
+| test.c:37:5:37:10 | call to printf |
