@@ -2,6 +2,7 @@
 layout: page
 title: Introduction
 octicon: package
+banner: banner-code-graph-shield.png
 toc: false
 ---
 

@@ -3,8 +3,9 @@ layout: workshop-index
 title: Elements of Syntactical Program Analysis I for C/C++
 course_number: LDF-101-CPP
 abstract: We learn how to query the AST of a C program and refactor it along the way by investigating a buffer overflow vulnerability in a sample Linux driver.
-language: C/C++
+language: cpp
 octicon: package
+banner: banner-code-graph-shield.png
 toc: false
 topics: syntactical, C, AST, buffer-overflow, linux
 ---
