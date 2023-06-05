@@ -11,17 +11,17 @@ Before we move on to write our queries, let us set up our development environmen
 
 This is the easiest and fastest way to get started!
 
-1. From the command palette (bound to `Ctrl+Shift+P` or `Cmd+Shift+P`), choose `CodeQL: Choose Database from Archive`.
-2. `cd` to `docs/LDF/101/cpp`.
-3. Run `git lfs pull` to get the precompiled database to work on.
-4. Install the CodeQL pack dependencies using the command `CodeQL: Install Pack Dependencies` and select `ldf-101-cpp/solutions`, `ldf-101-cpp/tests`, and `ldf-101-cpp/exercises`.
+1. `cd` to `docs/LDF/101/cpp`.
+2. Run `git lfs pull` to get the precompiled database to work on.
+3. Install the CodeQL pack dependencies using the command `CodeQL: Install Pack Dependencies` and select `ldf-101-cpp/solutions`, `ldf-101-cpp/tests`, and `ldf-101-cpp/exercises`.
+4. From the command palette (bound to `Ctrl+Shift+P` or `Cmd+Shift+P`), choose `CodeQL: Choose Database from Archive`.
 5. Choose `vld.zip` provided by Git LFS.
 
 ### Working locally
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/).
 2. Install the [CodeQL extension for Visual Studio Code](https://codeql.github.com/docs/codeql-for-visual-studio-code/setting-up-codeql-in-visual-studio-code/).
-3. Clone this repository and `cd` to `docs/LDF/101/cpp`.
+3. Clone this repository, open it in VSCode, and `cd` to `docs/LDF/101/cpp`.
 4. Run `git lfs pull` to get the precompiled database to work on.
 5. Install the CodeQL pack dependencies using the command `CodeQL: Install Pack Dependencies` and select `ldf-101-cpp/solutions`, `ldf-101-cpp/tests`, and `ldf-101-cpp/exercises`.
 6. From the command palette (bound to `Ctrl+Shift+P` or `Cmd+Shift+P`), choose `CodeQL: Choose Database from Archive`.
@@ -33,6 +33,9 @@ If you get stuck, try searching our documentation and blog posts for help and id
 
 - [Learning CodeQL](https://codeql.github.com/docs/writing-codeql-queries/)
 - [CodeQL Language Guides for C/C++](https://codeql.github.com/docs/codeql-language-guides/codeql-for-cpp/)
+  - [Basic query for C and C++ code](https://codeql.github.com/docs/codeql-language-guides/basic-query-for-cpp-code/)
+  - [CodeQL library for C and C++](https://codeql.github.com/docs/codeql-language-guides/codeql-library-for-cpp/)
+  - [Functions in C and C++](https://codeql.github.com/docs/codeql-language-guides/functions-in-cpp/)
+  - [Expressions, types and statements in C and C++](https://codeql.github.com/docs/codeql-language-guides/expressions-types-and-statements-in-cpp/)
 - [CodeQL Standard Library for C/C++](https://codeql.github.com/codeql-standard-libraries/cpp)
-- [CodeQL](https://codeql.github.com/docs/codeql-language-guides/codeql-for-cpp/)
 - [Using the CodeQL extension for VSCode](https://codeql.github.com/docs/codeql-for-visual-studio-code/)
