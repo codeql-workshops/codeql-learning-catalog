@@ -17,7 +17,7 @@ This is the easiest and fastest way to get started!
 4. From the command palette (bound to `Ctrl+Shift+P` or `Cmd+Shift+P`), choose `CodeQL: Choose Database from Archive`.
 5. Choose `vld.zip` provided by Git LFS.
 
-### Working locally
+### Working Locally
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/).
 2. Install the [CodeQL extension for Visual Studio Code](https://codeql.github.com/docs/codeql-for-visual-studio-code/setting-up-codeql-in-visual-studio-code/).
