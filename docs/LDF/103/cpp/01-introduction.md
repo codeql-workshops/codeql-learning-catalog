@@ -23,10 +23,6 @@ But global taint flows are not feasible to compute for all functions in a databa
 
 The global taint tracking library avoids this problem by requiring that the query specifies what _sources_ and _sinks_ to look for. This allows CodeQL to compute paths containing only the restricted set of nodes between the specified sources and sinks, rather than for the entire set of taint flow nodes present in the program.
 
-In this workshop we will try to write a global taint flow query to find if there is a format string that is supplied by an attacker from outside the program which might travel through several functions. To do this, we will learn the following:
-
-- How to use the `Security` library for predefined entry-point definitions
-- How to use the `TaintTracking` library to create and specify a taint analysis
-- How to use the `PathGraph` library to find the full path with intermediate nodes
+We first describe what taint flow nodes count as sources and sinks in the program, and then we plug those definitions into the `isSource` and `isSink` predicates. We pass a module containing the two predicates to a parameterized module to guide the `TaintTracking` library to look for those nodes only. Finally, we convert the taint query into a path-problem query to reveal the intermediate steps to take to reach a sink node from a source node.
 
 The workshop is split into several steps. You can write one query per step, or work with a single query that you refine at each step. Each step has a **hint** that describes useful classes and predicates in the CodeQL standard libraries for C/C++. You can explore these in VSCode using the autocomplete suggestions `Ctrl+Space` and the `Go to Definition` command bound to `F12`.
