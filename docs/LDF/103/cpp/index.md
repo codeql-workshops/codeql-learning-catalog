@@ -35,5 +35,5 @@ The global data flow (and taint tracking) library avoids this problem by requiri
 In this workshop we write a global data flow query to find if there is a format string that is supplied by an attacker from outside the program which might travel through several functions. To do this, we will learn the following:
 
 - How to use the `Security` library for predefined entry-point definitions
-- How to use the `` library to specify an analysis
+- How to use the `TaintTracking` library to specify an analysis
 - How to use the `PathGraph` library to find the full path with intermediate nodes
