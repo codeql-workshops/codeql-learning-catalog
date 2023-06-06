@@ -22,7 +22,7 @@ codespace from this repository with the following configurations:
   This contains the components needed to execute the workshop examples.
 
 The finished workshops may be found on the web at:
-https://codeql-learning-catalog.github.com
+<https://codeql-learning-catalog.github.com>
 
 # Authoring Guide
 
@@ -155,7 +155,7 @@ The fields in your workshop's `index.md` are as follows:
 - `banner` - A graphical banner to display at the top of this workshop page. _optional, but strongly encouraged_
 - `video` - A video recording of this workshop _optional_.
 - `deck` - The slides for this workshop _optional_.
-- `octicon` - The icon to use. Should almost always be `package` -- if you want to use another icon for your page, https://github.com/primer/octicons
+- `octicon` - The icon to use. Should almost always be `package` -- if you want to use another icon for your page, <https://github.com/primer/octicons>
 - `toc` - controls if a TOC is displayed on your page.
 - `topics` - A comma separated list of topics, e.g.: dataflow, taint
 
@@ -186,7 +186,7 @@ The fields in an individual workshop page are:
 - `layout` - Should always be `page` **required**
 - `title` - The title of your workshop. **required**
 - `banner` - A graphical banner to display at the top of this workshop page. _optional, but strongly encouraged_
-- `octicon` - The icon to use. Should almost always be `package` -- if you want to use another icon for your page, https://github.com/primer/octicons
+- `octicon` - The icon to use. Should almost always be `package` -- if you want to use another icon for your page, <https://github.com/primer/octicons>
 - `toc` - controls if a TOC is displayed on your page.
 - `topics` - A comma separated list of topics, e.g.: dataflow, taint
 
@@ -201,6 +201,56 @@ octicon: package
 toc: false
 ---
 ```
+## Language Support For Java
+### Switching Java versions easily with Jenv
+
+Authors need to provide a precompiled database for the readers, and if you are working on a Java/Kotlin workshop, you would probably run into some Java version mismatches when invoking the build system for extraction. For easily switching between different Java versions, we have [Jenv](https://www.jenv.be/) as well as three different versions of OpenJDK (8, 11, and 17) preinstalled.
+
+OpenJDK 8 is set as default. To see the current version:
+
+```shell
+$ jenv version
+1.8 (set by /root/.jenv/version)
+```
+
+To list all installed versions:
+
+```shell
+$ jenv versions
+  system
+* 1.8 (set by /root/.jenv/version)
+  1.8.0.372
+  11
+  11.0
+  11.0.18
+  17
+  17.0
+  17.0.6
+  openjdk64-11.0.18
+  openjdk64-17.0.6
+  temurin64-1.8.0.372
+```
+
+To set a global Java version, say to 11:
+
+```shell
+jenv global 11
+```
+
+To set a Java version for the current working directory, recursively down to its subdirectories:
+
+```shell
+jenv local 11
+```
+
+Note that it creates a `.java-version` file at the cwd to remember its per-directory version settings.
+
+### Using Java Build Systems
+
+The devcontainer image that this Codespaces is based on contains Maven and Gradle to be used for compiling databases. They live under `/opt/`, and are not installed from the `apt` repository. Therefore, if you want a newer version of either ones, you will have to download a newer binary from their official websites, decompress and then move it under the same directory.
+
+- Maven release page: https://maven.apache.org/download.cgi
+- Gradle release page: https://gradle.org/releases/
 
 ## Previewing Your Work
 
