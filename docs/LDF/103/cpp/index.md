@@ -1,6 +1,6 @@
 ---
 layout: workshop-index
-title: Dataflow I
+title: Dataflow I for C/C++
 course_number: LDF-103-CPP
 abstract: We learn how to find global taint flows that cross the boundary of function scopes by exploring the debugging module of CoreCLR for a format string vulnerability.
 language: cpp
