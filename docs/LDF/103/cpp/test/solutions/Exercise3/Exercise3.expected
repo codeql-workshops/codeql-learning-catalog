@@ -1,0 +1,14 @@
+| test.c:11:19:11:22 | argv | This format string may be derived from a $@. | test.c:11:19:11:22 | argv | user-controlled value |
+| test.c:11:19:11:25 | access to array | This format string may be derived from a $@. | test.c:11:19:11:22 | argv | user-controlled value |
+| test.c:14:24:14:27 | buf1 | This format string may be derived from a $@. | test.c:14:24:14:27 | buf1 | user-controlled value |
+| test.c:17:39:17:42 | buf2 | This format string may be derived from a $@. | test.c:17:39:17:42 | buf2 | user-controlled value |
+| test.c:20:11:20:14 | buf3 | This format string may be derived from a $@. | test.c:20:11:20:14 | buf3 | user-controlled value |
+| test.c:23:5:23:9 | call to fgets | This format string may be derived from a $@. | test.c:23:5:23:9 | call to fgets | user-controlled value |
+| test.c:23:5:23:9 | call to fgets | This format string may be derived from a $@. | test.c:23:11:23:14 | buf4 | user-controlled value |
+| test.c:23:11:23:14 | buf4 | This format string may be derived from a $@. | test.c:23:11:23:14 | buf4 | user-controlled value |
+| test.c:26:5:26:10 | call to fgetws | This format string may be derived from a $@. | test.c:26:5:26:10 | call to fgetws | user-controlled value |
+| test.c:26:5:26:10 | call to fgetws | This format string may be derived from a $@. | test.c:26:12:26:15 | buf5 | user-controlled value |
+| test.c:26:12:26:15 | buf5 | This format string may be derived from a $@. | test.c:26:12:26:15 | buf5 | user-controlled value |
+| test.c:29:5:29:8 | call to gets | This format string may be derived from a $@. | test.c:29:5:29:8 | call to gets | user-controlled value |
+| test.c:29:5:29:8 | call to gets | This format string may be derived from a $@. | test.c:29:10:29:13 | buf6 | user-controlled value |
+| test.c:29:10:29:13 | buf6 | This format string may be derived from a $@. | test.c:29:10:29:13 | buf6 | user-controlled value |
