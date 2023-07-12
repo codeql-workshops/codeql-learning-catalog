@@ -48,7 +48,7 @@ RUN echo 'export PATH="/opt/gradle-8.1.1/bin/:$PATH"' >> ~/.bash_profile
 RUN rm gradle-8.1.1-bin.zip
 
 # Install Maven
-RUN wget https://dlcdn.apache.org/maven/maven-3/3.9.2/binaries/apache-maven-3.9.2-bin.tar.gz
+RUN wget https://archive.apache.org/dist/maven/maven-3/3.9.2/binaries/apache-maven-3.9.2-bin.tar.gz
 RUN tar -xf apache-maven-3.9.2-bin.tar.gz
 RUN mv apache-maven-3.9.2/ /opt/
 RUN echo 'export PATH="/opt/apache-maven-3.9.2/bin/:$PATH"' >> ~/.bash_profile
