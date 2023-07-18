@@ -14,7 +14,7 @@
     "debug": "concurrently \"npm:debug:next\"  \"npm:dev:webpack\"",
     "debug:next": "NODE_OPTIONS='--inspect' next dev",
     "test": "concurrently \"npm:test:jest\" \"npm:test:prettier\"",
-    "test:prettier": "prettier -c \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\" \"!.github/styles/**/*.{yml,yaml}\"",
+    "test:prettier": "prettier -c \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\" \"!cache/data*\" \"!.github/styles/**/*.{yml,yaml}\"",
     "test:jest": "jest",
     "prettier:fix": "prettier -w \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\" \"!.github/styles/**/*.{yml,yaml}\"",
     "markdown": "markdownlint 'docs/**/*.md' -c .github/linters/.markdownlint.json --ignore-path '.github/linters/.markdownlintignore' -i ./docs/index.md",

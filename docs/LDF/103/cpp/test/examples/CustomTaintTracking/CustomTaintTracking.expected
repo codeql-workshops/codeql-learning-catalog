@@ -1,0 +1,195 @@
+| test.c:13:19:13:22 | argv | This format string may be derived from a $@. | test.c:13:19:13:22 | argv | user-controlled value |
+| test.c:13:19:13:25 | access to array | This format string may be derived from a $@. | test.c:13:19:13:22 | argv | user-controlled value |
+| test.c:13:19:13:25 | access to array | This format string may be derived from a $@. | test.c:13:19:13:25 | access to array | user-controlled value |
+| test.c:13:19:13:25 | access to array | This format string may be derived from a $@. | test.c:13:24:13:24 | 1 | user-controlled value |
+| test.c:13:24:13:24 | 1 | This format string may be derived from a $@. | test.c:13:24:13:24 | 1 | user-controlled value |
+| test.c:16:5:16:9 | call to scanf | This format string may be derived from a $@. | test.c:16:5:16:9 | call to scanf | user-controlled value |
+| test.c:16:11:16:21 | Enter: %s | This format string may be derived from a $@. | test.c:16:11:16:21 | Enter: %s | user-controlled value |
+| test.c:16:24:16:27 | buf1 | This format string may be derived from a $@. | test.c:16:24:16:27 | buf1 | user-controlled value |
+| test.c:19:5:19:10 | call to fscanf | This format string may be derived from a $@. | test.c:19:5:19:10 | call to fscanf | user-controlled value |
+| test.c:19:12:19:30 | some_file_pointer | This format string may be derived from a $@. | test.c:19:12:19:30 | some_file_pointer | user-controlled value |
+| test.c:19:33:19:36 | %s | This format string may be derived from a $@. | test.c:19:33:19:36 | %s | user-controlled value |
+| test.c:19:39:19:42 | buf2 | This format string may be derived from a $@. | test.c:19:39:19:42 | buf2 | user-controlled value |
+| test.c:22:5:22:9 | call to fread | This format string may be derived from a $@. | test.c:22:5:22:9 | call to fread | user-controlled value |
+| test.c:22:11:22:14 | buf3 | This format string may be derived from a $@. | test.c:22:11:22:14 | buf3 | user-controlled value |
+| test.c:22:17:22:17 | 3 | This format string may be derived from a $@. | test.c:22:17:22:17 | 3 | user-controlled value |
+| test.c:22:20:22:20 | 1 | This format string may be derived from a $@. | test.c:22:20:22:20 | 1 | user-controlled value |
+| test.c:22:23:22:41 | some_file_pointer | This format string may be derived from a $@. | test.c:22:23:22:41 | some_file_pointer | user-controlled value |
+| test.c:25:5:25:9 | call to fgets | This format string may be derived from a $@. | test.c:25:5:25:9 | call to fgets | user-controlled value |
+| test.c:25:5:25:9 | call to fgets | This format string may be derived from a $@. | test.c:25:11:25:14 | buf4 | user-controlled value |
+| test.c:25:5:25:9 | call to fgets | This format string may be derived from a $@. | test.c:25:20:25:38 | some_file_pointer | user-controlled value |
+| test.c:25:11:25:14 | buf4 | This format string may be derived from a $@. | test.c:25:11:25:14 | buf4 | user-controlled value |
+| test.c:25:17:25:17 | 3 | This format string may be derived from a $@. | test.c:25:17:25:17 | 3 | user-controlled value |
+| test.c:25:20:25:38 | some_file_pointer | This format string may be derived from a $@. | test.c:25:20:25:38 | some_file_pointer | user-controlled value |
+| test.c:28:5:28:10 | call to fgetws | This format string may be derived from a $@. | test.c:28:5:28:10 | call to fgetws | user-controlled value |
+| test.c:28:5:28:10 | call to fgetws | This format string may be derived from a $@. | test.c:28:12:28:15 | buf5 | user-controlled value |
+| test.c:28:5:28:10 | call to fgetws | This format string may be derived from a $@. | test.c:28:21:28:39 | some_file_pointer | user-controlled value |
+| test.c:28:12:28:15 | buf5 | This format string may be derived from a $@. | test.c:28:12:28:15 | buf5 | user-controlled value |
+| test.c:28:18:28:18 | 3 | This format string may be derived from a $@. | test.c:28:18:28:18 | 3 | user-controlled value |
+| test.c:28:21:28:39 | some_file_pointer | This format string may be derived from a $@. | test.c:28:21:28:39 | some_file_pointer | user-controlled value |
+| test.c:31:5:31:8 | call to gets | This format string may be derived from a $@. | test.c:31:5:31:8 | call to gets | user-controlled value |
+| test.c:31:5:31:8 | call to gets | This format string may be derived from a $@. | test.c:31:10:31:13 | buf6 | user-controlled value |
+| test.c:31:10:31:13 | buf6 | This format string may be derived from a $@. | test.c:31:10:31:13 | buf6 | user-controlled value |
+| test.c:35:5:35:10 | call to printf | This format string may be derived from a $@. | test.c:35:5:35:10 | call to printf | user-controlled value |
+| test.c:35:12:35:15 | %s | This format string may be derived from a $@. | test.c:35:12:35:15 | %s | user-controlled value |
+| test.c:35:18:35:22 | argv1 | This format string may be derived from a $@. | test.c:13:19:13:22 | argv | user-controlled value |
+| test.c:35:18:35:22 | argv1 | This format string may be derived from a $@. | test.c:13:19:13:25 | access to array | user-controlled value |
+| test.c:35:18:35:22 | argv1 | This format string may be derived from a $@. | test.c:13:24:13:24 | 1 | user-controlled value |
+| test.c:35:18:35:22 | argv1 | This format string may be derived from a $@. | test.c:35:18:35:22 | argv1 | user-controlled value |
+| test.c:36:5:36:10 | call to printf | This format string may be derived from a $@. | test.c:36:5:36:10 | call to printf | user-controlled value |
+| test.c:36:12:36:15 | %s | This format string may be derived from a $@. | test.c:36:12:36:15 | %s | user-controlled value |
+| test.c:36:18:36:21 | buf1 | This format string may be derived from a $@. | test.c:16:24:16:27 | buf1 | user-controlled value |
+| test.c:36:18:36:21 | buf1 | This format string may be derived from a $@. | test.c:36:18:36:21 | buf1 | user-controlled value |
+| test.c:37:5:37:10 | call to printf | This format string may be derived from a $@. | test.c:37:5:37:10 | call to printf | user-controlled value |
+| test.c:37:12:37:15 | %s | This format string may be derived from a $@. | test.c:37:12:37:15 | %s | user-controlled value |
+| test.c:37:18:37:21 | buf2 | This format string may be derived from a $@. | test.c:19:39:19:42 | buf2 | user-controlled value |
+| test.c:37:18:37:21 | buf2 | This format string may be derived from a $@. | test.c:37:18:37:21 | buf2 | user-controlled value |
+| test.c:38:5:38:10 | call to printf | This format string may be derived from a $@. | test.c:38:5:38:10 | call to printf | user-controlled value |
+| test.c:38:12:38:15 | %s | This format string may be derived from a $@. | test.c:38:12:38:15 | %s | user-controlled value |
+| test.c:38:18:38:21 | buf3 | This format string may be derived from a $@. | test.c:22:11:22:14 | buf3 | user-controlled value |
+| test.c:38:18:38:21 | buf3 | This format string may be derived from a $@. | test.c:38:18:38:21 | buf3 | user-controlled value |
+| test.c:39:5:39:10 | call to printf | This format string may be derived from a $@. | test.c:39:5:39:10 | call to printf | user-controlled value |
+| test.c:39:12:39:15 | %s | This format string may be derived from a $@. | test.c:39:12:39:15 | %s | user-controlled value |
+| test.c:39:18:39:21 | buf4 | This format string may be derived from a $@. | test.c:25:11:25:14 | buf4 | user-controlled value |
+| test.c:39:18:39:21 | buf4 | This format string may be derived from a $@. | test.c:39:18:39:21 | buf4 | user-controlled value |
+| test.c:40:5:40:10 | call to printf | This format string may be derived from a $@. | test.c:40:5:40:10 | call to printf | user-controlled value |
+| test.c:40:12:40:15 | %s | This format string may be derived from a $@. | test.c:40:12:40:15 | %s | user-controlled value |
+| test.c:40:18:40:21 | buf5 | This format string may be derived from a $@. | test.c:28:12:28:15 | buf5 | user-controlled value |
+| test.c:40:18:40:21 | buf5 | This format string may be derived from a $@. | test.c:40:18:40:21 | buf5 | user-controlled value |
+| test.c:41:5:41:10 | call to printf | This format string may be derived from a $@. | test.c:41:5:41:10 | call to printf | user-controlled value |
+| test.c:41:12:41:15 | %s | This format string may be derived from a $@. | test.c:41:12:41:15 | %s | user-controlled value |
+| test.c:41:18:41:21 | buf6 | This format string may be derived from a $@. | test.c:31:10:31:13 | buf6 | user-controlled value |
+| test.c:41:18:41:21 | buf6 | This format string may be derived from a $@. | test.c:41:18:41:21 | buf6 | user-controlled value |
+| test.c:43:5:43:11 | call to fprintf | This format string may be derived from a $@. | test.c:43:5:43:11 | call to fprintf | user-controlled value |
+| test.c:43:13:43:25 | some_stream | This format string may be derived from a $@. | test.c:43:13:43:25 | some_stream | user-controlled value |
+| test.c:43:28:43:31 | %s | This format string may be derived from a $@. | test.c:43:28:43:31 | %s | user-controlled value |
+| test.c:43:34:43:38 | argv1 | This format string may be derived from a $@. | test.c:13:19:13:22 | argv | user-controlled value |
+| test.c:43:34:43:38 | argv1 | This format string may be derived from a $@. | test.c:13:19:13:25 | access to array | user-controlled value |
+| test.c:43:34:43:38 | argv1 | This format string may be derived from a $@. | test.c:13:24:13:24 | 1 | user-controlled value |
+| test.c:43:34:43:38 | argv1 | This format string may be derived from a $@. | test.c:35:18:35:22 | argv1 | user-controlled value |
+| test.c:43:34:43:38 | argv1 | This format string may be derived from a $@. | test.c:43:34:43:38 | argv1 | user-controlled value |
+| test.c:44:5:44:11 | call to fprintf | This format string may be derived from a $@. | test.c:44:5:44:11 | call to fprintf | user-controlled value |
+| test.c:44:13:44:25 | some_stream | This format string may be derived from a $@. | test.c:44:13:44:25 | some_stream | user-controlled value |
+| test.c:44:28:44:31 | %s | This format string may be derived from a $@. | test.c:44:28:44:31 | %s | user-controlled value |
+| test.c:44:34:44:37 | buf1 | This format string may be derived from a $@. | test.c:16:24:16:27 | buf1 | user-controlled value |
+| test.c:44:34:44:37 | buf1 | This format string may be derived from a $@. | test.c:36:18:36:21 | buf1 | user-controlled value |
+| test.c:44:34:44:37 | buf1 | This format string may be derived from a $@. | test.c:44:34:44:37 | buf1 | user-controlled value |
+| test.c:45:5:45:11 | call to fprintf | This format string may be derived from a $@. | test.c:45:5:45:11 | call to fprintf | user-controlled value |
+| test.c:45:13:45:25 | some_stream | This format string may be derived from a $@. | test.c:45:13:45:25 | some_stream | user-controlled value |
+| test.c:45:28:45:31 | %s | This format string may be derived from a $@. | test.c:45:28:45:31 | %s | user-controlled value |
+| test.c:45:34:45:37 | buf2 | This format string may be derived from a $@. | test.c:19:39:19:42 | buf2 | user-controlled value |
+| test.c:45:34:45:37 | buf2 | This format string may be derived from a $@. | test.c:37:18:37:21 | buf2 | user-controlled value |
+| test.c:45:34:45:37 | buf2 | This format string may be derived from a $@. | test.c:45:34:45:37 | buf2 | user-controlled value |
+| test.c:46:5:46:11 | call to fprintf | This format string may be derived from a $@. | test.c:46:5:46:11 | call to fprintf | user-controlled value |
+| test.c:46:13:46:25 | some_stream | This format string may be derived from a $@. | test.c:46:13:46:25 | some_stream | user-controlled value |
+| test.c:46:28:46:31 | %s | This format string may be derived from a $@. | test.c:46:28:46:31 | %s | user-controlled value |
+| test.c:46:34:46:37 | buf3 | This format string may be derived from a $@. | test.c:22:11:22:14 | buf3 | user-controlled value |
+| test.c:46:34:46:37 | buf3 | This format string may be derived from a $@. | test.c:38:18:38:21 | buf3 | user-controlled value |
+| test.c:46:34:46:37 | buf3 | This format string may be derived from a $@. | test.c:46:34:46:37 | buf3 | user-controlled value |
+| test.c:47:5:47:11 | call to fprintf | This format string may be derived from a $@. | test.c:47:5:47:11 | call to fprintf | user-controlled value |
+| test.c:47:13:47:25 | some_stream | This format string may be derived from a $@. | test.c:47:13:47:25 | some_stream | user-controlled value |
+| test.c:47:28:47:31 | %s | This format string may be derived from a $@. | test.c:47:28:47:31 | %s | user-controlled value |
+| test.c:47:34:47:37 | buf4 | This format string may be derived from a $@. | test.c:25:11:25:14 | buf4 | user-controlled value |
+| test.c:47:34:47:37 | buf4 | This format string may be derived from a $@. | test.c:39:18:39:21 | buf4 | user-controlled value |
+| test.c:47:34:47:37 | buf4 | This format string may be derived from a $@. | test.c:47:34:47:37 | buf4 | user-controlled value |
+| test.c:48:5:48:11 | call to fprintf | This format string may be derived from a $@. | test.c:48:5:48:11 | call to fprintf | user-controlled value |
+| test.c:48:13:48:25 | some_stream | This format string may be derived from a $@. | test.c:48:13:48:25 | some_stream | user-controlled value |
+| test.c:48:28:48:31 | %s | This format string may be derived from a $@. | test.c:48:28:48:31 | %s | user-controlled value |
+| test.c:48:34:48:37 | buf5 | This format string may be derived from a $@. | test.c:28:12:28:15 | buf5 | user-controlled value |
+| test.c:48:34:48:37 | buf5 | This format string may be derived from a $@. | test.c:40:18:40:21 | buf5 | user-controlled value |
+| test.c:48:34:48:37 | buf5 | This format string may be derived from a $@. | test.c:48:34:48:37 | buf5 | user-controlled value |
+| test.c:49:5:49:11 | call to fprintf | This format string may be derived from a $@. | test.c:49:5:49:11 | call to fprintf | user-controlled value |
+| test.c:49:13:49:25 | some_stream | This format string may be derived from a $@. | test.c:49:13:49:25 | some_stream | user-controlled value |
+| test.c:49:28:49:31 | %s | This format string may be derived from a $@. | test.c:49:28:49:31 | %s | user-controlled value |
+| test.c:49:34:49:37 | buf6 | This format string may be derived from a $@. | test.c:31:10:31:13 | buf6 | user-controlled value |
+| test.c:49:34:49:37 | buf6 | This format string may be derived from a $@. | test.c:41:18:41:21 | buf6 | user-controlled value |
+| test.c:49:34:49:37 | buf6 | This format string may be derived from a $@. | test.c:49:34:49:37 | buf6 | user-controlled value |
+| test.c:53:5:53:10 | call to printf | This format string may be derived from a $@. | test.c:53:5:53:10 | call to printf | user-controlled value |
+| test.c:53:12:53:16 | argv1 | This format string may be derived from a $@. | test.c:13:19:13:22 | argv | user-controlled value |
+| test.c:53:12:53:16 | argv1 | This format string may be derived from a $@. | test.c:13:19:13:25 | access to array | user-controlled value |
+| test.c:53:12:53:16 | argv1 | This format string may be derived from a $@. | test.c:13:24:13:24 | 1 | user-controlled value |
+| test.c:53:12:53:16 | argv1 | This format string may be derived from a $@. | test.c:35:18:35:22 | argv1 | user-controlled value |
+| test.c:53:12:53:16 | argv1 | This format string may be derived from a $@. | test.c:43:34:43:38 | argv1 | user-controlled value |
+| test.c:53:12:53:16 | argv1 | This format string may be derived from a $@. | test.c:53:12:53:16 | argv1 | user-controlled value |
+| test.c:54:5:54:10 | call to printf | This format string may be derived from a $@. | test.c:54:5:54:10 | call to printf | user-controlled value |
+| test.c:54:12:54:15 | buf1 | This format string may be derived from a $@. | test.c:16:24:16:27 | buf1 | user-controlled value |
+| test.c:54:12:54:15 | buf1 | This format string may be derived from a $@. | test.c:36:18:36:21 | buf1 | user-controlled value |
+| test.c:54:12:54:15 | buf1 | This format string may be derived from a $@. | test.c:44:34:44:37 | buf1 | user-controlled value |
+| test.c:54:12:54:15 | buf1 | This format string may be derived from a $@. | test.c:54:12:54:15 | buf1 | user-controlled value |
+| test.c:55:5:55:10 | call to printf | This format string may be derived from a $@. | test.c:55:5:55:10 | call to printf | user-controlled value |
+| test.c:55:12:55:15 | buf2 | This format string may be derived from a $@. | test.c:19:39:19:42 | buf2 | user-controlled value |
+| test.c:55:12:55:15 | buf2 | This format string may be derived from a $@. | test.c:37:18:37:21 | buf2 | user-controlled value |
+| test.c:55:12:55:15 | buf2 | This format string may be derived from a $@. | test.c:45:34:45:37 | buf2 | user-controlled value |
+| test.c:55:12:55:15 | buf2 | This format string may be derived from a $@. | test.c:55:12:55:15 | buf2 | user-controlled value |
+| test.c:56:5:56:10 | call to printf | This format string may be derived from a $@. | test.c:56:5:56:10 | call to printf | user-controlled value |
+| test.c:56:12:56:15 | buf3 | This format string may be derived from a $@. | test.c:22:11:22:14 | buf3 | user-controlled value |
+| test.c:56:12:56:15 | buf3 | This format string may be derived from a $@. | test.c:38:18:38:21 | buf3 | user-controlled value |
+| test.c:56:12:56:15 | buf3 | This format string may be derived from a $@. | test.c:46:34:46:37 | buf3 | user-controlled value |
+| test.c:56:12:56:15 | buf3 | This format string may be derived from a $@. | test.c:56:12:56:15 | buf3 | user-controlled value |
+| test.c:57:5:57:10 | call to printf | This format string may be derived from a $@. | test.c:57:5:57:10 | call to printf | user-controlled value |
+| test.c:57:12:57:15 | buf4 | This format string may be derived from a $@. | test.c:25:11:25:14 | buf4 | user-controlled value |
+| test.c:57:12:57:15 | buf4 | This format string may be derived from a $@. | test.c:39:18:39:21 | buf4 | user-controlled value |
+| test.c:57:12:57:15 | buf4 | This format string may be derived from a $@. | test.c:47:34:47:37 | buf4 | user-controlled value |
+| test.c:57:12:57:15 | buf4 | This format string may be derived from a $@. | test.c:57:12:57:15 | buf4 | user-controlled value |
+| test.c:58:5:58:10 | call to printf | This format string may be derived from a $@. | test.c:58:5:58:10 | call to printf | user-controlled value |
+| test.c:58:12:58:15 | buf5 | This format string may be derived from a $@. | test.c:28:12:28:15 | buf5 | user-controlled value |
+| test.c:58:12:58:15 | buf5 | This format string may be derived from a $@. | test.c:40:18:40:21 | buf5 | user-controlled value |
+| test.c:58:12:58:15 | buf5 | This format string may be derived from a $@. | test.c:48:34:48:37 | buf5 | user-controlled value |
+| test.c:58:12:58:15 | buf5 | This format string may be derived from a $@. | test.c:58:12:58:15 | buf5 | user-controlled value |
+| test.c:59:5:59:10 | call to printf | This format string may be derived from a $@. | test.c:59:5:59:10 | call to printf | user-controlled value |
+| test.c:59:12:59:15 | buf6 | This format string may be derived from a $@. | test.c:31:10:31:13 | buf6 | user-controlled value |
+| test.c:59:12:59:15 | buf6 | This format string may be derived from a $@. | test.c:41:18:41:21 | buf6 | user-controlled value |
+| test.c:59:12:59:15 | buf6 | This format string may be derived from a $@. | test.c:49:34:49:37 | buf6 | user-controlled value |
+| test.c:59:12:59:15 | buf6 | This format string may be derived from a $@. | test.c:59:12:59:15 | buf6 | user-controlled value |
+| test.c:61:5:61:11 | call to fprintf | This format string may be derived from a $@. | test.c:61:5:61:11 | call to fprintf | user-controlled value |
+| test.c:61:13:61:25 | some_stream | This format string may be derived from a $@. | test.c:61:13:61:25 | some_stream | user-controlled value |
+| test.c:61:28:61:32 | argv1 | This format string may be derived from a $@. | test.c:13:19:13:22 | argv | user-controlled value |
+| test.c:61:28:61:32 | argv1 | This format string may be derived from a $@. | test.c:13:19:13:25 | access to array | user-controlled value |
+| test.c:61:28:61:32 | argv1 | This format string may be derived from a $@. | test.c:13:24:13:24 | 1 | user-controlled value |
+| test.c:61:28:61:32 | argv1 | This format string may be derived from a $@. | test.c:35:18:35:22 | argv1 | user-controlled value |
+| test.c:61:28:61:32 | argv1 | This format string may be derived from a $@. | test.c:43:34:43:38 | argv1 | user-controlled value |
+| test.c:61:28:61:32 | argv1 | This format string may be derived from a $@. | test.c:53:12:53:16 | argv1 | user-controlled value |
+| test.c:61:28:61:32 | argv1 | This format string may be derived from a $@. | test.c:61:28:61:32 | argv1 | user-controlled value |
+| test.c:62:5:62:11 | call to fprintf | This format string may be derived from a $@. | test.c:62:5:62:11 | call to fprintf | user-controlled value |
+| test.c:62:13:62:25 | some_stream | This format string may be derived from a $@. | test.c:62:13:62:25 | some_stream | user-controlled value |
+| test.c:62:28:62:31 | buf1 | This format string may be derived from a $@. | test.c:16:24:16:27 | buf1 | user-controlled value |
+| test.c:62:28:62:31 | buf1 | This format string may be derived from a $@. | test.c:36:18:36:21 | buf1 | user-controlled value |
+| test.c:62:28:62:31 | buf1 | This format string may be derived from a $@. | test.c:44:34:44:37 | buf1 | user-controlled value |
+| test.c:62:28:62:31 | buf1 | This format string may be derived from a $@. | test.c:54:12:54:15 | buf1 | user-controlled value |
+| test.c:62:28:62:31 | buf1 | This format string may be derived from a $@. | test.c:62:28:62:31 | buf1 | user-controlled value |
+| test.c:63:5:63:11 | call to fprintf | This format string may be derived from a $@. | test.c:63:5:63:11 | call to fprintf | user-controlled value |
+| test.c:63:13:63:25 | some_stream | This format string may be derived from a $@. | test.c:63:13:63:25 | some_stream | user-controlled value |
+| test.c:63:28:63:31 | buf2 | This format string may be derived from a $@. | test.c:19:39:19:42 | buf2 | user-controlled value |
+| test.c:63:28:63:31 | buf2 | This format string may be derived from a $@. | test.c:37:18:37:21 | buf2 | user-controlled value |
+| test.c:63:28:63:31 | buf2 | This format string may be derived from a $@. | test.c:45:34:45:37 | buf2 | user-controlled value |
+| test.c:63:28:63:31 | buf2 | This format string may be derived from a $@. | test.c:55:12:55:15 | buf2 | user-controlled value |
+| test.c:63:28:63:31 | buf2 | This format string may be derived from a $@. | test.c:63:28:63:31 | buf2 | user-controlled value |
+| test.c:64:5:64:11 | call to fprintf | This format string may be derived from a $@. | test.c:64:5:64:11 | call to fprintf | user-controlled value |
+| test.c:64:13:64:25 | some_stream | This format string may be derived from a $@. | test.c:64:13:64:25 | some_stream | user-controlled value |
+| test.c:64:28:64:31 | buf3 | This format string may be derived from a $@. | test.c:22:11:22:14 | buf3 | user-controlled value |
+| test.c:64:28:64:31 | buf3 | This format string may be derived from a $@. | test.c:38:18:38:21 | buf3 | user-controlled value |
+| test.c:64:28:64:31 | buf3 | This format string may be derived from a $@. | test.c:46:34:46:37 | buf3 | user-controlled value |
+| test.c:64:28:64:31 | buf3 | This format string may be derived from a $@. | test.c:56:12:56:15 | buf3 | user-controlled value |
+| test.c:64:28:64:31 | buf3 | This format string may be derived from a $@. | test.c:64:28:64:31 | buf3 | user-controlled value |
+| test.c:65:5:65:11 | call to fprintf | This format string may be derived from a $@. | test.c:65:5:65:11 | call to fprintf | user-controlled value |
+| test.c:65:13:65:25 | some_stream | This format string may be derived from a $@. | test.c:65:13:65:25 | some_stream | user-controlled value |
+| test.c:65:28:65:31 | buf4 | This format string may be derived from a $@. | test.c:25:11:25:14 | buf4 | user-controlled value |
+| test.c:65:28:65:31 | buf4 | This format string may be derived from a $@. | test.c:39:18:39:21 | buf4 | user-controlled value |
+| test.c:65:28:65:31 | buf4 | This format string may be derived from a $@. | test.c:47:34:47:37 | buf4 | user-controlled value |
+| test.c:65:28:65:31 | buf4 | This format string may be derived from a $@. | test.c:57:12:57:15 | buf4 | user-controlled value |
+| test.c:65:28:65:31 | buf4 | This format string may be derived from a $@. | test.c:65:28:65:31 | buf4 | user-controlled value |
+| test.c:66:5:66:11 | call to fprintf | This format string may be derived from a $@. | test.c:66:5:66:11 | call to fprintf | user-controlled value |
+| test.c:66:13:66:25 | some_stream | This format string may be derived from a $@. | test.c:66:13:66:25 | some_stream | user-controlled value |
+| test.c:66:28:66:31 | buf5 | This format string may be derived from a $@. | test.c:28:12:28:15 | buf5 | user-controlled value |
+| test.c:66:28:66:31 | buf5 | This format string may be derived from a $@. | test.c:40:18:40:21 | buf5 | user-controlled value |
+| test.c:66:28:66:31 | buf5 | This format string may be derived from a $@. | test.c:48:34:48:37 | buf5 | user-controlled value |
+| test.c:66:28:66:31 | buf5 | This format string may be derived from a $@. | test.c:58:12:58:15 | buf5 | user-controlled value |
+| test.c:66:28:66:31 | buf5 | This format string may be derived from a $@. | test.c:66:28:66:31 | buf5 | user-controlled value |
+| test.c:67:5:67:11 | call to fprintf | This format string may be derived from a $@. | test.c:67:5:67:11 | call to fprintf | user-controlled value |
+| test.c:67:13:67:25 | some_stream | This format string may be derived from a $@. | test.c:67:13:67:25 | some_stream | user-controlled value |
+| test.c:67:28:67:31 | buf6 | This format string may be derived from a $@. | test.c:31:10:31:13 | buf6 | user-controlled value |
+| test.c:67:28:67:31 | buf6 | This format string may be derived from a $@. | test.c:41:18:41:21 | buf6 | user-controlled value |
+| test.c:67:28:67:31 | buf6 | This format string may be derived from a $@. | test.c:49:34:49:37 | buf6 | user-controlled value |
+| test.c:67:28:67:31 | buf6 | This format string may be derived from a $@. | test.c:59:12:59:15 | buf6 | user-controlled value |
+| test.c:67:28:67:31 | buf6 | This format string may be derived from a $@. | test.c:67:28:67:31 | buf6 | user-controlled value |
+| test.c:69:12:69:12 | 0 | This format string may be derived from a $@. | test.c:69:12:69:12 | 0 | user-controlled value |

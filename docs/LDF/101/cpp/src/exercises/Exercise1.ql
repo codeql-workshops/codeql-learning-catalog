@@ -1,0 +1,4 @@
+import cpp
+
+/* TODO Complete the from-where-select clause */
+select "Complete the select clause"

@@ -1,0 +1,17 @@
+| test.c:11:19:11:22 | argv |
+| test.c:14:24:14:27 | buf1 |
+| test.c:14:24:14:27 | buf1 |
+| test.c:17:39:17:42 | buf2 |
+| test.c:17:39:17:42 | buf2 |
+| test.c:20:11:20:14 | buf3 |
+| test.c:20:11:20:14 | buf3 |
+| test.c:20:11:20:14 | buf3 |
+| test.c:23:5:23:9 | call to fgets |
+| test.c:23:11:23:14 | buf4 |
+| test.c:23:11:23:14 | buf4 |
+| test.c:26:5:26:10 | call to fgetws |
+| test.c:26:12:26:15 | buf5 |
+| test.c:26:12:26:15 | buf5 |
+| test.c:29:5:29:8 | call to gets |
+| test.c:29:10:29:13 | buf6 |
+| test.c:29:10:29:13 | buf6 |
