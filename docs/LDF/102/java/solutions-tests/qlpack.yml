@@ -1,7 +1,0 @@
----
-library: false
-name: solutions-tests
-version: 0.0.1
-dependencies:
-  'solutions': '*'
-extractor: java

@@ -1,7 +1,0 @@
----
-library: false
-name: exercises-tests
-version: 0.0.1
-dependencies:
-  'exercises': '*'
-extractor: java
