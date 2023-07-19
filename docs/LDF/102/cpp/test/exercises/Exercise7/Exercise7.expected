@@ -1,2 +1,2 @@
-| test.cpp:30:3:30:13 | call to some_action | Function '$@' called without being preceded by call to 'init'. | test.cpp:5:6:5:16 | some_action | some_action |
-| test.cpp:40:3:40:13 | call to some_action | Function '$@' called without being preceded by call to 'init'. | test.cpp:5:6:5:16 | some_action | some_action |
+WARNING: Unused predicate callAlwaysCallsInit (/workspaces/codeql-learning-catalog/docs/LDF/102/cpp/src/exercises/Exercise7.ql:21,11-30)
+WARNING: Unused predicate initCallDominatesExit (/workspaces/codeql-learning-catalog/docs/LDF/102/cpp/src/exercises/Exercise7.ql:16,11-32)

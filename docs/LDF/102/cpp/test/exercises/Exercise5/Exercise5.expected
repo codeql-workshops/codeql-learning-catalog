@@ -1,1 +1,1 @@
-| test.cpp:18:3:18:13 | call to some_action | Function '$@' called without being preceded by call to 'init'. | test.cpp:5:6:5:16 | some_action | some_action |
+WARNING: Unused predicate reachable (/workspaces/codeql-learning-catalog/docs/LDF/102/cpp/src/exercises/Exercise5.ql:15,11-20)
