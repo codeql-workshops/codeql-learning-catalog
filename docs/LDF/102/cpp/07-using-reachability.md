@@ -10,7 +10,7 @@ Now that we understand the _successor_ relation, the control flow graph, and _re
 In multiple scenarios, including security relevant scenarios, a certain action must be performed before another action.
 For example, before you can use a method you must first initialize the class providing the method.
 
-Look at the `test/exercises/Exercise5/test.cpp` for `src/exercises/Exercise5.ql` and implement `src/exercises/Exercise5.ql`` to ensure the `incorrect_use` is detected.
+Look at the `test/exercises/Exercise5/test.cpp` for `src/exercises/Exercise5.ql` and implement `src/exercises/Exercise5.ql` to ensure the `incorrect_use` is detected.
 
 <details>
 <summary>Hints</summary>
