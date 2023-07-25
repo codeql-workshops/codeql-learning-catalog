@@ -24,7 +24,7 @@ void incorrect_use2(const char *input) {
 ```
 
 The `some_action` method access is reachable from an `init` function call.
-This means that the solution to exercise 5 will not find this incorrect use, which is the case for our solution to exercise 5.
+This means that the solution to the previous exercise will not find this incorrect use.
 
 To ensure that all accesses of the method `some_action` are preceded by an `init` access we can make use of the [dominator](https://en.wikipedia.org/wiki/Dominator_(graph_theory)) concept from graph theory.
 A node **dominates** another node if every path from the _entry node_ to a node _m_ must go through node _n_.

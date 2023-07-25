@@ -19,10 +19,13 @@ Complete the dataflow configuration in `src/solutions/Exercise9.ql`.
 
 <details>
 <summary>Hints</summary>
-- The class `DataFlow::Node` can transformed to uninitialized local variables using the member predicate `asUninitialized`.
-- The class `LocalVariable` has a member predicate `getType()` to get the type of the variable.
-- Interprocedural dataflow uses the concepts of a _source_ and a _sink_ for which it determines if the source can reach the sink.
-  A barrier is a condition that prevents further analysis to determine if a sink is reachable and is typically used to exclude data that is sanitized or validated.
+<ul>
+<li>The class `DataFlow::Node` can transformed to uninitialized local variables using the member predicate `asUninitialized`.</li>
+<li>The class `LocalVariable` has a member predicate `getType()` to get the type of the variable.</li>
+<li>Interprocedural dataflow uses the concepts of a _source_ and a _sink_ for which it determines if the source can reach the sink.</li>
+</ul>
+
+A barrier is a condition that prevents further analysis to determine if a sink is reachable and is typically used to exclude data that is sanitized or validated.
 </details>
 
 A solution can be found in the query `src/solutions/Exercise9.ql`.
