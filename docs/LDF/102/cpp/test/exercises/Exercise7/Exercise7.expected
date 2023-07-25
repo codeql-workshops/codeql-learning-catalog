@@ -1,0 +1,2 @@
+WARNING: Unused predicate callAlwaysCallsInit (/workspaces/codeql-learning-catalog/docs/LDF/102/cpp/src/exercises/Exercise7.ql:21,11-30)
+WARNING: Unused predicate initCallDominatesExit (/workspaces/codeql-learning-catalog/docs/LDF/102/cpp/src/exercises/Exercise7.ql:16,11-32)

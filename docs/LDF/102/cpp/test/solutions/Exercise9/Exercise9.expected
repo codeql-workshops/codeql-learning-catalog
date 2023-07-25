@@ -1,0 +1,20 @@
+edges
+| test.cpp:29:14:29:16 | ctx | test.cpp:31:15:31:18 | & ... |
+| test.cpp:35:14:35:16 | ctx | test.cpp:41:15:41:18 | & ... |
+| test.cpp:44:43:44:45 | ctx | test.cpp:45:15:45:17 | ctx |
+| test.cpp:49:14:49:16 | ctx | test.cpp:50:28:50:31 | & ... |
+| test.cpp:50:28:50:31 | & ... | test.cpp:44:43:44:45 | ctx |
+nodes
+| test.cpp:29:14:29:16 | ctx | semmle.label | ctx |
+| test.cpp:31:15:31:18 | & ... | semmle.label | & ... |
+| test.cpp:35:14:35:16 | ctx | semmle.label | ctx |
+| test.cpp:41:15:41:18 | & ... | semmle.label | & ... |
+| test.cpp:44:43:44:45 | ctx | semmle.label | ctx |
+| test.cpp:45:15:45:17 | ctx | semmle.label | ctx |
+| test.cpp:49:14:49:16 | ctx | semmle.label | ctx |
+| test.cpp:50:28:50:31 | & ... | semmle.label | & ... |
+subpaths
+#select
+| test.cpp:31:15:31:18 | & ... | test.cpp:29:14:29:16 | ctx | test.cpp:31:15:31:18 | & ... | Function 'some_action' called without being initialized. |
+| test.cpp:41:15:41:18 | & ... | test.cpp:35:14:35:16 | ctx | test.cpp:41:15:41:18 | & ... | Function 'some_action' called without being initialized. |
+| test.cpp:45:15:45:17 | ctx | test.cpp:49:14:49:16 | ctx | test.cpp:45:15:45:17 | ctx | Function 'some_action' called without being initialized. |

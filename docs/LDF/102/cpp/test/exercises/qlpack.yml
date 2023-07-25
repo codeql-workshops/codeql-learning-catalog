@@ -1,0 +1,7 @@
+---
+library: false
+name: ldf-102-cpp/exercises-test
+version: 0.0.1
+dependencies:
+  ldf-102-cpp/exercises: '*'
+extractor: cpp
