@@ -11,19 +11,27 @@ Before we move on to write our queries, let us set up our development environmen
 
 This is the easiest and fastest way to get started!
 
-1. From the command palette (bound to `Ctrl+Shift+P` or `Cmd+Shift+P`), choose `CodeQL: Choose Database from Archive`.
-2. `cd` to `docs/LDF/101/cpp`.
-3. Run `git lfs pull` to get the precompiled database to work on.
-4. Install the CodeQL pack dependencies using the command `CodeQL: Install Pack Dependencies` and select `ldf-101-cpp/solutions`, `ldf-101-cpp/tests`, and `ldf-101-cpp/exercises`.
+1. `cd` to `docs/LDF/101/cpp`.
+2. Run `git lfs pull` to get the precompiled database to work on.
+3. Install the CodeQL pack dependencies using the command `CodeQL: Install Pack Dependencies` and select the followings:
+    - `ldf-101-cpp/test`,
+    - `ldf-101-cpp/exercises`, and
+    - `ldf-101-cpp/solutions`.
+    - The easiest way of doing it without manually clicking the checkboxes is to type the prefix `ldf-101-cpp` and then click on the checkbox that selects all of the candidates at once.
+4. From the command palette (bound to `Ctrl+Shift+P` or `Cmd+Shift+P`), choose `CodeQL: Choose Database from Archive`.
 5. Choose `vld.zip` provided by Git LFS.
 
 ### Working locally
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/).
 2. Install the [CodeQL extension for Visual Studio Code](https://codeql.github.com/docs/codeql-for-visual-studio-code/setting-up-codeql-in-visual-studio-code/).
-3. Clone this repository and `cd` to `docs/LDF/101/cpp`.
+3. Clone this repository, open it in VSCode, and `cd` to `docs/LDF/101/cpp`.
 4. Run `git lfs pull` to get the precompiled database to work on.
-5. Install the CodeQL pack dependencies using the command `CodeQL: Install Pack Dependencies` and select `ldf-101-cpp/solutions`, `ldf-101-cpp/tests`, and `ldf-101-cpp/exercises`.
+5. Install the CodeQL pack dependencies using the command `CodeQL: Install Pack Dependencies` and select the followings:
+    - `ldf-101-cpp/test`,
+    - `ldf-101-cpp/exercises`, and
+    - `ldf-101-cpp/solutions`.
+    - The easiest way of doing it without manually clicking the checkboxes is to type the prefix `ldf-101-cpp` and then click on the checkbox that selects all of the candidates at once.
 6. From the command palette (bound to `Ctrl+Shift+P` or `Cmd+Shift+P`), choose `CodeQL: Choose Database from Archive`.
 7. Choose `vld.zip` provided by Git LFS.
 
