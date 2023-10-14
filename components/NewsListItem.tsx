@@ -47,7 +47,9 @@ const NewsListItem: FC<Props> = ({post}) => (
         <a
           href={`https://github.com/${post.frontmatter.author}`}
           target="_blank"
+          rel="noopener noreferrer"
           className="color-fg-muted"
+        >
         >
           {post.frontmatter.author}
         </a>{' '}
