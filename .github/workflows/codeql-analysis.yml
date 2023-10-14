@@ -12,7 +12,7 @@ on:
       - '**.js'
       - '**.ts'
   schedule:
-    - cron: '0 6 * * 5'
+    - cron: '0 20 * * *'
 
 jobs:
   CodeQL-Build:
