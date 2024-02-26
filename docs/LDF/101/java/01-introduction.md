@@ -6,12 +6,36 @@ banner: banner-code-graph-shield.png
 toc: false
 ---
 
-In this workshop, we use CodeQL to analyze the source code of a [vulnerable Linux driver](https://github.com/invictus-0x90/vulnerable_linux_driver) to pinpoint a portion of source code that causes a buffer overflow.
+This workshop is an introduction to identifying syntactical elements using QL by implementing a basic Andersen style points-to analysis.
+A points-to analysis is a [pointer analysis](https://en.wikipedia.org/wiki/Pointer_analysis) that statically determines the set of object a variable can point to and provides information that can be used to improve the accuracy of other analyses such as computing a call-graph.
+For example, consider the following Java snippet. How do we determine which `foo` method is called?
+To answer the question we need to know to what object `a` points to, which can be an instance of `A` or `B` depending on how `bar` is called.
 
-The Linux kernel allows users to register their simple drivers as a [miscellaneous character driver](https://www.linuxjournal.com/article/2920) (henceforth misc driver), and this project aims to provide a misc driver ready to be inserted into the kernel. Linux misc drivers need to be added and removed to the kernel via two API functions provided by the kernel, [`misc_register`](https://github.com/torvalds/linux/blob/8ca09d5fa3549d142c2080a72a4c70ce389163cd/include/linux/miscdevice.h#L91) and [`misc_unregister`](https://github.com/torvalds/linux/blob/8ca09d5fa3549d142c2080a72a4c70ce389163cd/include/linux/miscdevice.h#L92), respectively.
+```java
+class A {
+    public void foo() {}
+}
 
-Looking close to the source code of this project, we can see it [register a vulnerable device](https://github.com/invictus-0x90/vulnerable_linux_driver/blob/2bbfdadd403b6def98f98f6ee3f465286f35e0c9/src/vuln_driver.c#L156) represented as a `static struct` that contains another struct that implements `file_operations` which bridges between user-space application code (performing I/O with the device) and the kernel. The vulnerable point is the `do_ioctl` function being registered as that user-space code, hence the aim of our investigation.
+class B extends A {
+    @Override
+    public void foo() {}
+}
 
-Starting from the `misc_register` function we will traverse function calls, expressions, structure definitions, and variable initializations to find this entrypoint `do_ioctl`. In the course of this investigation, you will learn how to express our interest in a query language CodeQL and learn that we are able to go quite far only by syntactic analysis that combines various constraints together using formulas, predicates, and classes.
+class C {
+    public void bar(A a) {
+        a.foo();
+    }
+}
+```
 
-The workshop is split into several steps. You can write one query per step, or work with a single query that you refine at each step. Each step has a **hint** that suggests useful classes and predicates in the CodeQL standard libraries for C/C++. You can explore these in VSCode using the autocomplete suggestions `Ctrl+Space` and the `Go to Definition` command bound to `F12`.
+In this workshop the focus will be on syntactically describing elements and not the points-to algorithm.
+We will learn how to describe:
+
+- How objects are created.
+- How methods are called.
+- How variables are accessed and assigned a value.
+- How fields are accessed, assigned a value, and how to get the qualifier of a field access.
+- How to syntactically matchup method arguments with method parameters.
+- How to reason about statements in a method.
+
+We will follow the declarative formulation of the basic points-to analysis as found in the book [Pointer Analysis](https://yanniss.github.io/points-to-tutorial15.pdf)[^2]

@@ -2,7 +2,7 @@
 layout: workshop-index
 title: Elements of Syntactical Program Analysis I for Java
 course_number: LDF-101-JAVA
-abstract: We learn how to query the AST of a Java program as a means of implementing a points-to analysis.
+abstract: This workshop is an introduction to identifying syntactical elements using QL by implementing a basic Andersen style points-to analysis. We learn how to query the AST of a Java program as a means of implementing a points-to analysis.
 language: java
 octicon: package
 banner: banner-code-graph-shield.png

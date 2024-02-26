@@ -50,7 +50,6 @@ const NewsListItem: FC<Props> = ({post}) => (
           rel="noopener noreferrer"
           className="color-fg-muted"
         >
-        >
           {post.frontmatter.author}
         </a>{' '}
         on{' '}

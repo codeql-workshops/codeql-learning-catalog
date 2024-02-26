@@ -18,8 +18,6 @@ This is the easiest and fastest way to get started!
     - `ldf-101-java/exercises`, and
     - `ldf-101-java/solutions`.
     - The easiest way of doing it without manually clicking the checkboxes is to type the prefix `ldf-101-java` and then click on the checkbox that selects all of the candidates at once.
-4. From the command palette (bound to `Ctrl+Shift+P` or `Cmd+Shift+P`), choose `CodeQL: Choose Database from Archive`.
-5. Choose `vld.zip` provided by Git LFS.
 
 ### Working locally
 
@@ -32,15 +30,13 @@ This is the easiest and fastest way to get started!
     - `ldf-101-java/exercises`, and
     - `ldf-101-java/solutions`.
     - The easiest way of doing it without manually clicking the checkboxes is to type the prefix `ldf-101-java` and then click on the checkbox that selects all of the candidates at once.
-6. From the command palette (bound to `Ctrl+Shift+P` or `Cmd+Shift+P`), choose `CodeQL: Choose Database from Archive`.
-7. Choose `vld.zip` provided by Git LFS.
 
 ## Documentation Links
 
 If you get stuck, try searching our documentation and blog posts for help and ideas. Below are a few links to help you get started:
 
 - [Learning CodeQL](https://codeql.github.com/docs/writing-codeql-queries/)
-- [CodeQL Language Guides for C/C++](https://codeql.github.com/docs/codeql-language-guides/codeql-for-java/)
-- [CodeQL Standard Library for C/C++](https://codeql.github.com/codeql-standard-libraries/java)
+- [CodeQL Language Guides for Java](https://codeql.github.com/docs/codeql-language-guides/codeql-for-java/)
+- [CodeQL Standard Library for Java](https://codeql.github.com/codeql-standard-libraries/java)
 - [CodeQL](https://codeql.github.com/docs/codeql-language-guides/codeql-for-java/)
 - [Using the CodeQL extension for VSCode](https://codeql.github.com/docs/codeql-for-visual-studio-code/)
