@@ -1,11 +1,7 @@
-import cpp
+import java
 
-class MiscDeviceStruct extends Struct {
-  MiscDeviceStruct() {
-    /* TODO Delete the `none()` below and complete this characteristic predicate's definition */
-    none()
-  }
-}
+predicate load(LocalScopeVariable dest, LocalScopeVariable qualifier, Field field) { any() }
 
-from MiscDeviceStruct miscDeviceStruct
-select miscDeviceStruct
+from LocalScopeVariable dest, LocalScopeVariable qualifier, Field field
+where load(dest, qualifier, field)
+select dest, qualifier, field

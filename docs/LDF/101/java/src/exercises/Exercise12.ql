@@ -52,10 +52,20 @@ Method getMethod(Class klass, string signature) {
 }
 
 predicate callGraph(MethodAccess methodAccess, Method method) {
-  // Exercise 10: Associate a method call with a method by using the points-to information of the qualifier
+  // Replace with solution from exercise 10.
   any()
 }
 
-from MethodAccess methodAccess, Method method
-where callGraph(methodAccess, method)
-select methodAccess, method
+predicate interproceduralAssign(LocalScopeVariable src, LocalScopeVariable dest) {
+  // Replace with solution from exercise 11.
+  exists(Method method, MethodAccess methodAccess, int index | any())
+  or
+  exists(Method method, MethodAccess methodAccess, Assignment assignment |
+    // Exercise 12: Associate the points-to information from the variable being returned to the value being assigned the method call result.
+    any()
+  )
+}
+
+from LocalScopeVariable variable, AllocationSite allocationSite
+where varPointsTo(variable, allocationSite)
+select variable, allocationSite

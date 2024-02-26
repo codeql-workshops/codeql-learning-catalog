@@ -1,11 +1,14 @@
-import cpp
+import java
 
-class MiscDeviceStruct extends Struct {
-  MiscDeviceStruct() {
-    this.getName() = "miscdevice" and
-    this.getFile().getAbsolutePath().matches("%/include/linux/miscdevice.h")
-  }
+predicate load(LocalScopeVariable dest, LocalScopeVariable qualifier, Field field) {
+  exists(AssignExpr assign, FieldAccess fieldAccess |
+    assign.getSource() = fieldAccess and
+    assign.getDest() = dest.getAnAccess() and
+    fieldAccess.getField() = field and
+    fieldAccess.getQualifier() = qualifier.getAnAccess()
+  )
 }
 
-from MiscDeviceStruct miscDeviceStruct
-select miscDeviceStruct
+from LocalScopeVariable dest, LocalScopeVariable qualifier, Field field
+where load(dest, qualifier, field)
+select dest, qualifier, field

@@ -1,20 +1,10 @@
-import cpp
+import java
 
-class FileOperationsStruct extends Struct {
-  FileOperationsStruct() {
-    this.getName() = "file_operations" and
-    this.getFile().getAbsolutePath().matches("%/include/linux/fs.h")
-  }
+Method getMethod(Class klass, string signature) {
+  // Exercise 9: Find the method given their class and signature.
+  any()
 }
 
-class FileOperationsDefinition extends Variable {
-  FileOperationsDefinition() { this.getType() instanceof FileOperationsStruct }
-
-  Function getUnlockedIoctl() {
-    /* TODO Delete `none()` below and complete this predicate's definition */
-    none()
-  }
-}
-
-from FileOperationsDefinition fileOperationsDefinition
-select fileOperationsDefinition.getUnlockedIoctl()
+from Class klass, string signature, Method method
+where method = getMethod(klass, signature) and exists(method.getFile().getRelativePath())
+select klass, signature, method

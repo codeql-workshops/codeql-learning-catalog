@@ -1,4 +1,5 @@
-import cpp
+import java
 
-from FunctionCall call
-select call
+class AllocationSite = ClassInstanceExpr;
+
+select any(AllocationSite h)

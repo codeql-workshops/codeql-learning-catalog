@@ -1,22 +1,10 @@
-import cpp
+import java
 
-class FileOperationsStruct extends Struct {
-  FileOperationsStruct() {
-    this.getName() = "file_operations" and
-    this.getFile().getAbsolutePath().matches("%/include/linux/fs.h")
-  }
+Method getMethod(Class klass, string signature) {
+  result.getDeclaringType() = klass and
+  result.getSignature() = signature
 }
 
-class FileOperationsDefinition extends Variable {
-  FileOperationsDefinition() { this.getType() instanceof FileOperationsStruct }
-
-  Function getUnlockedIoctl() {
-    exists(Field unlockedIoctl | unlockedIoctl.hasName("unlocked_ioctl") |
-      this.getAnAssignedValue().(ClassAggregateLiteral).getFieldExpr(unlockedIoctl) =
-        result.getAnAccess()
-    )
-  }
-}
-
-from FileOperationsDefinition fileOperationsDefinition
-select fileOperationsDefinition.getUnlockedIoctl()
+from Class klass, string signature, Method method
+where method = getMethod(klass, signature) and exists(method.getFile().getRelativePath())
+select klass, signature, method

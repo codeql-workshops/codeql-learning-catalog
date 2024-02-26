@@ -51,6 +51,11 @@ predicate varPointsTo(LocalScopeVariable variable, AllocationSite allocationSite
     varPointsTo(qualifier, qualifierAllocationSite) and
     fieldPointsTo(qualifierAllocationSite, field, allocationSite)
   )
+  or
+  exists(LocalScopeVariable src |
+    interproceduralAssign(src, variable) and
+    varPointsTo(src, allocationSite)
+  )
 }
 
 string getSignature(MethodAccess methodAccess) { result = methodAccess.getMethod().getSignature() }
@@ -76,6 +81,21 @@ predicate callGraph(MethodAccess methodAccess, Method method) {
   )
 }
 
-from MethodAccess methodAccess, Method method
-where callGraph(methodAccess, method)
-select methodAccess, method
+predicate interproceduralAssign(LocalScopeVariable src, LocalScopeVariable dest) {
+  exists(Method method, MethodAccess methodAccess, int index |
+    callGraph(methodAccess, method) and
+    methodAccess.getArgument(index) = src.getAnAccess() and
+    method.getParameter(index) = dest
+  )
+  or
+  exists(Method method, MethodAccess methodAccess, Assignment assignment |
+    callGraph(methodAccess, method) and
+    assignment.getDest() = dest.getAnAccess() and
+    assignment.getSource() = methodAccess and
+    method.getBody().getAStmt().(ReturnStmt).getResult() = src.getAnAccess()
+  )
+}
+
+from LocalScopeVariable variable, AllocationSite allocationSite
+where varPointsTo(variable, allocationSite)
+select variable, allocationSite

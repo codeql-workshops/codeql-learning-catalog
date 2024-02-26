@@ -1,55 +1,68 @@
-import cpp
+import java
 
-class MiscRegisterFunction extends Function {
-  MiscRegisterFunction() {
-    this.getName() = "misc_register" and
-    this.getFile().getAbsolutePath().matches("%/include/linux/miscdevice.h")
-  }
+// Replace with the solution from exercise 1
+class AllocationSite extends Expr {
+  AllocationSite() { none() }
 }
 
-class MiscDeviceStruct extends Struct {
-  MiscDeviceStruct() {
-    this.getName() = "miscdevice" and
-    this.getFile().getAbsolutePath().matches("%/include/linux/miscdevice.h")
-  }
+predicate alloc(LocalScopeVariable variable, AllocationSite allocationSite, Callable callable) {
+  // Replace with the solution from exercise 2.
+  any()
 }
 
-class MiscDeviceDefinition extends Variable {
-  MiscDeviceDefinition() { this.getType() instanceof MiscDeviceStruct }
-
-  FileOperationsDefinition getFileOperations() {
-    // Provide an implementation for this predicate.
-    none()
-  }
+predicate move(LocalScopeVariable dest, Variable src) {
+  // Exercise 3: Describe how a value in `src` is moved to `dest`
+  none()
 }
 
-class FileOperationsStruct extends Struct {
-  FileOperationsStruct() {
-    // Copy solution from Exercise 8 here.
-    none()
-  }
+predicate store(LocalScopeVariable qualifier, Field field, LocalScopeVariable src) {
+  // Replace with the solution from exercise 4.
+  any()
 }
 
-class FileOperationsDefinition extends Variable {
-  FileOperationsDefinition() {
-    // Copy solution from Exercise 8 here.
-    none()
-  }
-
-  Function getUnlockedIoctl() {
-    // Copy solution from Exercise 9 here.
-    none()
-  }
+predicate load(LocalScopeVariable dest, LocalScopeVariable qualifier, Field field) {
+  // Replace with the solution from exercise 5.
+  any()
 }
 
-abstract class DriverUserModeEntry extends Function { }
-
-class MiscDriverUserModeEntry extends DriverUserModeEntry {
-  MiscDriverUserModeEntry() {
-    // Provide an implementation for the characteristic predicate.
-    none()
-  }
+predicate fieldPointsTo(
+  AllocationSite qualifierAllocationSite, Field field, AllocationSite srcAllocationSite
+) {
+  // Replace with the solution from exercise 6
+  any()
 }
 
-from DriverUserModeEntry driverUserModeEntry
-select driverUserModeEntry
+predicate varPointsTo(LocalScopeVariable variable, AllocationSite allocationSite) {
+  // Replace with solution from exercise 7.
+  any()
+}
+
+string getSignature(MethodAccess methodAccess) { result = methodAccess.getMethod().getSignature() }
+
+predicate methodCall(
+  LocalScopeVariable qualifier, string signature, MethodAccess call, Method inMethod
+) {
+  // Replace with solution from exercise 8.
+  any()
+}
+
+Method getMethod(Class klass, string signature) {
+  // Replace with solution from exercise 9.
+  any()
+}
+
+predicate callGraph(MethodAccess methodAccess, Method method) {
+  // Replace with solution from exercise 10.
+  any()
+}
+
+predicate interproceduralAssign(LocalScopeVariable src, LocalScopeVariable dest) {
+  exists(Method method, MethodAccess methodAccess, int index |
+    // Exercise 11: Associate the method call arguments with the called method parameters.
+    any()
+  )
+}
+
+from LocalScopeVariable variable, AllocationSite allocationSite
+where varPointsTo(variable, allocationSite)
+select variable, allocationSite

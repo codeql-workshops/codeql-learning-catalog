@@ -1,5 +1,16 @@
-import cpp
+import java
 
-from FunctionCall call
-where call.getTarget().getName() = "misc_register"
-select call
+class AllocationSite = ClassInstanceExpr;
+
+predicate alloc(LocalScopeVariable variable, AllocationSite allocationSite, Callable callable) {
+  variable.getAnAssignedValue() = allocationSite and
+  allocationSite.getEnclosingCallable() = callable
+}
+
+predicate varPointsTo(LocalScopeVariable variable, AllocationSite allocationSite) {
+  alloc(variable, allocationSite, _)
+}
+
+from LocalScopeVariable variable, AllocationSite allocationSite
+where varPointsTo(variable, allocationSite)
+select variable, allocationSite

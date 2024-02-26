@@ -1,18 +1,14 @@
-import cpp
+import java
 
-class MiscRegisterFunction extends Function {
-  MiscRegisterFunction() {
-    this.getName() = "misc_register" and
-    this.getFile().getAbsolutePath().matches("%/include/linux/miscdevice.h")
-  }
+predicate store(LocalScopeVariable qualifier, Field field, LocalScopeVariable src) {
+  exists(AssignExpr assign, FieldAccess fieldAccess |
+    assign.getSource() = src.getAnAccess() and
+    assign.getDest() = fieldAccess and
+    fieldAccess.getField() = field and
+    fieldAccess.getQualifier() = qualifier.getAnAccess()
+  )
 }
 
-from
-  MiscRegisterFunction miscRegister, FunctionCall miscRegisterCall, Expr argument,
-  Type argumentType, string qlClass
-where
-  miscRegisterCall.getTarget() = miscRegister and
-  argument = miscRegisterCall.getArgument(0) and
-  argumentType = argument.getType() and
-  qlClass = argument.getAPrimaryQlClass()
-select miscRegisterCall, argument, argumentType, qlClass
+from LocalScopeVariable qualifier, Field field, LocalScopeVariable src
+where store(qualifier, field, src)
+select qualifier, field, src

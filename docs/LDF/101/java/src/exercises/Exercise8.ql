@@ -1,18 +1,14 @@
-import cpp
+import java
 
-class FileOperationsStruct extends Struct {
-  FileOperationsStruct() {
-    /* TODO Delete `none()` below and complete this characteristic predicate's definition */
-    none()
-  }
+string getSignature(MethodAccess call) { result = call.getCallee().getSignature() }
+
+predicate methodCall(
+  LocalScopeVariable qualifier, string signature, MethodAccess call, Method inMethod
+) {
+  // Exercise 8: Given a method call find the qualifier, the signature of the called method, and the method containing the call.
+  any()
 }
 
-class FileOperationsDefinition extends Variable {
-  FileOperationsDefinition() {
-    /* TODO Delete `none()` below and complete this characteristic predicate's definition */
-    none()
-  }
-}
-
-from FileOperationsDefinition fileOperationsDefinition
-select fileOperationsDefinition
+from LocalScopeVariable qualifier, MethodAccess call, Method inMethod, string signature
+where methodCall(qualifier, signature, call, inMethod)
+select qualifier, call, signature, inMethod

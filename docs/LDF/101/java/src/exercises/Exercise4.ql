@@ -1,16 +1,7 @@
-import cpp
+import java
 
-class MiscRegisterFunction extends Function {
-  MiscRegisterFunction() {
-    this.getName() = "misc_register" and
-    this.getFile().getAbsolutePath().matches("%/include/linux/miscdevice.h")
-  }
-}
+predicate store(LocalScopeVariable qualifier, Field field, LocalScopeVariable src) { any() }
 
-from
-  MiscRegisterFunction miscRegister, FunctionCall miscRegisterCall, Expr argument,
-  Type argumentType, string qlClass
-where
-  /* TODO Delete the `none()` below and complete the where clause */
-  none()
-select miscRegisterCall, argument, argumentType, qlClass
+from LocalScopeVariable qualifier, Field field, LocalScopeVariable src
+where store(qualifier, field, src)
+select qualifier, field, src

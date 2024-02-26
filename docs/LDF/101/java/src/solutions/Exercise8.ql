@@ -1,15 +1,15 @@
-import cpp
+import java
 
-class FileOperationsStruct extends Struct {
-  FileOperationsStruct() {
-    this.getName() = "file_operations" and
-    this.getFile().getAbsolutePath().matches("%/include/linux/fs.h")
-  }
+string getSignature(MethodAccess call) { result = call.getCallee().getSignature() }
+
+predicate methodCall(
+  LocalScopeVariable qualifier, string signature, MethodAccess call, Method inMethod
+) {
+  call.getCaller() = inMethod and
+  call.getQualifier() = qualifier.getAnAccess() and
+  signature = getSignature(call)
 }
 
-class FileOperationsDefinition extends Variable {
-  FileOperationsDefinition() { this.getType() instanceof FileOperationsStruct }
-}
-
-from FileOperationsDefinition fileOperationsDefinition
-select fileOperationsDefinition
+from LocalScopeVariable qualifier, MethodAccess call, Method inMethod, string signature
+where methodCall(qualifier, signature, call, inMethod)
+select qualifier, call, signature, inMethod

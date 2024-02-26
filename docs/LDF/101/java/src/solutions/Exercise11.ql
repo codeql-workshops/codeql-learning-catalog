@@ -1,62 +1,94 @@
-import cpp
+import java
 
-class MiscRegisterFunction extends Function {
-  MiscRegisterFunction() {
-    this.getName() = "misc_register" and
-    this.getFile().getAbsolutePath().matches("%/include/linux/miscdevice.h")
-  }
+class AllocationSite = ClassInstanceExpr;
+
+predicate alloc(LocalScopeVariable variable, AllocationSite allocationSite, Callable callable) {
+  variable.getAnAssignedValue() = allocationSite and
+  allocationSite.getEnclosingCallable() = callable
 }
 
-class MiscDeviceStruct extends Struct {
-  MiscDeviceStruct() {
-    this.getName() = "miscdevice" and
-    this.getFile().getAbsolutePath().matches("%/include/linux/miscdevice.h")
-  }
+predicate move(LocalScopeVariable dest, LocalScopeVariable src) {
+  exists(AssignExpr assign |
+    assign.getSource() = src.getAnAccess() and assign.getDest() = dest.getAnAccess()
+  )
 }
 
-class MiscDeviceDefinition extends Variable {
-  MiscDeviceDefinition() { this.getType() instanceof MiscDeviceStruct }
-
-  FileOperationsDefinition getFileOperations() {
-    exists(Field fileOperations | fileOperations.hasName("fops") |
-      this.getAnAssignedValue()
-          .(ClassAggregateLiteral)
-          .getFieldExpr(fileOperations)
-          .(AddressOfExpr)
-          .getOperand() = result.getAnAccess()
-    )
-  }
+predicate store(LocalScopeVariable qualifier, Field field, LocalScopeVariable src) {
+  exists(AssignExpr assign, FieldAccess fieldAccess |
+    assign.getSource() = src.getAnAccess() and
+    assign.getDest() = fieldAccess and
+    fieldAccess.getField() = field and
+    fieldAccess.getQualifier() = qualifier.getAnAccess()
+  )
 }
 
-class FileOperationsStruct extends Struct {
-  FileOperationsStruct() {
-    this.getName() = "file_operations" and
-    this.getFile().getAbsolutePath().matches("%/include/linux/fs.h")
-  }
+predicate load(LocalScopeVariable dest, LocalScopeVariable qualifier, Field field) {
+  exists(AssignExpr assign, FieldAccess fieldAccess |
+    assign.getSource() = fieldAccess and
+    assign.getDest() = dest.getAnAccess() and
+    fieldAccess.getField() = field and
+    fieldAccess.getQualifier() = qualifier.getAnAccess()
+  )
 }
 
-class FileOperationsDefinition extends Variable {
-  FileOperationsDefinition() { this.getType() instanceof FileOperationsStruct }
-
-  Function getUnlockedIoctl() {
-    exists(Field unlockedIoctl | unlockedIoctl.hasName("unlocked_ioctl") |
-      this.getAnAssignedValue().(ClassAggregateLiteral).getFieldExpr(unlockedIoctl) =
-        result.getAnAccess()
-    )
-  }
+predicate fieldPointsTo(
+  AllocationSite qualifierAllocationSite, Field field, AllocationSite srcAllocationSite
+) {
+  exists(LocalScopeVariable qualifier, LocalScopeVariable src |
+    store(qualifier, field, src) and
+    varPointsTo(qualifier, qualifierAllocationSite) and
+    varPointsTo(src, srcAllocationSite)
+  )
 }
 
-abstract class DriverUserModeEntry extends Function { }
-
-class MiscDriverUserModeEntry extends DriverUserModeEntry {
-  MiscDriverUserModeEntry() {
-    exists(MiscRegisterFunction miscRegisterFunction, MiscDeviceDefinition miscDeviceDefinition |
-      miscRegisterFunction.getACallToThisFunction().getArgument(0).(AddressOfExpr).getOperand() =
-        miscDeviceDefinition.getAnAccess() and
-      this = miscDeviceDefinition.getFileOperations().getUnlockedIoctl()
-    )
-  }
+predicate varPointsTo(LocalScopeVariable variable, AllocationSite allocationSite) {
+  alloc(variable, allocationSite, _)
+  or
+  exists(LocalScopeVariable src | move(variable, src) and varPointsTo(src, allocationSite))
+  or
+  exists(LocalScopeVariable qualifier, AllocationSite qualifierAllocationSite, Field field |
+    load(variable, qualifier, field) and
+    varPointsTo(qualifier, qualifierAllocationSite) and
+    fieldPointsTo(qualifierAllocationSite, field, allocationSite)
+  )
+  or
+  exists(LocalScopeVariable src |
+    interproceduralAssign(src, variable) and
+    varPointsTo(src, allocationSite)
+  )
 }
 
-from DriverUserModeEntry driverUserModeEntry
-select driverUserModeEntry
+string getSignature(MethodAccess methodAccess) { result = methodAccess.getMethod().getSignature() }
+
+predicate methodCall(
+  LocalScopeVariable qualifier, string signature, MethodAccess call, Method inMethod
+) {
+  call.getCaller() = inMethod and
+  call.getQualifier() = qualifier.getAnAccess() and
+  signature = getSignature(call)
+}
+
+Method getMethod(Class klass, string signature) {
+  result.getDeclaringType() = klass and
+  result.getSignature() = signature
+}
+
+predicate callGraph(MethodAccess methodAccess, Method method) {
+  exists(LocalScopeVariable qualifier, string signature, AllocationSite qualifierAllocationSite |
+    methodCall(qualifier, signature, methodAccess, _) and
+    varPointsTo(qualifier, qualifierAllocationSite) and
+    method = getMethod(qualifierAllocationSite.getType(), signature)
+  )
+}
+
+predicate interproceduralAssign(LocalScopeVariable src, LocalScopeVariable dest) {
+  exists(Method method, MethodAccess methodAccess, int index |
+    callGraph(methodAccess, method) and
+    methodAccess.getArgument(index) = src.getAnAccess() and
+    method.getParameter(index) = dest
+  )
+}
+
+from LocalScopeVariable variable, AllocationSite allocationSite
+where varPointsTo(variable, allocationSite)
+select variable, allocationSite
