@@ -1,0 +1,6 @@
+---
+library: false
+name: ldf-102-java/solutions
+version: 0.0.1
+dependencies:
+  codeql/java-all: 0.4.6
