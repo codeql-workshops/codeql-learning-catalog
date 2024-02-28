@@ -14,7 +14,6 @@ This is the easiest and fastest way to get started!
 1. Install the CodeQL pack dependencies using the command `CodeQL: Install Pack Dependencies` and select `ldf-102-java/solutions`, `ldf-101-java/exercises`, `ldf-102-java/solutions-test`, and `ldf-101-java/exercises-test`.
 2. Run `git lfs pull` to get the precompiled database to work on. The database may already be present on your filesystem; this command ensures that it is up to date and fully downloaded.
 
-
 ### Working locally
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/).

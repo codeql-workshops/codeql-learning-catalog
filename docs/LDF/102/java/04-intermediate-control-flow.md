@@ -75,10 +75,8 @@ with the following CFG.
 If you run your query on the _Pet Clinic_ database, you will see results without a path.
 Can you explain why this happens?
 
-
 <details>
 <summary>Hints</summary>
-
 When you use the `reachable` predicate you need to exclude results to include only the strict successor statements.
 However, you cannot exclude the correct nodes due to conditional nodes. See the above example snippet and CFG.
 

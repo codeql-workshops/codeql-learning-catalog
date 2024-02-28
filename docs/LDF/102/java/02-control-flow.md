@@ -32,7 +32,7 @@ Looking at the CFG we can make a few observations:
 - The method itself is the last node of the CFG.
 
 ```text
-                 AST                                                                   CFG                 
+                 AST                                                                   CFG
                                                                                                            
                                                                                                            
                                                                                                            

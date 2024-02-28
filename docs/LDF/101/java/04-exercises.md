@@ -43,7 +43,7 @@ The `varPointsTo` predicate will use this as a first step to determine where var
 <summary>Hints</summary>
 
 - The class `Variable`, of which `LocalScopeVariable` is a subclass, supports the member predicate `getAnAssignedValue`
-- The class `Expr` contains the member predicate `getEnclosingCallable` to find the `Callable`, such as a `Method`, the expression occurs in. 
+- The class `Expr` contains the member predicate `getEnclosingCallable` to find the `Callable`, such as a `Method`, the expression occurs in.
 
 </details>
 
@@ -178,7 +178,7 @@ Add a *disjunction* to the `interproceduralAssign` predicate to associate points
 - The `Assignment` class, representing assignment expressions `x = y`, has the member predicates `getDest` and `getSrc` to reason about its operands.
 - To reason about the statements in a method you can use the `Method`'s member predicate `getBody` to get the method's block statement `{...}` and the `BlockStmt`s member predicate `getAStmt`.
 - The class `ReturnStmt` can be used to reason about `return ...` statements. It's member predicate `getResult` provides the expression that is returned.
-- QL supports [https://codeql.github.com/docs/ql-language-reference/expressions/#casts] to constrain the type of an expression. For example:
+- QL supports [https://codeql.github.com/docs/ql-language-reference/expressions/#casts](https://codeql.github.com/docs/ql-language-reference/expressions/#casts) to constrain the type of an expression. For example:
 
   ```ql
   import java
