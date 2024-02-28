@@ -12,8 +12,8 @@ In some cases, you would be interested in determining the successor statement of
 For example, given an _if_ statement, what is the next reachable _if_ statement.
 Our `reachable` predicate will return all reachable _if_ statement so additional logic is required to answer the question.
 
-Implement the predicate `getANextStmt` in [Exercise4.ql](exercises/Exercise4.ql).
-While implementing the predicate consider the following Java snippet and which `if` statements should be returned by [Exercise4.ql](exercises/Exercise4.ql) for the first `if` statement.
+Implement the predicate `getANextStmt` in exercises/Exercise4.ql.
+While implementing the predicate consider the following Java snippet and which `if` statements should be returned by exercises/Exercise4.ql for the first `if` statement.
 
 ```java
 if (...) {
@@ -86,7 +86,7 @@ To implement a correct solution, you need to resort to a _recursive_ predicate.
 
 </details>
 
-A solution can be found in the query [Exercise4.ql](solutions/Exercise4.ql)
+A solution can be found in the query solutions/Exercise4.ql
 
 #### Exercise 5
 
@@ -95,7 +95,7 @@ Now that we understand the _successor_ relation, the control flow graph, and _re
 In multiple scenarios, including security relevant scenarios, a certain action must be performed before another action.
 For example, before you can use a method you must first initialize the class providing the method.
 
-Look at the [test case](exercises-tests/Exercise5/Test.java) for [Exercise5.ql](exercises/Exercise5.ql) using the following Java snippet and implement [Exercise5.ql](exercises/Exercise5.ql) to ensure the `incorrectUse` is detected.
+Look at the tests/exercises/Exercise5/Test.java for exercises/Exercise5.ql using the following Java snippet and implement exercises/Exercise5.ql to ensure the `incorrectUse` is detected.
 
 ```java
 class SomeApi {
@@ -131,7 +131,7 @@ For all correct uses, the `someAction` method access is reachable from the `init
 
 </details>
 
-A solution can be found in the query [Exercise5.ql](solutions/Exercise5.ql)
+A solution can be found in the query solutions/Exercise5.ql.
 
 #### Exercise 6
 
@@ -162,11 +162,11 @@ If we swap _m_ with method access for `someAction`  and _n_ with method access o
 
 The standard library provides the predicate `dominates` that is defined in the the module [Dominance](https://codeql.github.com/codeql-standard-libraries/java/semmle/code/java/controlflow/Dominance.qll/module.Dominance.html).
 
-Use the predicate `dominates` and update the solution to [Exercise5.ql](exercises/Exercise5.ql) in  [Exercise6.ql](exercises/Exercise6.ql) to account for the new case.
+Use the predicate `dominates` and update the solution to exercises/Exercise5.ql in exercises/Exercise6.ql to account for the new case.
 
 <details>
 <summary>Hints</summary>
 
 </details>
 
-A solution can be found in the query [Exercise6.ql](solutions/Exercise6.ql)
+A solution can be found in the query solutions/Exercise6.ql.

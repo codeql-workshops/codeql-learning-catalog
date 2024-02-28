@@ -48,7 +48,7 @@ Implement [Exercise7.ql](exercises/Exercise7.ql) by completing the _action confi
 
 </details>
 
-A solution can be found in the query [Exercise7.ql](solutions/Exercise7.ql)
+A solution can be found in the query solutions/Exercise7.ql.
 
 #### Exercise 8
 
@@ -87,7 +87,7 @@ If there needs to be atleast one value for which the property holds you can use 
 
 </details>
 
-A solution can be found in the query [Exercise8.ql](solutions/Exercise8.ql)
+A solution can be found in the query solutions/Exercise8.ql.
 
 #### Exercise 9
 
@@ -99,7 +99,7 @@ The answer to the question is yes. Data flow is analysis enabled by the CFG that
 
 As a precursor to the data flow workshop, we are going to implement parts of an interprocedural dataflow configuration to find uses of `someAction` without a preceding call to `initialize`. The core idea is to track the object instance to its use as a qualifier to the method access `someAction` and stop tracking the object instance if it is used as a qualifier to the method access `initialize`.
 
-Complete the dataflow configuration in [Exercise9.ql](solutions/Exercise9.ql)
+Complete the dataflow configuration in solutions/Exercise9.ql.
 
 <details>
 <summary>Hints</summary>
@@ -111,4 +111,4 @@ Complete the dataflow configuration in [Exercise9.ql](solutions/Exercise9.ql)
 
 </details>
 
-A solution can be found in the query [exercise9.ql](solutions/Exercise9.ql)
+A solution can be found in the query solutions/Exercise9.ql.
