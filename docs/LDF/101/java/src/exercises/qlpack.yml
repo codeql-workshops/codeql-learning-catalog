@@ -3,4 +3,4 @@ library: false
 name: ldf-101-java/exercises
 version: 0.0.1
 dependencies:
-  codeql/java-all: "*"
+  codeql/java-all: '*'
