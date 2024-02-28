@@ -39,7 +39,7 @@ The [Paths](https://codeql.github.com/codeql-standard-libraries/java/semmle/code
 
 To define an _action configuration_ we are going to create a QL class that extends the `ActionConfiguration` and implements the `abstract` predicates that require an implementation. These predicates together define the analysis.
 
-Implement [Exercise7.ql](exercises/Exercise7.ql) by completing the _action configuration_ and adding an extra condition that excludes call that always call `Initialize` and dominate `someAction` calls.
+Implement exercises/Exercise7.ql by completing the _action configuration_ and adding an extra condition that excludes call that always call `Initialize` and dominate `someAction` calls.
 
 <details>
 <summary>Hints</summary>
@@ -75,7 +75,7 @@ void correctAndIncorrectUse(SomeApi api) {
 To identify the correct uses, we need to determine if all the _callers_ of `correctAndIncorrectUse` are dominated by an initialize method access, or call that always performs the initialize method access.
 
 The reasoning about _callers_ and _callees_ makes use of a different control flow graph known as the (static) [Call graph](https://en.wikipedia.org/wiki/Call_graph).
-Implement the query `alwaysPrecededByInitializationCall` in [Exercise8.ql](exercises/Exercise8.ql) and use it to determine that a `ControlFlowNode` is always directly preceded by an initialization method access, or the property holds for all the callers of its enclosing callable.
+Implement the query `alwaysPrecededByInitializationCall` in exercises/Exercise8.ql and use it to determine that a `ControlFlowNode` is always directly preceded by an initialization method access, or the property holds for all the callers of its enclosing callable.
 
 <details>
 <summary>Hints</summary>
