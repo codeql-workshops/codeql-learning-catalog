@@ -1,0 +1,20 @@
+edges
+| Test.java:40:23:40:35 | new SomeApi(...) : SomeApi | Test.java:41:32:41:34 | api : SomeApi |
+| Test.java:41:32:41:34 | api : SomeApi | Test.java:44:33:44:43 | api : SomeApi |
+| Test.java:44:33:44:43 | api : SomeApi | Test.java:45:9:45:11 | api |
+| Test.java:49:23:49:35 | new SomeApi(...) : SomeApi | Test.java:51:9:51:11 | api |
+| Test.java:55:23:55:35 | new SomeApi(...) : SomeApi | Test.java:60:9:60:11 | api |
+nodes
+| Test.java:40:23:40:35 | new SomeApi(...) : SomeApi | semmle.label | new SomeApi(...) : SomeApi |
+| Test.java:41:32:41:34 | api : SomeApi | semmle.label | api : SomeApi |
+| Test.java:44:33:44:43 | api : SomeApi | semmle.label | api : SomeApi |
+| Test.java:45:9:45:11 | api | semmle.label | api |
+| Test.java:49:23:49:35 | new SomeApi(...) : SomeApi | semmle.label | new SomeApi(...) : SomeApi |
+| Test.java:51:9:51:11 | api | semmle.label | api |
+| Test.java:55:23:55:35 | new SomeApi(...) : SomeApi | semmle.label | new SomeApi(...) : SomeApi |
+| Test.java:60:9:60:11 | api | semmle.label | api |
+subpaths
+#select
+| Test.java:45:9:45:11 | api | Test.java:40:23:40:35 | new SomeApi(...) : SomeApi | Test.java:45:9:45:11 | api | Method $@ can reach $@ without being preceded by initialize | Test.java:40:23:40:35 | new SomeApi(...) | source | Test.java:45:9:45:11 | api | destination |
+| Test.java:51:9:51:11 | api | Test.java:49:23:49:35 | new SomeApi(...) : SomeApi | Test.java:51:9:51:11 | api | Method $@ can reach $@ without being preceded by initialize | Test.java:49:23:49:35 | new SomeApi(...) | source | Test.java:51:9:51:11 | api | destination |
+| Test.java:60:9:60:11 | api | Test.java:55:23:55:35 | new SomeApi(...) : SomeApi | Test.java:60:9:60:11 | api | Method $@ can reach $@ without being preceded by initialize | Test.java:55:23:55:35 | new SomeApi(...) | source | Test.java:60:9:60:11 | api | destination |

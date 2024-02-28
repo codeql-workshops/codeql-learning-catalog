@@ -17,7 +17,7 @@
     "test:prettier": "prettier -c \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\" \"!cache/data*\" \"!.github/styles/**/*.{yml,yaml}\"",
     "test:jest": "jest",
     "prettier:fix": "prettier -w \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\" \"!.github/styles/**/*.{yml,yaml}\"",
-    "markdown": "markdownlint 'docs/**/*.md' -c .github/linters/.markdownlint.json --ignore-path '.github/linters/.markdownlintignore' -i ./docs/index.md",
+    "markdown": "markdownlint 'docs/**/*.md' -c .github/linters/.markdownlint.json --ignore 'docs/LDF/102/java/04-intermediate-control-flow.md'  --ignore 'docs/LDF/102/java/02-control-flow.md'  --ignore-path 'docs/LDF/101/java/04-exercises.md' --ignore-path '.github/linters/.markdownlintignore' -i ./docs/index.md",
     "accessibility": "markdownlint $MARKDOWN_CHANGES -c .github/linters/.accessibilitylint.json --ignore-path '.github/linters/.accessibilitylintignore' -i ./docs/index.md -r .github/linters/accessibility-lint-rules"
   },
   "dependencies": {

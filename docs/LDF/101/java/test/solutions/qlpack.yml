@@ -1,0 +1,7 @@
+---
+library: false
+name: ldf-101-java/test
+version: 0.0.1
+dependencies:
+  ldf-101-java/solutions: '*'
+extractor: java
